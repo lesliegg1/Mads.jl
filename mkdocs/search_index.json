@@ -19,6 +19,741 @@
             "location": "/#project-layout", 
             "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
             "title": "Project layout"
+        }, 
+        {
+            "location": "/mads/", 
+            "text": "Mads\n\n\nInternal\n\n\n\n\n\n\nallwellsoff!(madsdata::Associative{K, V}) \n\u00b6\n\n\nTurn off all the wells in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:163\n\n\n\n\n\n\nallwellson!(madsdata::Associative{K, V}) \n\u00b6\n\n\nTurn on all the wells in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:139\n\n\n\n\n\n\nasinetransform(params::Array{T, 1},  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \n\u00b6\n\n\nArcsine transformation of model parameters\n\n\nsource:\n\n\nMads/src/MadsSine.jl:2\n\n\n\n\n\n\nbayessampling(madsdata,  numsequences) \n\u00b6\n\n\nBrute force parallel Bayesian sampling\n\n\nMads.bayessampling(madsdata, numsequences; nsteps=100, burnin=1000, thinning=1)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nnumsequences\n :\n\n\nnsteps\n : \n\n\nburnin\n : \n\n\nthinning\n : \n\n\n\n\nReturns:\n\n\n\n\nmcmcchain\n : \n\n\n\n\nsource:\n\n\nMads/src/MadsMC.jl:53\n\n\n\n\n\n\nbayessampling(madsdata::Associative{K, V}) \n\u00b6\n\n\nBayes Sampling\n\n\nMads.bayessampling(madsdata; nsteps=100, burnin=1000, thinning=1)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nnsteps\n :  \n\n\nburnin\n :  \n\n\nthinning\n :   \n\n\n\n\nReturns:\n\n\n\n\nmcmcchain\n : \n\n\n\n\nsource:\n\n\nMads/src/MadsMC.jl:20\n\n\n\n\n\n\ncalibrate(madsdata::Associative{K, V}) \n\u00b6\n\n\nCalibrate\n\n\nMads.calibrate(madsdata; tolX=1e-3, tolG=1e-6, maxEval=1000, maxIter=100, maxJacobians=100, lambda=100.0, lambda_mu=10.0, np_lambda=10, show_trace=false, usenaive=false)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\ntolX\n : parameter space tolerance\n\n\ntolG\n : parameter space update tolerance\n\n\nmaxEval\n : maximum number of model evaluations\n\n\nmaxIter\n : maximum number of optimization iterations\n\n\nmaxJacobians\n : maximum number of Jacobian solves\n\n\nlambda\n : initial Levenberg-Marquardt lambda \n\n\nlambda_mu\n : lambda multiplication factor [10]\n\n\nnp_lambda\n : number of parallel lambda solves\n\n\nshow_trace\n : shows solution trace [default=false]\n\n\nusenaive\n : use naive Levenberg-Marquardt solver\n\n\n\n\nReturns:\n\n\n\n\nminimumdict\n : model parameter dictionary with the optimal values at the minimum\n\n\nresults\n : optimization algorithm results (e.g. results.minimum)\n\n\n\n\nsource:\n\n\nMads/src/MadsCalibrate.jl:87\n\n\n\n\n\n\ncalibratenlopt(madsdata::Associative{K, V}) \n\u00b6\n\n\nDo a calibration using NLopt \n\n\nsource:\n\n\nMads/src/MadsCalibrate.jl:129\n\n\n\n\n\n\ncalibraterandom(madsdata::Associative{K, V},  numberofsamples) \n\u00b6\n\n\nCalibrate with random initial guesses\n\n\nMads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=1000, maxIter=100, maxJacobians=100, lambda=100.0, lambda_mu=10.0, np_lambda=10, show_trace=false, usenaive=false)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nnumberofsamples\n : number of random initial samples\n\n\ntolX\n : parameter space tolerance\n\n\ntolG\n : parameter space update tolerance\n\n\nmaxEval\n : maximum number of model evaluations\n\n\nmaxIter\n : maximum number of optimization iterations\n\n\nmaxJacobians\n : maximum number of Jacobian solves\n\n\nlambda\n : initial Levenberg-Marquardt lambda \n\n\nlambda_mu\n : lambda multiplication factor [10]\n\n\nnp_lambda\n : number of parallel lambda solves\n\n\nshow_trace\n : shows solution trace [default=false]\n\n\nusenaive\n : use naive Levenberg-Marquardt solver\n\n\n\n\nReturns:\n\n\n\n\nbestresult\n : optimal results tuple: [1] model parameter dictionary with the optimal values at the minimum; [2] optimization algorithm results (e.g. bestresult[2].minimum)\n\n\n\n\nsource:\n\n\nMads/src/MadsCalibrate.jl:26\n\n\n\n\n\n\ncmadsins_obs(obsid::Array{T, 1},  instructionfilename::AbstractString,  inputfilename::AbstractString) \n\u00b6\n\n\nCall C MADS ins_obs() function from the MADS library\n\n\nsource:\n\n\nMads/src/MadsIO.jl:316\n\n\n\n\n\n\ncomputemass(madsdata::Associative{K, V}) \n\u00b6\n\n\nCompute injected/reduced contaminant mass\n\n\nMads.computemass(madsdata; time = 0)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\ntime\n : computational time\n\n\n\n\nReturns:\n\n\n\n\nmass_injected\n : total injected mass\n\n\nmass_reduced\n : total reduced mass\n\n\n\n\nsource:\n\n\nMads/src/MadsAnasol.jl:189\n\n\n\n\n\n\ncomputemass(madsfiles) \n\u00b6\n\n\nCompute injected/reduced contaminant mass for a given set of mads input files\n\n\nMads.computemass(madsfiles; time = 0, path = \".\")\n\n\nArguments:\n\n\n\n\nmadsfiles\n : matching pattern for Mads input files (string or regular expression accepted)\n\n\ntime\n : computational time\n\n\npath\n : search directory for the mads input files \n\n\n\n\nReturns:\n\n\n\n\nlambda\n : array with all the lambda values\n\n\nmass_injected\n : array with associated total injected mass\n\n\nmass_reduced\n : array with associated total reduced mass\n\n\n\n\nsource:\n\n\nMads/src/MadsAnasol.jl:249\n\n\n\n\n\n\ncomputeparametersensitities(madsdata::Associative{K, V},  saresults::Associative{K, V}) \n\u00b6\n\n\nCompute sensitities for each model parameter; averaging the sensitivity indices over the entire range\n\n\nsource:\n\n\nMads/src/MadsSA.jl:390\n\n\n\n\n\n\ncontamination(wellx,  welly,  wellz,  n,  lambda,  theta,  vx,  vy,  vz,  ax,  ay,  az,  H,  x,  y,  z,  dx,  dy,  dz,  f,  t0,  t1,  t) \n\u00b6\n\n\nCompute concentration for a point in space and time (x,y,z,t)\n\n\nMads.contamination(wellx, welly, wellz, n, lambda, theta, vx, vy, vz, ax, ay, az, H, x, y, z, dx, dy, dz, f, t0, t1, t; anasolfunction=\"long_bbb_ddd_iir_c\")\n\n\nArguments:\n\n\n\n\nwellx\n\n\nwelly\n\n\nwellz\n\n\nn\n\n\nlambda\n\n\ntheta\n\n\nvx\n\n\nvy\n\n\nvz\n\n\nax\n\n\nay\n\n\naz\n\n\nH\n\n\nx\n\n\ny\n\n\nz\n\n\ndx\n\n\ndy\n\n\ndz\n\n\nf\n\n\nt0\n\n\nt1\n\n\nt\n\n\nanasolfunction\n : \"long_bbb_ddd_iir_c\"\n\n\n\n\nsource:\n\n\nMads/src/MadsAnasol.jl:148\n\n\n\n\n\n\ncreate_help_func() \n\u00b6\n\n\nCreate help files for Mads functions\n\n\nsource:\n\n\nMads/src/MadsHelp.jl:93\n\n\n\n\n\n\ncreatemadsproblem(infilename::AbstractString,  outfilename::AbstractString) \n\u00b6\n\n\nCreate a new Mads problem where the observation targets are computed based on the model predictions\n\n\n\n\nMads.createmadsproblem(infilename, outfilename)\n\n\nMads.createmadsproblem(madsdata, outfilename)\n\n\n`Mads.createmadsproblem(madsdata, predictions, outfilename)\n\n\n\n\nArguments:\n\n\n\n\ninfilename\n : input Mads file\n\n\noutfilename\n : output Mads file\n\n\nmadsdata\n : Mads data dictionary\n\n\npredictions\n : dictionary of model predictions\n\n\n\n\nReturns: \nnone\n\n\nsource:\n\n\nMads/src/MadsCreate.jl:20\n\n\n\n\n\n\ncreateobservations!(madsdata::Associative{K, V},  time,  observation) \n\u00b6\n\n\nCreate observations in the MADS data dictionary based on \ntime\n and \nobservation\n arrays \n\n\nsource:\n\n\nMads/src/MadsObservations.jl:101\n\n\n\n\n\n\ndeleteNaN!(df::DataFrames.DataFrame) \n\u00b6\n\n\nDelete rows with NaN in a Dataframe \ndf\n\n\nsource:\n\n\nMads/src/MadsSA.jl:606\n\n\n\n\n\n\ndumpasciifile(filename::AbstractString,  data) \n\u00b6\n\n\nDump ASCII file\n\n\nsource:\n\n\nMads/src/MadsASCII.jl:8\n\n\n\n\n\n\ndumpjsonfile(filename::AbstractString,  data) \n\u00b6\n\n\nDump JSON file\n\n\nsource:\n\n\nMads/src/MadsJSON.jl:12\n\n\n\n\n\n\ndumpwellconcentrations(filename::AbstractString,  madsdata) \n\u00b6\n\n\nDump well concentrations\n\n\nsource:\n\n\nMads/src/MadsYAML.jl:207\n\n\n\n\n\n\ndumpyamlfile(filename::AbstractString,  yamldata) \n\u00b6\n\n\nDump YAML file in JSON format\n\n\nsource:\n\n\nMads/src/MadsYAML.jl:34\n\n\n\n\n\n\ndumpyamlmadsfile(madsdata,  filename::AbstractString) \n\u00b6\n\n\nDump YAML MADS file\n\n\nsource:\n\n\nMads/src/MadsYAML.jl:149\n\n\n\n\n\n\nefast(md::Associative{K, V}) \n\u00b6\n\n\nSaltelli's eFAST Algoirthm based on Saltelli extended Fourier Amplituded Sensitivty Testing (eFAST) method\n\n\nsource:\n\n\nMads/src/MadsSA.jl:633\n\n\n\n\n\n\nevaluatemadsexpression(expressionstring,  parameters) \n\u00b6\n\n\nEvaluate the expression in terms of the parameters, return a Dict() containing the expression names as keys, and the values of the expression as values\n\n\nsource:\n\n\nMads/src/MadsMisc.jl:62\n\n\n\n\n\n\nevaluatemadsexpressions(madsdata::Associative{K, V},  parameters) \n\u00b6\n\n\nEvaluate the expressions in terms of the parameters, return a Dict() containing the expression names as keys, and the values of the expression as values\n\n\nsource:\n\n\nMads/src/MadsMisc.jl:71\n\n\n\n\n\n\nforward(madsdata::Associative{K, V}) \n\u00b6\n\n\nPerform a forward run using the initial or provided values for the model parameters\n\n\n\n\nforward(madsdata)\n\n\nforward(madsdata, paramvalues)\n\n\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nparamvalues\n : dictionary of model parameter values\n\n\n\n\nReturns:\n\n\n\n\nobsvalues\n : dictionary of model predictions\n\n\n\n\nsource:\n\n\nMads/src/MadsForward.jl:18\n\n\n\n\n\n\nforwardgrid(madsdata::Associative{K, V}) \n\u00b6\n\n\nPerform a forward run over a 3D grid defined in \nmadsdata\n using the initial or provided values for the model parameters\n\n\n\n\nforwardgrid(madsdata)\n  \n\n\nforwardgrid(madsdata, paramvalues))\n\n\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nparamvalues\n : dictionary of model parameter values\n\n\n\n\nReturns:\n\n\n\n\narray3d\n : 3D array with model predictions along a 3D grid\n\n\n\n\nsource:\n\n\nMads/src/MadsForward.jl:45\n\n\n\n\n\n\ngetextension(filename) \n\u00b6\n\n\nGet file name extension\n\n\nExample:\n\n\next = Mads.getextension(\na.mads\n) # ext = \nmads\n \n\n\n\n\nsource:\n\n\nMads/src/MadsIO.jl:135\n\n\n\n\n\n\ngetmadsdir() \n\u00b6\n\n\nGet the directory where currently Mads is running\n\n\nproblemdir = Mads.getmadsdir()\n\n\nsource:\n\n\nMads/src/MadsIO.jl:90\n\n\n\n\n\n\ngetmadsinputfile() \n\u00b6\n\n\nGet the default MADS input file set as a MADS global variable using \nsetmadsinputfile(filename)\n\n\nMads.getmadsinputfile()\n\n\nArguments: \nnone\n\n\nReturns:\n\n\n\n\nfilename\n : input file name (e.g. \ninput_file_name.mads\n)\n\n\n\n\nsource:\n\n\nMads/src/MadsIO.jl:54\n\n\n\n\n\n\ngetmadsproblemdir(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet the directory where the Mads data file is located\n\n\nMads.getmadsproblemdir(madsdata)\n\n\nExample:\n\n\nmadsdata = Mads.loadmadsproblemdir(\n../../a.mads\n)\nmadsproblemdir = Mads.getmadsproblemdir(madsdata)\n\n\n\n\nwhere \nmadsproblemdir\n = \n\"../../\"\n\n\nsource:\n\n\nMads/src/MadsIO.jl:81\n\n\n\n\n\n\ngetmadsrootname(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet the MADS problem root name\n\n\nmadsrootname = Mads.getmadsrootname(madsdata)\n\n\nsource:\n\n\nMads/src/MadsIO.jl:63\n\n\n\n\n\n\ngetobskeys(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet keys for all the observations in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:2\n\n\n\n\n\n\ngetparamdict(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet dictionary with all parameters and their respective initial values\n\n\nMads.getparamdict(madsdata)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\n\n\nReturns:\n\n\n\n\nparamdict\n : dictionary with all parameters and their respective initial values\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:35\n\n\n\n\n\n\ngetparamdistributions(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet probabilistic distributions of all parameters in the Mads data dictionary\n\n\nMads.getparamdistributions(madsdata; init_dist=false)\n\n\nNote:\n\n\nProbabilistic distribution of parameters can be defined only if \"dist\" or \"min\"/\"max\" are specified in the Mads data dictionary \nmadsdata\n.\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\ninit_dist\n : if true, use the initialization distributions (if defined)\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:459\n\n\n\n\n\n\ngetparamkeys(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet keys of all parameters in the MADS dictionary\n\n\nMads.getparamkeys(madsdata)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\n\n\nReturns:\n\n\n\n\nparamkeys\n : array with the keys of all parameters in the MADS dictionary\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:16\n\n\n\n\n\n\ngetparamsinit_max(madsdata) \n\u00b6\n\n\nGet an array with \ninit_max\n values for all the MADS model parameters\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:240\n\n\n\n\n\n\ngetparamsinit_max(madsdata,  paramkeys) \n\u00b6\n\n\nGet an array with \ninit_max\n values for parameters defined by \nparamkeys\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:206\n\n\n\n\n\n\ngetparamsinit_min(madsdata) \n\u00b6\n\n\nGet an array with \ninit_min\n values for all the MADS model parameters\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:200\n\n\n\n\n\n\ngetparamsinit_min(madsdata,  paramkeys) \n\u00b6\n\n\nGet an array with \ninit_min\n values for parameters defined by \nparamkeys\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:166\n\n\n\n\n\n\ngetparamsmax(madsdata) \n\u00b6\n\n\nGet an array with \nmin\n values for all the MADS model parameters\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:160\n\n\n\n\n\n\ngetparamsmax(madsdata,  paramkeys) \n\u00b6\n\n\nGet an array with \nmax\n values for parameters defined by \nparamkeys\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:137\n\n\n\n\n\n\ngetparamsmin(madsdata) \n\u00b6\n\n\nGet an array with \nmin\n values for all the MADS model parameters\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:131\n\n\n\n\n\n\ngetparamsmin(madsdata,  paramkeys) \n\u00b6\n\n\nGet an array with \nmin\n values for parameters defined by \nparamkeys\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:108\n\n\n\n\n\n\ngetrootname(filename::AbstractString) \n\u00b6\n\n\nGet file name root\n\n\nExample:\n\n\nr = Mads.getrootname(\na.rnd.dat\n) # r = \na\n\nr = Mads.getrootname(\na.rnd.dat\n, first=false) # r = \na.rnd\n\n\n\n\n\n\nsource:\n\n\nMads/src/MadsIO.jl:112\n\n\n\n\n\n\ngetsourcekeys(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet keys of all source parameters in the MADS dictionary\n\n\nMads.getsourcekeys(madsdata)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\n\n\nReturns:\n\n\n\n\nsourcekeys\n : array with keys of all source parameters in the MADS dictionary\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:56\n\n\n\n\n\n\ngetwellkeys(madsdata::Associative{K, V}) \n\u00b6\n\n\nGet keys for all the wells in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:8\n\n\n\n\n\n\nhaskeyword(madsdata::Associative{K, V},  keyword::AbstractString) \n\u00b6\n\n\nCheck for a \nkeyword\n in a class within the Mads dictionary \nmadsdata\n\n\n\n\nMads.haskeyword(madsdata, keyword)\n\n\nMads.haskeyword(madsdata, class, keyword)\n\n\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nclass\n : dictionary class; if not provided searches for \nkeyword\n in \nProblem\n class\n\n\nkeyword\n : dictionary key\n\n\n\n\nReturns: \ntrue\n or \nfalse\n\n\nExamples:\n\n\n\n\nMads.haskeyword(madsdata, \"disp\")\n ... searches in \nProblem\n class by default\n\n\nMads.haskeyword(madsdata, \"Wells\", \"R-28\")\n ... searches in \nWells\n class for a keyword \"R-28\"\n\n\n\n\nsource:\n\n\nMads/src/MadsHelpers.jl:54\n\n\n\n\n\n\nhelp() \n\u00b6\n\n\nMADS (Model Analysis \n Decision Support)\n\n\nMADS is an open-source code designed as an integrated high-performance computational framework performing a wide range of model-based analyses:\n\n\n\n\nSensitivity Analysis\n\n\nParameter Estimation\n\n\nModel Inversion and Calibration\n\n\nUncertainty Quantification\n\n\nModel Selection and Averaging\n\n\nDecision Support\n\n\n\n\nMADS utilizes adaptive rules and techniques which allows the analyses to be performed with minimum user input.\nThe code provides a series of alternative algorithms to perform each type of model analyses.\n\n\nFor additional information:\n\n\n\n\nweb:   http://mads.lanl.gov -:- http://madsjulia.lanl.gov\n\n\nrepo:  http://gitlab.com/mads/Mads.jl -:- http://gitlab.com/madsjulia/Mads.jl\n\n\ngit:   git clone git@gitlab.com:mads/Mads.jl -:- git clone git@gitlab.com:madsjulia/Mads.jl\n\n\nemail: mads@lanl.gov\n\n\n\n\nMADS Getting started\n\n\nInstall Julia and MADS using the installation instruction in the \nReadme.md\n.\nIf you are not familiar with Julia a short on-line class is recommended.\nYou can also explore the examples in the \nMads.jl/examples/learn_julia\n directory of the Mads.jl repository.\n\n\nTo start using Mads, initiate the Julia REPL and execute \nusing Mads\n to load MADS.\nAll the MADS analyses are based on a MADS data dictionary that defines the problem.\nThe MADS data dictionary is typically loaded from a YAML MADS input file.\nThe loading of a MADS file can be executed as follows:\n\n\nmadsdata = Mads.loadmadsfile(\"\ninput_file_name\n.mads\")\n\n\nFor example, you can execute:\n\n\nmadsdata = Mads.loadmadsfile(\"internal-linear.mads\")\n\n\nTo run this command, Julia needs to be executed in the \nMads.jl/examples/getting_started\n directory of the Mads.jl repository.\n\n\nTypically, MADS data dictionary includes several classes:\n\n\n\n\nParameters\n : lists of model parameters\n\n\nObservations\n : lists of model observations\n\n\nModel\n : defines a model to predict model observations using model parameters\n\n\n\n\nThe file \ninternal-linear.mads\n looks like this:\n\n\nParameters:\n- a : { init:  1, dist: \nUniform(-10, 10)\n }\n- b : { init: -1, dist: \nUniform(-10, 10)\n }\nObservations:\n- o1: { target: -3 }\n- o2: { target:  1 }\n- o3: { target:  5 }\n- o4: { target:  9 }\nModel: internal-linear.jl\n\n\n\n\nIn this case there are two parameters, \na\n and \nb\n, defining a linear model, \nf(t) = a * t + b\n, described in \ninternal-linearmodel.jl\n.\nThis Julia file \ninternal-linearmodel.jl\n is specified under \nModel\n in the MADS data dictionary.\n\n\nMads.showallparameters(madsdata)\n will show all the parameters.\n\n\nMads.showobservations(madsdata)\n will list all the observations.\n\n\nMADS can perform various types of analyses:\n\n\n\n\nMads.forward(madsdata)\n will execute forward model simulation based on the initial parameter values.\n\n\nsaresults = Mads.efast(madsdata)\n will perform eFAST sensitivity analysis of the model parameters against the model observations as defined in the MADS data dictionary.\n\n\noptparam, iaresults = Mads.calibrate(madsdata)\n will perform calibration (inverse analysis) of the model parameters to reproduce the model observations as defined in the MADS data dictionary; in this case, the calibration uses Levenberg-Marquardt optimization.\n\n\nMads.forward(madsdata, optparam) will perform forward model simulation based on the parameter values\noptparam` estimated by the inverse analyses above.\n\n\n\n\nMore complicated analyses will require additional information to be provided in the MADS data dictionary.\nExamples are given in the \nMads.jl/examples\n subdirectories of the Mads.jl repository\n\n\nMADS Licensing \n Copyright\n\n\nExecute \n@doc Mads\n to see the licensing \n copyright information.\n\n\nsource:\n\n\nMads/src/MadsHelp.jl:88\n\n\n\n\n\n\nislog(madsdata::Associative{K, V},  parameterkey::AbstractString) \n\u00b6\n\n\nIs parameter with key \nparameterkey\n log-transformed?\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:273\n\n\n\n\n\n\nisopt(madsdata::Associative{K, V},  parameterkey::AbstractString) \n\u00b6\n\n\nIs parameter with key \nparameterkey\n optimizable?\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:263\n\n\n\n\n\n\nloadasciifile(filename::AbstractString) \n\u00b6\n\n\nLoad ASCII file\n\n\nsource:\n\n\nMads/src/MadsASCII.jl:2\n\n\n\n\n\n\nloadjsonfile(filename::AbstractString) \n\u00b6\n\n\nLoad JSON file\n\n\nsource:\n\n\nMads/src/MadsJSON.jl:6\n\n\n\n\n\n\nloadmadsfile(filename::AbstractString) \n\u00b6\n\n\nLoad MADS input file defining a MADS class set\n\n\n\n\nMads.loadmadsfile(filename)\n\n\nMads.loadmadsfile(filename; julia=false)\n\n\nMads.loadmadsfile(filename; julia=true)\n\n\n\n\nArguments:\n\n\n\n\nfilename\n : input file name (e.g. \ninput_file_name.mads\n)\n\n\njulia\n : if \ntrue\n, force using \njulia\n parsing fuctions; if \nfalse\n (default), use \npython\n parsing functions [boolean]\n\n\n\n\nReturns:\n\n\n\n\nmadsdata\n : Loaded Mads data class\n\n\n\n\nExample: \nmd = loadmadsfile(\"input_file_name.mads\")\n\n\nsource:\n\n\nMads/src/MadsIO.jl:19\n\n\n\n\n\n\nloadyamlfile(filename::AbstractString) \n\u00b6\n\n\nLoad YAML file\n\n\nsource:\n\n\nMads/src/MadsYAML.jl:24\n\n\n\n\n\n\nloadyamlmadsfile(filename::AbstractString) \n\u00b6\n\n\nLoad YAML MADS file\n\n\nsource:\n\n\nMads/src/MadsYAML.jl:45\n\n\n\n\n\n\nlocalsa(madsdata::Associative{K, V}) \n\u00b6\n\n\nLocal sensitivity analysis\n\n\nsource:\n\n\nMads/src/MadsSA.jl:48\n\n\n\n\n\n\nmadscrit(message::AbstractString) \n\u00b6\n\n\nMADS critical error messages\n\n\nsource:\n\n\nMads/src/MadsLog.jl:31\n\n\n\n\n\n\nmadsdebug(message::AbstractString) \n\u00b6\n\n\nMADS debug messages\n\n\nsource:\n\n\nMads/src/MadsLog.jl:9\n\n\n\n\n\n\nmadserr(message::AbstractString) \n\u00b6\n\n\nMADS error messages\n\n\nsource:\n\n\nMads/src/MadsLog.jl:26\n\n\n\n\n\n\nmadsinfo(message::AbstractString) \n\u00b6\n\n\nMADS information/status messages\n\n\nsource:\n\n\nMads/src/MadsLog.jl:16\n\n\n\n\n\n\nmadsoutput(message::AbstractString) \n\u00b6\n\n\nMADS output\n\n\nsource:\n\n\nMads/src/MadsLog.jl:2\n\n\n\n\n\n\nmadswarn(message::AbstractString) \n\u00b6\n\n\nMADS warning messages\n\n\nsource:\n\n\nMads/src/MadsLog.jl:21\n\n\n\n\n\n\nmakearrayconditionalloglikelihood(madsdata::Associative{K, V},  conditionalloglikelihood) \n\u00b6\n\n\nMake a conditional log likelihood function that accepts an array containing the opt parameters' values\n\n\nsource:\n\n\nMads/src/MadsMisc.jl:27\n\n\n\n\n\n\nmakearrayfunction(madsdata::Associative{K, V},  f::Function) \n\u00b6\n\n\nMake a version of the function \nf\n that accepts an array containing the optimal parameters' values\n\n\nMads.makearrayfunction(madsdata, f)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nf\n : ...\n\n\n\n\nReturns:\n\n\n\n\narrayfunction\n : function accepting an array containing the optimal parameters' values\n\n\n\n\nsource:\n\n\nMads/src/MadsMisc.jl:17\n\n\n\n\n\n\nmakearrayloglikelihood(madsdata::Associative{K, V},  loglikelihood) \n\u00b6\n\n\nMake a log likelihood function that accepts an array containing the opt parameters' values\n\n\nsource:\n\n\nMads/src/MadsMisc.jl:40\n\n\n\n\n\n\nmakecomputeconcentrations(madsdata::Associative{K, V}) \n\u00b6\n\n\nCreate a function to compute concentrations for all the observation points using Anasol\n\n\nMads.makecomputeconcentrations(madsdata)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\n\n\nReturns:\n\n\n\n\ncomputeconcentrations\n : function to compute concentrations; \ncomputeconcentrations\n returns a dictionary of observations and model predicted concentrations\n\n\n\n\nExamples:\n\n\ncomputeconcentrations()\n\n\nor\n\n\ncomputeconcentrations = Mads.makecomputeconcentrations(madsdata)\nparamkeys = Mads.getparamkeys(madsdata)\nparamdict = OrderedDict(zip(paramkeys, map(key-\nmadsdata[\nParameters\n][key][\ninit\n], paramkeys)))\nforward_preds = computeconcentrations(paramdict)\n\n\n\n\nsource:\n\n\nMads/src/MadsAnasol.jl:30\n\n\n\n\n\n\nmakelogprior(madsdata::Associative{K, V}) \n\u00b6\n\n\nMake a function to compute the prior log-likelihood of the model parameters listed in the MADS data dictionary \nmadsdata\n\n\nsource:\n\n\nMads/src/MadsFunc.jl:235\n\n\n\n\n\n\nmakemadscommandfunction(madsdata::Associative{K, V}) \n\u00b6\n\n\nMake MADS function to execute the model defined in the MADS data dictionary \nmadsdata\n\n\nsource:\n\n\nMads/src/MadsFunc.jl:6\n\n\n\n\n\n\nmakemadscommandfunctionandgradient(madsdata::Associative{K, V}) \n\u00b6\n\n\nMake MADS forward \n gradient functions for the model defined in the MADS data dictionary \nmadsdata\n\n\nsource:\n\n\nMads/src/MadsFunc.jl:165\n\n\n\n\n\n\nmakemadscommandgradient(madsdata::Associative{K, V}) \n\u00b6\n\n\nMake MADS gradient function to compute the parameter-space gradient for the model defined in the MADS data dictionary \nmadsdata\n\n\nsource:\n\n\nMads/src/MadsFunc.jl:150\n\n\n\n\n\n\nmakemadsconditionalloglikelihood(madsdata::Associative{K, V}) \n\u00b6\n\n\nMake a function to compute the conditional log-likelihood of the model parameters conditioned on the model predictions/observations.\nModel parameters and observations are defined in the MADS data dictionary \nmadsdata\n.\n\n\nsource:\n\n\nMads/src/MadsFunc.jl:250\n\n\n\n\n\n\nmakemadsloglikelihood(madsdata::Associative{K, V}) \n\u00b6\n\n\nMake a function to compute the log-likelihood for a given set of model parameters, associated model predictions and existing observations.\nThe function can be provided as an external function in the MADS data dictionary under \nLogLikelihood\n or computed internally.\n\n\nsource:\n\n\nMads/src/MadsFunc.jl:275\n\n\n\n\n\n\nmaxtorealmaxFloat32!(df::DataFrames.DataFrame) \n\u00b6\n\n\nScale down values larger than max(Float32) in a Dataframe \ndf\n so that Gadfly can plot the data\n\n\nsource:\n\n\nMads/src/MadsSA.jl:618\n\n\n\n\n\n\nmontecarlo(madsdata::Associative{K, V}) \n\u00b6\n\n\nMonte Carlo analysis\n\n\nMads.montecarlo(madsdata; N=100)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nN\n : number of samples (default = 100)\n\n\n\n\nReturns:\n\n\n\n\noutputdicts\n : parameter dictionary containing the data arrays\n\n\n\n\nDumps:\n\n\n\n\nYAML output file with the parameter dictionary containing the data arrays (\nmads_root_name\n.mcresults.yaml\n)\n\n\n\n\nsource:\n\n\nMads/src/MadsMC.jl:76\n\n\n\n\n\n\nnothing2nan!(dict::Associative{K, V}) \n\u00b6\n\n\nConvert Void's into NaN's in a dictionary\n\n\nsource:\n\n\nMads/src/MadsSA.jl:586\n\n\n\n\n\n\nparamarray2dict(madsdata::Associative{K, V},  array) \n\u00b6\n\n\nConvert parameter array to a parameter dictionary of arrays\n\n\nsource:\n\n\nMads/src/MadsMC.jl:124\n\n\n\n\n\n\nparametersample(madsdata::Associative{K, V},  numsamples::Integer) \n\u00b6\n\n\nIndependent sampling of MADS Model parameters\n\n\nsource:\n\n\nMads/src/MadsSA.jl:10\n\n\n\n\n\n\nparametersample(madsdata::Associative{K, V},  numsamples::Integer,  parameterkey::AbstractString) \n\u00b6\n\n\nIndependent sampling of MADS Model parameters\n\n\nsource:\n\n\nMads/src/MadsSA.jl:10\n\n\n\n\n\n\nparamrand(madsdata::Associative{K, V},  parameterkey::AbstractString) \n\u00b6\n\n\nRandom numbers for a MADS Model parameter defined by \nparameterkey\n\n\nsource:\n\n\nMads/src/MadsSA.jl:24\n\n\n\n\n\n\nplotSAresults_monty(wellname,  madsdata,  result) \n\u00b6\n\n\nPlot the sensitivity analysis results for each well (Specific plot requested by Monty)\n\n\nsource:\n\n\nMads/src/MadsSA.jl:1443\n\n\n\n\n\n\nplotgrid(madsdata::Associative{K, V}) \n\u00b6\n\n\nPlot a 3D grid solution \n\n\nsource:\n\n\nMads/src/MadsPlot.jl:151\n\n\n\n\n\n\nplotgrid(madsdata::Associative{K, V},  parameters::Associative{K, V}) \n\u00b6\n\n\nPlot a 3D grid solution \n\n\nsource:\n\n\nMads/src/MadsPlot.jl:157\n\n\n\n\n\n\nplotgrid(madsdata::Associative{K, V},  s::Array{Float64, N}) \n\u00b6\n\n\nPlot a 3D grid solution based on s \n\n\nsource:\n\n\nMads/src/MadsPlot.jl:105\n\n\n\n\n\n\nplotmadsproblem(madsdata::Associative{K, V}) \n\u00b6\n\n\nPlot MADS problem\n\n\nsource:\n\n\nMads/src/MadsPlot.jl:43\n\n\n\n\n\n\nplotmass(lambda,  mass_injected,  mass_reduced,  filename::AbstractString) \n\u00b6\n\n\nPlot injected/reduced contaminant mass\n\n\n\n\nMads.plotmass(lambda, mass_injected, mass_reduced, filename=\"file_name\")\n\n\n\n\nArguments:\n\n\n\n\nlambda\n : array with all the lambda values\n\n\nmass_injected\n : array with associated total injected mass\n\n\nmass_reduced\n : array with associated total reduced mass\n\n\nfilename\n : output filename for the generated plot\n\n\nformat\n : output plot format (\npng\n, \npdf\n, etc.)\n\n\n\n\nDumps: image file with name \nfilename\n and in specified \nformat\n\n\nsource:\n\n\nMads/src/MadsAnasol.jl:286\n\n\n\n\n\n\nplotobsSAresults(madsdata,  result) \n\u00b6\n\n\nPlot the sensitivity analysis results for the observations\n\n\nsource:\n\n\nMads/src/MadsPlot.jl:387\n\n\n\n\n\n\nplotwellSAresults(madsdata,  result) \n\u00b6\n\n\nPlot the sensitivity analysis results for all wells (wells class expected)\n\n\nsource:\n\n\nMads/src/MadsPlot.jl:295\n\n\n\n\n\n\nplotwellSAresults(madsdata,  result,  wellname) \n\u00b6\n\n\nPlot the sensitivity analysis results for each well (wells class expected)\n\n\nsource:\n\n\nMads/src/MadsPlot.jl:308\n\n\n\n\n\n\nprintSAresults(madsdata::Associative{K, V},  results::Associative{K, V}) \n\u00b6\n\n\nPrint the sensitivity analysis results\n\n\nsource:\n\n\nMads/src/MadsSA.jl:475\n\n\n\n\n\n\nquietoff() \n\u00b6\n\n\nMake MADS not quiet\n\n\nsource:\n\n\nMads/src/MadsHelpers.jl:7\n\n\n\n\n\n\nquieton() \n\u00b6\n\n\nMake MADS quiet\n\n\nsource:\n\n\nMads/src/MadsHelpers.jl:2\n\n\n\n\n\n\nreadasciipredictions(filename::AbstractString) \n\u00b6\n\n\nRead MADS predictions from an ASCII file\n\n\nsource:\n\n\nMads/src/MadsASCII.jl:13\n\n\n\n\n\n\nreadjsonpredictions(filename::AbstractString) \n\u00b6\n\n\nRead MADS predictions from a JSON file\n\n\nsource:\n\n\nMads/src/MadsJSON.jl:19\n\n\n\n\n\n\nreadobservations(madsdata::Associative{K, V}) \n\u00b6\n\n\nRead observations\n\n\nsource:\n\n\nMads/src/MadsIO.jl:282\n\n\n\n\n\n\nreadobservations_cmads(madsdata::Associative{K, V}) \n\u00b6\n\n\nRead observations using C Mads library\n\n\nsource:\n\n\nMads/src/MadsIO.jl:302\n\n\n\n\n\n\nreadyamlpredictions(filename::AbstractString) \n\u00b6\n\n\nRead predictions from YAML MADS file\n\n\nsource:\n\n\nMads/src/MadsYAML.jl:202\n\n\n\n\n\n\nresetmodelruns() \n\u00b6\n\n\nReset the model runs count to be equal to zero\n\n\nsource:\n\n\nMads/src/MadsHelpers.jl:30\n\n\n\n\n\n\nrosenbrock(x::Array{T, 1}) \n\u00b6\n\n\nRosenbrock test function\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:17\n\n\n\n\n\n\nrosenbrock2_gradient_lm(x) \n\u00b6\n\n\nParameter gradients of the Rosenbrock test function\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:7\n\n\n\n\n\n\nrosenbrock2_lm(x) \n\u00b6\n\n\nRosenbrock test function (more difficult to solve)\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:2\n\n\n\n\n\n\nrosenbrock_gradient!(x::Array{T, 1},  storage::Array{T, 1}) \n\u00b6\n\n\nParameter gradients of the Rosenbrock test function\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:27\n\n\n\n\n\n\nrosenbrock_gradient_lm(x::Array{T, 1}) \n\u00b6\n\n\nParameter gradients of the Rosenbrock test function for LM optimization (returns the gradients for the 2 components separetely)\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:33\n\n\n\n\n\n\nrosenbrock_hessian!(x::Array{T, 1},  storage::Array{T, 2}) \n\u00b6\n\n\nParameter Hessian of the Rosenbrock test function\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:43\n\n\n\n\n\n\nrosenbrock_lm(x::Array{T, 1}) \n\u00b6\n\n\nRosenbrock test function for LM optimization (returns the 2 components separetely)\n\n\nsource:\n\n\nMads/src/MadsTestFunctions.jl:22\n\n\n\n\n\n\nsaltelli(madsdata::Associative{K, V}) \n\u00b6\n\n\nSaltelli sensitivity analysis\n\n\nsource:\n\n\nMads/src/MadsSA.jl:262\n\n\n\n\n\n\nsaltellibrute(madsdata::Associative{K, V}) \n\u00b6\n\n\nSaltelli sensitivity analysis (brute force)\n\n\nsource:\n\n\nMads/src/MadsSA.jl:123\n\n\n\n\n\n\nsaltelliprintresults2(madsdata::Associative{K, V},  results::Associative{K, V}) \n\u00b6\n\n\nPrint the sensitivity analysis results (method 2)\n\n\nsource:\n\n\nMads/src/MadsSA.jl:551\n\n\n\n\n\n\nsearchdir(key::Regex) \n\u00b6\n\n\nGet files in the current directory or in a directory difined by \npath\n matching pattern \nkey\n which cann be a string or regular expression\n\n\n\n\nMads.searchdir(key)\n\n\nMads.searchdir(key; path = \".\")\n\n\n\n\nArguments:\n\n\n\n\nkey\n : matching pattern for Mads input files (string or regular expression accepted)\n\n\npath\n : search directory for the mads input files\n\n\n\n\nReturns:\n\n\n\n\nfilename\n : an array with file names matching the pattern in the specified directory\n\n\n\n\nsource:\n\n\nMads/src/MadsIO.jl:160\n\n\n\n\n\n\nsetallparamsoff!(madsdata::Associative{K, V}) \n\u00b6\n\n\nSet all parameters OFF\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:290\n\n\n\n\n\n\nsetallparamson!(madsdata::Associative{K, V}) \n\u00b6\n\n\nSet all parameters ON\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:282\n\n\n\n\n\n\nsetdebuglevel(level::Int64) \n\u00b6\n\n\nSet MADS debug level\n\n\nsource:\n\n\nMads/src/MadsHelpers.jl:20\n\n\n\n\n\n\nsetdynamicmodel(madsdata::Associative{K, V},  f::Function) \n\u00b6\n\n\nSet Dynamic Model for MADS model calls using internal Julia functions\n\n\nsource:\n\n\nMads/src/MadsMisc.jl:57\n\n\n\n\n\n\nsetimagefileformat!(filename,  format) \n\u00b6\n\n\nSet image file \nformat\n based on the \nfilename\n extension, or sets the \nfilename\n extension based on the requested \nformat\n. The default \nformat\n is \nSVG\n. \nPNG\n, \nPDF\n, \nESP\n, and \nPS\n are also supported.\n\n\nMads.setimagefileformat!(filename, format)\n\n\nArguments:\n\n\n\n\nfilename\n : output file name used to dump plots\n\n\nformat\n : output plot format (\npng\n, \npdf\n, etc.)\n\n\n\n\nReturns:\n\n\n\n\nfilename\n : output file name used to dump plots\n\n\nformat\n : output plot format (\npng\n, \npdf\n, etc.)\n\n\n\n\nsource:\n\n\nMads/src/MadsPlot.jl:17\n\n\n\n\n\n\nsetmadsinputfile(filename::AbstractString) \n\u00b6\n\n\nSet a default MADS input file\n\n\nMads.setmadsinputfile(filename)\n\n\nArguments:\n\n\n\n\nfilename\n : input file name (e.g. \ninput_file_name.mads\n)\n\n\n\n\nsource:\n\n\nMads/src/MadsIO.jl:39\n\n\n\n\n\n\nsetnprocs(np) \n\u00b6\n\n\nSet number of processors\n\n\nsource:\n\n\nMads/src/MadsParallel.jl:15\n\n\n\n\n\n\nsetnprocs(np,  nt) \n\u00b6\n\n\nSet number of processors / threads\n\n\nsource:\n\n\nMads/src/MadsParallel.jl:2\n\n\n\n\n\n\nsetobservationtargets!(madsdata::Associative{K, V},  predictions::Associative{K, V}) \n\u00b6\n\n\nSet observations (calibration targets) in the MADS data dictionary based on \npredictions\n dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:123\n\n\n\n\n\n\nsetobstime!(madsdata::Associative{K, V}) \n\u00b6\n\n\nSet observation time based on the observation name in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:52\n\n\n\n\n\n\nsetobsweights!(madsdata::Associative{K, V},  value::Number) \n\u00b6\n\n\nSet observation weights in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:61\n\n\n\n\n\n\nsetparamoff!(madsdata::Associative{K, V},  parameterkey) \n\u00b6\n\n\nSet a specific parameter with a key \nparameterkey\n OFF\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:303\n\n\n\n\n\n\nsetparamon!(madsdata::Associative{K, V},  parameterkey::AbstractString) \n\u00b6\n\n\nSet a specific parameter with a key \nparameterkey\n ON\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:298\n\n\n\n\n\n\nsetparamsdistnormal!(madsdata::Associative{K, V},  mean,  stddev) \n\u00b6\n\n\nSet normal parameter distributions for all the model parameters in the MADS data dictionary\n\n\nMads.setparamsdistnormal!(madsdata, mean, stddev)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nmean\n : array with the mean values\n\n\nstddev\n : array with the standard deviation values\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:318\n\n\n\n\n\n\nsetparamsdistuniform!(madsdata::Associative{K, V},  min,  max) \n\u00b6\n\n\nSet uniform parameter distributions for all the model parameters in the MADS data dictionary\n\n\nMads.setparamsdistuniform!(madsdata, min, max)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nmin\n : array with the minimum values\n\n\nmax\n : array with the maximum values\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:336\n\n\n\n\n\n\nsetparamsinit!(madsdata::Associative{K, V},  paramdict::Associative{K, V}) \n\u00b6\n\n\nSet initial parameter guesses in the MADS dictionary\n\n\nMads.setparamsinit!(madsdata, paramdict)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nparamdict\n : dictionary with initial model parameter values\n\n\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:255\n\n\n\n\n\n\nsetverbositylevel(level::Int64) \n\u00b6\n\n\nSet MADS verbosity level\n\n\nsource:\n\n\nMads/src/MadsHelpers.jl:25\n\n\n\n\n\n\nsetwellweights!(madsdata::Associative{K, V},  value::Number) \n\u00b6\n\n\nSet well weights in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:69\n\n\n\n\n\n\nshowallparameters(madsdata::Associative{K, V}) \n\u00b6\n\n\nShow all parameters in the Mads data dictionary\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:406\n\n\n\n\n\n\nshowobservations(madsdata::Associative{K, V}) \n\u00b6\n\n\nShow observations in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:80\n\n\n\n\n\n\nshowparameters(madsdata::Associative{K, V}) \n\u00b6\n\n\nShow optimizable parameters in the Mads data dictionary\n\n\nsource:\n\n\nMads/src/MadsParameters.jl:375\n\n\n\n\n\n\nsinetransform(sineparams::Array{T, 1},  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \n\u00b6\n\n\nSine transformation of model parameters\n\n\nsource:\n\n\nMads/src/MadsSine.jl:10\n\n\n\n\n\n\nsinetransformfunction(f::Function,  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \n\u00b6\n\n\nSine transformation of a function\n\n\nsource:\n\n\nMads/src/MadsSine.jl:17\n\n\n\n\n\n\nsinetransformgradient(g::Function,  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \n\u00b6\n\n\nSine transformation of a gradient function\n\n\nsource:\n\n\nMads/src/MadsSine.jl:25\n\n\n\n\n\n\nspaghettiplot(madsdata::Associative{K, V},  paramdictarray::DataStructures.OrderedDict{K, V}) \n\u00b6\n\n\nGenerate a combined spaghetti plot for the \nselected\n (\ntype != null\n) model parameter\n\n\nMads.spaghettiplot(madsdata, paramdictarray; filename=\"\", keyword = \"\", format=\"\", xtitle=\"X\", ytitle=\"Y\", obs_plot_dots=true)\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nparamdictarray\n : dictionary containing the parameter data arrays to be plotted\n\n\nfilename\n : output file name used to output the produced plots\n\n\nkeyword\n : keyword to be added in the file name used to output the produced plots (if \nfilename\n is not defined)\n\n\nformat\n : output plot format (\npng\n, \npdf\n, etc.)\n\n\nxtitle\n : \nx\n axis title\n\n\nytitle\n : \ny\n axis title\n\n\nobs_plot_dots\n : plot observation as dots (\ntrue\n [default] or \nfalse\n)\n\n\n\n\nReturns: \nnone\n\n\nDumps:\n\n\n\n\nImage files (\nmads_rootname\n-\nkeyword\n-\nnumber_of_samples\n-spaghetti.\ndefault_image_extension\n)\n\n\n\n\nsource:\n\n\nMads/src/MadsMC.jl:270\n\n\n\n\n\n\nspaghettiplots(madsdata::Associative{K, V},  paramdictarray::DataStructures.OrderedDict{K, V}) \n\u00b6\n\n\nGenerate separate spaghetti plots for each \nselected\n (\ntype != null\n) model parameter\n\n\nMads.spaghettiplots(madsdata, paramdictarray; format=\"\", keyword=\"\", xtitle=\"X\", ytitle=\"Y\", obs_plot_dots=true )\n\n\nArguments:\n\n\n\n\nmadsdata\n : Mads data dictionary\n\n\nparamdictarray\n : parameter dictionary containing the data arrays to be plotted\n\n\nkeyword\n : keyword to be added in the file name used to output the produced plots\n\n\nformat\n : output plot format (\npng\n, \npdf\n, etc.)\n\n\nxtitle\n : \nx\n axis title\n\n\nytitle\n : \ny\n axis title\n\n\nobs_plot_dots\n : plot observation as dots (\ntrue\n [default] or \nfalse\n)\n\n\n\n\nReturns: \nnone\n\n\nDumps:\n\n\n\n\nImage files (\nmads_rootname\n-\nkeyword\n-\nparam_key\n-\nnumber_of_samples\n-spaghetti.\ndefault_image_extension\n)\n\n\n\n\nsource:\n\n\nMads/src/MadsMC.jl:155\n\n\n\n\n\n\nwelloff!(madsdata,  wellname::AbstractString) \n\u00b6\n\n\nTurn off a specific well in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:171\n\n\n\n\n\n\nwellon!(madsdata::Associative{K, V},  wellname::AbstractString) \n\u00b6\n\n\nTurn on a specific well in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:147\n\n\n\n\n\n\nwells2observations!(madsdata::Associative{K, V}) \n\u00b6\n\n\nConvert \nWells\n class to \nObservations\n class in the MADS data dictionary\n\n\nsource:\n\n\nMads/src/MadsObservations.jl:187\n\n\n\n\n\n\nwriteparameters(madsdata::Associative{K, V}) \n\u00b6\n\n\nWrite initial parameters\n\n\nsource:\n\n\nMads/src/MadsIO.jl:193\n\n\n\n\n\n\nwriteparameters(madsdata::Associative{K, V},  parameters) \n\u00b6\n\n\nWrite parameters\n\n\nsource:\n\n\nMads/src/MadsIO.jl:200\n\n\n\n\n\n\nwriteparametersviatemplate(parameters,  templatefilename,  outputfilename) \n\u00b6\n\n\nWrite parameters via MADS template\n\n\nsource:\n\n\nMads/src/MadsIO.jl:166", 
+            "title": "Mads"
+        }, 
+        {
+            "location": "/mads/#mads", 
+            "text": "", 
+            "title": "Mads"
+        }, 
+        {
+            "location": "/mads/#internal", 
+            "text": "", 
+            "title": "Internal"
+        }, 
+        {
+            "location": "/mads/#allwellsoffmadsdataassociativek-v", 
+            "text": "Turn off all the wells in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:163", 
+            "title": "allwellsoff!(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#allwellsonmadsdataassociativek-v", 
+            "text": "Turn on all the wells in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:139", 
+            "title": "allwellson!(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#asinetransformparamsarrayt-1-lowerboundsarrayt-1-upperboundsarrayt-1-indexlogtransformedarrayt-1", 
+            "text": "Arcsine transformation of model parameters  source:  Mads/src/MadsSine.jl:2", 
+            "title": "asinetransform(params::Array{T, 1},  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#bayessamplingmadsdata-numsequences", 
+            "text": "Brute force parallel Bayesian sampling  Mads.bayessampling(madsdata, numsequences; nsteps=100, burnin=1000, thinning=1)  Arguments:   madsdata  : Mads data dictionary  numsequences  :  nsteps  :   burnin  :   thinning  :    Returns:   mcmcchain  :    source:  Mads/src/MadsMC.jl:53", 
+            "title": "bayessampling(madsdata,  numsequences) \u00b6"
+        }, 
+        {
+            "location": "/mads/#bayessamplingmadsdataassociativek-v", 
+            "text": "Bayes Sampling  Mads.bayessampling(madsdata; nsteps=100, burnin=1000, thinning=1)  Arguments:   madsdata  : Mads data dictionary  nsteps  :    burnin  :    thinning  :      Returns:   mcmcchain  :    source:  Mads/src/MadsMC.jl:20", 
+            "title": "bayessampling(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#calibratemadsdataassociativek-v", 
+            "text": "Calibrate  Mads.calibrate(madsdata; tolX=1e-3, tolG=1e-6, maxEval=1000, maxIter=100, maxJacobians=100, lambda=100.0, lambda_mu=10.0, np_lambda=10, show_trace=false, usenaive=false)  Arguments:   madsdata  : Mads data dictionary  tolX  : parameter space tolerance  tolG  : parameter space update tolerance  maxEval  : maximum number of model evaluations  maxIter  : maximum number of optimization iterations  maxJacobians  : maximum number of Jacobian solves  lambda  : initial Levenberg-Marquardt lambda   lambda_mu  : lambda multiplication factor [10]  np_lambda  : number of parallel lambda solves  show_trace  : shows solution trace [default=false]  usenaive  : use naive Levenberg-Marquardt solver   Returns:   minimumdict  : model parameter dictionary with the optimal values at the minimum  results  : optimization algorithm results (e.g. results.minimum)   source:  Mads/src/MadsCalibrate.jl:87", 
+            "title": "calibrate(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#calibratenloptmadsdataassociativek-v", 
+            "text": "Do a calibration using NLopt   source:  Mads/src/MadsCalibrate.jl:129", 
+            "title": "calibratenlopt(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#calibraterandommadsdataassociativek-v-numberofsamples", 
+            "text": "Calibrate with random initial guesses  Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=1000, maxIter=100, maxJacobians=100, lambda=100.0, lambda_mu=10.0, np_lambda=10, show_trace=false, usenaive=false)  Arguments:   madsdata  : Mads data dictionary  numberofsamples  : number of random initial samples  tolX  : parameter space tolerance  tolG  : parameter space update tolerance  maxEval  : maximum number of model evaluations  maxIter  : maximum number of optimization iterations  maxJacobians  : maximum number of Jacobian solves  lambda  : initial Levenberg-Marquardt lambda   lambda_mu  : lambda multiplication factor [10]  np_lambda  : number of parallel lambda solves  show_trace  : shows solution trace [default=false]  usenaive  : use naive Levenberg-Marquardt solver   Returns:   bestresult  : optimal results tuple: [1] model parameter dictionary with the optimal values at the minimum; [2] optimization algorithm results (e.g. bestresult[2].minimum)   source:  Mads/src/MadsCalibrate.jl:26", 
+            "title": "calibraterandom(madsdata::Associative{K, V},  numberofsamples) \u00b6"
+        }, 
+        {
+            "location": "/mads/#cmadsins_obsobsidarrayt-1-instructionfilenameabstractstring-inputfilenameabstractstring", 
+            "text": "Call C MADS ins_obs() function from the MADS library  source:  Mads/src/MadsIO.jl:316", 
+            "title": "cmadsins_obs(obsid::Array{T, 1},  instructionfilename::AbstractString,  inputfilename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#computemassmadsdataassociativek-v", 
+            "text": "Compute injected/reduced contaminant mass  Mads.computemass(madsdata; time = 0)  Arguments:   madsdata  : Mads data dictionary  time  : computational time   Returns:   mass_injected  : total injected mass  mass_reduced  : total reduced mass   source:  Mads/src/MadsAnasol.jl:189", 
+            "title": "computemass(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#computemassmadsfiles", 
+            "text": "Compute injected/reduced contaminant mass for a given set of mads input files  Mads.computemass(madsfiles; time = 0, path = \".\")  Arguments:   madsfiles  : matching pattern for Mads input files (string or regular expression accepted)  time  : computational time  path  : search directory for the mads input files    Returns:   lambda  : array with all the lambda values  mass_injected  : array with associated total injected mass  mass_reduced  : array with associated total reduced mass   source:  Mads/src/MadsAnasol.jl:249", 
+            "title": "computemass(madsfiles) \u00b6"
+        }, 
+        {
+            "location": "/mads/#computeparametersensititiesmadsdataassociativek-v-saresultsassociativek-v", 
+            "text": "Compute sensitities for each model parameter; averaging the sensitivity indices over the entire range  source:  Mads/src/MadsSA.jl:390", 
+            "title": "computeparametersensitities(madsdata::Associative{K, V},  saresults::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#contaminationwellx-welly-wellz-n-lambda-theta-vx-vy-vz-ax-ay-az-h-x-y-z-dx-dy-dz-f-t0-t1-t", 
+            "text": "Compute concentration for a point in space and time (x,y,z,t)  Mads.contamination(wellx, welly, wellz, n, lambda, theta, vx, vy, vz, ax, ay, az, H, x, y, z, dx, dy, dz, f, t0, t1, t; anasolfunction=\"long_bbb_ddd_iir_c\")  Arguments:   wellx  welly  wellz  n  lambda  theta  vx  vy  vz  ax  ay  az  H  x  y  z  dx  dy  dz  f  t0  t1  t  anasolfunction  : \"long_bbb_ddd_iir_c\"   source:  Mads/src/MadsAnasol.jl:148", 
+            "title": "contamination(wellx,  welly,  wellz,  n,  lambda,  theta,  vx,  vy,  vz,  ax,  ay,  az,  H,  x,  y,  z,  dx,  dy,  dz,  f,  t0,  t1,  t) \u00b6"
+        }, 
+        {
+            "location": "/mads/#create_help_func", 
+            "text": "Create help files for Mads functions  source:  Mads/src/MadsHelp.jl:93", 
+            "title": "create_help_func() \u00b6"
+        }, 
+        {
+            "location": "/mads/#createmadsprobleminfilenameabstractstring-outfilenameabstractstring", 
+            "text": "Create a new Mads problem where the observation targets are computed based on the model predictions   Mads.createmadsproblem(infilename, outfilename)  Mads.createmadsproblem(madsdata, outfilename)  `Mads.createmadsproblem(madsdata, predictions, outfilename)   Arguments:   infilename  : input Mads file  outfilename  : output Mads file  madsdata  : Mads data dictionary  predictions  : dictionary of model predictions   Returns:  none  source:  Mads/src/MadsCreate.jl:20", 
+            "title": "createmadsproblem(infilename::AbstractString,  outfilename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#createobservationsmadsdataassociativek-v-time-observation", 
+            "text": "Create observations in the MADS data dictionary based on  time  and  observation  arrays   source:  Mads/src/MadsObservations.jl:101", 
+            "title": "createobservations!(madsdata::Associative{K, V},  time,  observation) \u00b6"
+        }, 
+        {
+            "location": "/mads/#deletenandfdataframesdataframe", 
+            "text": "Delete rows with NaN in a Dataframe  df  source:  Mads/src/MadsSA.jl:606", 
+            "title": "deleteNaN!(df::DataFrames.DataFrame) \u00b6"
+        }, 
+        {
+            "location": "/mads/#dumpasciifilefilenameabstractstring-data", 
+            "text": "Dump ASCII file  source:  Mads/src/MadsASCII.jl:8", 
+            "title": "dumpasciifile(filename::AbstractString,  data) \u00b6"
+        }, 
+        {
+            "location": "/mads/#dumpjsonfilefilenameabstractstring-data", 
+            "text": "Dump JSON file  source:  Mads/src/MadsJSON.jl:12", 
+            "title": "dumpjsonfile(filename::AbstractString,  data) \u00b6"
+        }, 
+        {
+            "location": "/mads/#dumpwellconcentrationsfilenameabstractstring-madsdata", 
+            "text": "Dump well concentrations  source:  Mads/src/MadsYAML.jl:207", 
+            "title": "dumpwellconcentrations(filename::AbstractString,  madsdata) \u00b6"
+        }, 
+        {
+            "location": "/mads/#dumpyamlfilefilenameabstractstring-yamldata", 
+            "text": "Dump YAML file in JSON format  source:  Mads/src/MadsYAML.jl:34", 
+            "title": "dumpyamlfile(filename::AbstractString,  yamldata) \u00b6"
+        }, 
+        {
+            "location": "/mads/#dumpyamlmadsfilemadsdata-filenameabstractstring", 
+            "text": "Dump YAML MADS file  source:  Mads/src/MadsYAML.jl:149", 
+            "title": "dumpyamlmadsfile(madsdata,  filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#efastmdassociativek-v", 
+            "text": "Saltelli's eFAST Algoirthm based on Saltelli extended Fourier Amplituded Sensitivty Testing (eFAST) method  source:  Mads/src/MadsSA.jl:633", 
+            "title": "efast(md::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#evaluatemadsexpressionexpressionstring-parameters", 
+            "text": "Evaluate the expression in terms of the parameters, return a Dict() containing the expression names as keys, and the values of the expression as values  source:  Mads/src/MadsMisc.jl:62", 
+            "title": "evaluatemadsexpression(expressionstring,  parameters) \u00b6"
+        }, 
+        {
+            "location": "/mads/#evaluatemadsexpressionsmadsdataassociativek-v-parameters", 
+            "text": "Evaluate the expressions in terms of the parameters, return a Dict() containing the expression names as keys, and the values of the expression as values  source:  Mads/src/MadsMisc.jl:71", 
+            "title": "evaluatemadsexpressions(madsdata::Associative{K, V},  parameters) \u00b6"
+        }, 
+        {
+            "location": "/mads/#forwardmadsdataassociativek-v", 
+            "text": "Perform a forward run using the initial or provided values for the model parameters   forward(madsdata)  forward(madsdata, paramvalues)   Arguments:   madsdata  : Mads data dictionary  paramvalues  : dictionary of model parameter values   Returns:   obsvalues  : dictionary of model predictions   source:  Mads/src/MadsForward.jl:18", 
+            "title": "forward(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#forwardgridmadsdataassociativek-v", 
+            "text": "Perform a forward run over a 3D grid defined in  madsdata  using the initial or provided values for the model parameters   forwardgrid(madsdata)     forwardgrid(madsdata, paramvalues))   Arguments:   madsdata  : Mads data dictionary  paramvalues  : dictionary of model parameter values   Returns:   array3d  : 3D array with model predictions along a 3D grid   source:  Mads/src/MadsForward.jl:45", 
+            "title": "forwardgrid(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getextensionfilename", 
+            "text": "Get file name extension  Example:  ext = Mads.getextension( a.mads ) # ext =  mads    source:  Mads/src/MadsIO.jl:135", 
+            "title": "getextension(filename) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getmadsdir", 
+            "text": "Get the directory where currently Mads is running  problemdir = Mads.getmadsdir()  source:  Mads/src/MadsIO.jl:90", 
+            "title": "getmadsdir() \u00b6"
+        }, 
+        {
+            "location": "/mads/#getmadsinputfile", 
+            "text": "Get the default MADS input file set as a MADS global variable using  setmadsinputfile(filename)  Mads.getmadsinputfile()  Arguments:  none  Returns:   filename  : input file name (e.g.  input_file_name.mads )   source:  Mads/src/MadsIO.jl:54", 
+            "title": "getmadsinputfile() \u00b6"
+        }, 
+        {
+            "location": "/mads/#getmadsproblemdirmadsdataassociativek-v", 
+            "text": "Get the directory where the Mads data file is located  Mads.getmadsproblemdir(madsdata)  Example:  madsdata = Mads.loadmadsproblemdir( ../../a.mads )\nmadsproblemdir = Mads.getmadsproblemdir(madsdata)  where  madsproblemdir  =  \"../../\"  source:  Mads/src/MadsIO.jl:81", 
+            "title": "getmadsproblemdir(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getmadsrootnamemadsdataassociativek-v", 
+            "text": "Get the MADS problem root name  madsrootname = Mads.getmadsrootname(madsdata)  source:  Mads/src/MadsIO.jl:63", 
+            "title": "getmadsrootname(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getobskeysmadsdataassociativek-v", 
+            "text": "Get keys for all the observations in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:2", 
+            "title": "getobskeys(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamdictmadsdataassociativek-v", 
+            "text": "Get dictionary with all parameters and their respective initial values  Mads.getparamdict(madsdata)  Arguments:   madsdata  : Mads data dictionary   Returns:   paramdict  : dictionary with all parameters and their respective initial values   source:  Mads/src/MadsParameters.jl:35", 
+            "title": "getparamdict(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamdistributionsmadsdataassociativek-v", 
+            "text": "Get probabilistic distributions of all parameters in the Mads data dictionary  Mads.getparamdistributions(madsdata; init_dist=false)  Note:  Probabilistic distribution of parameters can be defined only if \"dist\" or \"min\"/\"max\" are specified in the Mads data dictionary  madsdata .  Arguments:   madsdata  : Mads data dictionary  init_dist  : if true, use the initialization distributions (if defined)   source:  Mads/src/MadsParameters.jl:459", 
+            "title": "getparamdistributions(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamkeysmadsdataassociativek-v", 
+            "text": "Get keys of all parameters in the MADS dictionary  Mads.getparamkeys(madsdata)  Arguments:   madsdata  : Mads data dictionary   Returns:   paramkeys  : array with the keys of all parameters in the MADS dictionary   source:  Mads/src/MadsParameters.jl:16", 
+            "title": "getparamkeys(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsinit_maxmadsdata", 
+            "text": "Get an array with  init_max  values for all the MADS model parameters  source:  Mads/src/MadsParameters.jl:240", 
+            "title": "getparamsinit_max(madsdata) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsinit_maxmadsdata-paramkeys", 
+            "text": "Get an array with  init_max  values for parameters defined by  paramkeys  source:  Mads/src/MadsParameters.jl:206", 
+            "title": "getparamsinit_max(madsdata,  paramkeys) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsinit_minmadsdata", 
+            "text": "Get an array with  init_min  values for all the MADS model parameters  source:  Mads/src/MadsParameters.jl:200", 
+            "title": "getparamsinit_min(madsdata) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsinit_minmadsdata-paramkeys", 
+            "text": "Get an array with  init_min  values for parameters defined by  paramkeys  source:  Mads/src/MadsParameters.jl:166", 
+            "title": "getparamsinit_min(madsdata,  paramkeys) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsmaxmadsdata", 
+            "text": "Get an array with  min  values for all the MADS model parameters  source:  Mads/src/MadsParameters.jl:160", 
+            "title": "getparamsmax(madsdata) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsmaxmadsdata-paramkeys", 
+            "text": "Get an array with  max  values for parameters defined by  paramkeys  source:  Mads/src/MadsParameters.jl:137", 
+            "title": "getparamsmax(madsdata,  paramkeys) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsminmadsdata", 
+            "text": "Get an array with  min  values for all the MADS model parameters  source:  Mads/src/MadsParameters.jl:131", 
+            "title": "getparamsmin(madsdata) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getparamsminmadsdata-paramkeys", 
+            "text": "Get an array with  min  values for parameters defined by  paramkeys  source:  Mads/src/MadsParameters.jl:108", 
+            "title": "getparamsmin(madsdata,  paramkeys) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getrootnamefilenameabstractstring", 
+            "text": "Get file name root  Example:  r = Mads.getrootname( a.rnd.dat ) # r =  a \nr = Mads.getrootname( a.rnd.dat , first=false) # r =  a.rnd   source:  Mads/src/MadsIO.jl:112", 
+            "title": "getrootname(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getsourcekeysmadsdataassociativek-v", 
+            "text": "Get keys of all source parameters in the MADS dictionary  Mads.getsourcekeys(madsdata)  Arguments:   madsdata  : Mads data dictionary   Returns:   sourcekeys  : array with keys of all source parameters in the MADS dictionary   source:  Mads/src/MadsParameters.jl:56", 
+            "title": "getsourcekeys(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#getwellkeysmadsdataassociativek-v", 
+            "text": "Get keys for all the wells in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:8", 
+            "title": "getwellkeys(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#haskeywordmadsdataassociativek-v-keywordabstractstring", 
+            "text": "Check for a  keyword  in a class within the Mads dictionary  madsdata   Mads.haskeyword(madsdata, keyword)  Mads.haskeyword(madsdata, class, keyword)   Arguments:   madsdata  : Mads data dictionary  class  : dictionary class; if not provided searches for  keyword  in  Problem  class  keyword  : dictionary key   Returns:  true  or  false  Examples:   Mads.haskeyword(madsdata, \"disp\")  ... searches in  Problem  class by default  Mads.haskeyword(madsdata, \"Wells\", \"R-28\")  ... searches in  Wells  class for a keyword \"R-28\"   source:  Mads/src/MadsHelpers.jl:54", 
+            "title": "haskeyword(madsdata::Associative{K, V},  keyword::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#help", 
+            "text": "", 
+            "title": "help() \u00b6"
+        }, 
+        {
+            "location": "/mads/#mads-model-analysis-decision-support", 
+            "text": "MADS is an open-source code designed as an integrated high-performance computational framework performing a wide range of model-based analyses:   Sensitivity Analysis  Parameter Estimation  Model Inversion and Calibration  Uncertainty Quantification  Model Selection and Averaging  Decision Support   MADS utilizes adaptive rules and techniques which allows the analyses to be performed with minimum user input.\nThe code provides a series of alternative algorithms to perform each type of model analyses.  For additional information:   web:   http://mads.lanl.gov -:- http://madsjulia.lanl.gov  repo:  http://gitlab.com/mads/Mads.jl -:- http://gitlab.com/madsjulia/Mads.jl  git:   git clone git@gitlab.com:mads/Mads.jl -:- git clone git@gitlab.com:madsjulia/Mads.jl  email: mads@lanl.gov", 
+            "title": "MADS (Model Analysis &amp; Decision Support)"
+        }, 
+        {
+            "location": "/mads/#mads-getting-started", 
+            "text": "Install Julia and MADS using the installation instruction in the  Readme.md .\nIf you are not familiar with Julia a short on-line class is recommended.\nYou can also explore the examples in the  Mads.jl/examples/learn_julia  directory of the Mads.jl repository.  To start using Mads, initiate the Julia REPL and execute  using Mads  to load MADS.\nAll the MADS analyses are based on a MADS data dictionary that defines the problem.\nThe MADS data dictionary is typically loaded from a YAML MADS input file.\nThe loading of a MADS file can be executed as follows:  madsdata = Mads.loadmadsfile(\" input_file_name .mads\")  For example, you can execute:  madsdata = Mads.loadmadsfile(\"internal-linear.mads\")  To run this command, Julia needs to be executed in the  Mads.jl/examples/getting_started  directory of the Mads.jl repository.  Typically, MADS data dictionary includes several classes:   Parameters  : lists of model parameters  Observations  : lists of model observations  Model  : defines a model to predict model observations using model parameters   The file  internal-linear.mads  looks like this:  Parameters:\n- a : { init:  1, dist:  Uniform(-10, 10)  }\n- b : { init: -1, dist:  Uniform(-10, 10)  }\nObservations:\n- o1: { target: -3 }\n- o2: { target:  1 }\n- o3: { target:  5 }\n- o4: { target:  9 }\nModel: internal-linear.jl  In this case there are two parameters,  a  and  b , defining a linear model,  f(t) = a * t + b , described in  internal-linearmodel.jl .\nThis Julia file  internal-linearmodel.jl  is specified under  Model  in the MADS data dictionary.  Mads.showallparameters(madsdata)  will show all the parameters.  Mads.showobservations(madsdata)  will list all the observations.  MADS can perform various types of analyses:   Mads.forward(madsdata)  will execute forward model simulation based on the initial parameter values.  saresults = Mads.efast(madsdata)  will perform eFAST sensitivity analysis of the model parameters against the model observations as defined in the MADS data dictionary.  optparam, iaresults = Mads.calibrate(madsdata)  will perform calibration (inverse analysis) of the model parameters to reproduce the model observations as defined in the MADS data dictionary; in this case, the calibration uses Levenberg-Marquardt optimization.  Mads.forward(madsdata, optparam) will perform forward model simulation based on the parameter values optparam` estimated by the inverse analyses above.   More complicated analyses will require additional information to be provided in the MADS data dictionary.\nExamples are given in the  Mads.jl/examples  subdirectories of the Mads.jl repository", 
+            "title": "MADS Getting started"
+        }, 
+        {
+            "location": "/mads/#mads-licensing-copyright", 
+            "text": "Execute  @doc Mads  to see the licensing   copyright information.  source:  Mads/src/MadsHelp.jl:88", 
+            "title": "MADS Licensing &amp; Copyright"
+        }, 
+        {
+            "location": "/mads/#islogmadsdataassociativek-v-parameterkeyabstractstring", 
+            "text": "Is parameter with key  parameterkey  log-transformed?  source:  Mads/src/MadsParameters.jl:273", 
+            "title": "islog(madsdata::Associative{K, V},  parameterkey::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#isoptmadsdataassociativek-v-parameterkeyabstractstring", 
+            "text": "Is parameter with key  parameterkey  optimizable?  source:  Mads/src/MadsParameters.jl:263", 
+            "title": "isopt(madsdata::Associative{K, V},  parameterkey::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#loadasciifilefilenameabstractstring", 
+            "text": "Load ASCII file  source:  Mads/src/MadsASCII.jl:2", 
+            "title": "loadasciifile(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#loadjsonfilefilenameabstractstring", 
+            "text": "Load JSON file  source:  Mads/src/MadsJSON.jl:6", 
+            "title": "loadjsonfile(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#loadmadsfilefilenameabstractstring", 
+            "text": "Load MADS input file defining a MADS class set   Mads.loadmadsfile(filename)  Mads.loadmadsfile(filename; julia=false)  Mads.loadmadsfile(filename; julia=true)   Arguments:   filename  : input file name (e.g.  input_file_name.mads )  julia  : if  true , force using  julia  parsing fuctions; if  false  (default), use  python  parsing functions [boolean]   Returns:   madsdata  : Loaded Mads data class   Example:  md = loadmadsfile(\"input_file_name.mads\")  source:  Mads/src/MadsIO.jl:19", 
+            "title": "loadmadsfile(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#loadyamlfilefilenameabstractstring", 
+            "text": "Load YAML file  source:  Mads/src/MadsYAML.jl:24", 
+            "title": "loadyamlfile(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#loadyamlmadsfilefilenameabstractstring", 
+            "text": "Load YAML MADS file  source:  Mads/src/MadsYAML.jl:45", 
+            "title": "loadyamlmadsfile(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#localsamadsdataassociativek-v", 
+            "text": "Local sensitivity analysis  source:  Mads/src/MadsSA.jl:48", 
+            "title": "localsa(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#madscritmessageabstractstring", 
+            "text": "MADS critical error messages  source:  Mads/src/MadsLog.jl:31", 
+            "title": "madscrit(message::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#madsdebugmessageabstractstring", 
+            "text": "MADS debug messages  source:  Mads/src/MadsLog.jl:9", 
+            "title": "madsdebug(message::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#madserrmessageabstractstring", 
+            "text": "MADS error messages  source:  Mads/src/MadsLog.jl:26", 
+            "title": "madserr(message::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#madsinfomessageabstractstring", 
+            "text": "MADS information/status messages  source:  Mads/src/MadsLog.jl:16", 
+            "title": "madsinfo(message::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#madsoutputmessageabstractstring", 
+            "text": "MADS output  source:  Mads/src/MadsLog.jl:2", 
+            "title": "madsoutput(message::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#madswarnmessageabstractstring", 
+            "text": "MADS warning messages  source:  Mads/src/MadsLog.jl:21", 
+            "title": "madswarn(message::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makearrayconditionalloglikelihoodmadsdataassociativek-v-conditionalloglikelihood", 
+            "text": "Make a conditional log likelihood function that accepts an array containing the opt parameters' values  source:  Mads/src/MadsMisc.jl:27", 
+            "title": "makearrayconditionalloglikelihood(madsdata::Associative{K, V},  conditionalloglikelihood) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makearrayfunctionmadsdataassociativek-v-ffunction", 
+            "text": "Make a version of the function  f  that accepts an array containing the optimal parameters' values  Mads.makearrayfunction(madsdata, f)  Arguments:   madsdata  : Mads data dictionary  f  : ...   Returns:   arrayfunction  : function accepting an array containing the optimal parameters' values   source:  Mads/src/MadsMisc.jl:17", 
+            "title": "makearrayfunction(madsdata::Associative{K, V},  f::Function) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makearrayloglikelihoodmadsdataassociativek-v-loglikelihood", 
+            "text": "Make a log likelihood function that accepts an array containing the opt parameters' values  source:  Mads/src/MadsMisc.jl:40", 
+            "title": "makearrayloglikelihood(madsdata::Associative{K, V},  loglikelihood) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makecomputeconcentrationsmadsdataassociativek-v", 
+            "text": "Create a function to compute concentrations for all the observation points using Anasol  Mads.makecomputeconcentrations(madsdata)  Arguments:   madsdata  : Mads data dictionary   Returns:   computeconcentrations  : function to compute concentrations;  computeconcentrations  returns a dictionary of observations and model predicted concentrations   Examples:  computeconcentrations()  or  computeconcentrations = Mads.makecomputeconcentrations(madsdata)\nparamkeys = Mads.getparamkeys(madsdata)\nparamdict = OrderedDict(zip(paramkeys, map(key- madsdata[ Parameters ][key][ init ], paramkeys)))\nforward_preds = computeconcentrations(paramdict)  source:  Mads/src/MadsAnasol.jl:30", 
+            "title": "makecomputeconcentrations(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makelogpriormadsdataassociativek-v", 
+            "text": "Make a function to compute the prior log-likelihood of the model parameters listed in the MADS data dictionary  madsdata  source:  Mads/src/MadsFunc.jl:235", 
+            "title": "makelogprior(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makemadscommandfunctionmadsdataassociativek-v", 
+            "text": "Make MADS function to execute the model defined in the MADS data dictionary  madsdata  source:  Mads/src/MadsFunc.jl:6", 
+            "title": "makemadscommandfunction(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makemadscommandfunctionandgradientmadsdataassociativek-v", 
+            "text": "Make MADS forward   gradient functions for the model defined in the MADS data dictionary  madsdata  source:  Mads/src/MadsFunc.jl:165", 
+            "title": "makemadscommandfunctionandgradient(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makemadscommandgradientmadsdataassociativek-v", 
+            "text": "Make MADS gradient function to compute the parameter-space gradient for the model defined in the MADS data dictionary  madsdata  source:  Mads/src/MadsFunc.jl:150", 
+            "title": "makemadscommandgradient(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makemadsconditionalloglikelihoodmadsdataassociativek-v", 
+            "text": "Make a function to compute the conditional log-likelihood of the model parameters conditioned on the model predictions/observations.\nModel parameters and observations are defined in the MADS data dictionary  madsdata .  source:  Mads/src/MadsFunc.jl:250", 
+            "title": "makemadsconditionalloglikelihood(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#makemadsloglikelihoodmadsdataassociativek-v", 
+            "text": "Make a function to compute the log-likelihood for a given set of model parameters, associated model predictions and existing observations.\nThe function can be provided as an external function in the MADS data dictionary under  LogLikelihood  or computed internally.  source:  Mads/src/MadsFunc.jl:275", 
+            "title": "makemadsloglikelihood(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#maxtorealmaxfloat32dfdataframesdataframe", 
+            "text": "Scale down values larger than max(Float32) in a Dataframe  df  so that Gadfly can plot the data  source:  Mads/src/MadsSA.jl:618", 
+            "title": "maxtorealmaxFloat32!(df::DataFrames.DataFrame) \u00b6"
+        }, 
+        {
+            "location": "/mads/#montecarlomadsdataassociativek-v", 
+            "text": "Monte Carlo analysis  Mads.montecarlo(madsdata; N=100)  Arguments:   madsdata  : Mads data dictionary  N  : number of samples (default = 100)   Returns:   outputdicts  : parameter dictionary containing the data arrays   Dumps:   YAML output file with the parameter dictionary containing the data arrays ( mads_root_name .mcresults.yaml )   source:  Mads/src/MadsMC.jl:76", 
+            "title": "montecarlo(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#nothing2nandictassociativek-v", 
+            "text": "Convert Void's into NaN's in a dictionary  source:  Mads/src/MadsSA.jl:586", 
+            "title": "nothing2nan!(dict::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#paramarray2dictmadsdataassociativek-v-array", 
+            "text": "Convert parameter array to a parameter dictionary of arrays  source:  Mads/src/MadsMC.jl:124", 
+            "title": "paramarray2dict(madsdata::Associative{K, V},  array) \u00b6"
+        }, 
+        {
+            "location": "/mads/#parametersamplemadsdataassociativek-v-numsamplesinteger", 
+            "text": "Independent sampling of MADS Model parameters  source:  Mads/src/MadsSA.jl:10", 
+            "title": "parametersample(madsdata::Associative{K, V},  numsamples::Integer) \u00b6"
+        }, 
+        {
+            "location": "/mads/#parametersamplemadsdataassociativek-v-numsamplesinteger-parameterkeyabstractstring", 
+            "text": "Independent sampling of MADS Model parameters  source:  Mads/src/MadsSA.jl:10", 
+            "title": "parametersample(madsdata::Associative{K, V},  numsamples::Integer,  parameterkey::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#paramrandmadsdataassociativek-v-parameterkeyabstractstring", 
+            "text": "Random numbers for a MADS Model parameter defined by  parameterkey  source:  Mads/src/MadsSA.jl:24", 
+            "title": "paramrand(madsdata::Associative{K, V},  parameterkey::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotsaresults_montywellname-madsdata-result", 
+            "text": "Plot the sensitivity analysis results for each well (Specific plot requested by Monty)  source:  Mads/src/MadsSA.jl:1443", 
+            "title": "plotSAresults_monty(wellname,  madsdata,  result) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotgridmadsdataassociativek-v", 
+            "text": "Plot a 3D grid solution   source:  Mads/src/MadsPlot.jl:151", 
+            "title": "plotgrid(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotgridmadsdataassociativek-v-parametersassociativek-v", 
+            "text": "Plot a 3D grid solution   source:  Mads/src/MadsPlot.jl:157", 
+            "title": "plotgrid(madsdata::Associative{K, V},  parameters::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotgridmadsdataassociativek-v-sarrayfloat64-n", 
+            "text": "Plot a 3D grid solution based on s   source:  Mads/src/MadsPlot.jl:105", 
+            "title": "plotgrid(madsdata::Associative{K, V},  s::Array{Float64, N}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotmadsproblemmadsdataassociativek-v", 
+            "text": "Plot MADS problem  source:  Mads/src/MadsPlot.jl:43", 
+            "title": "plotmadsproblem(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotmasslambda-mass_injected-mass_reduced-filenameabstractstring", 
+            "text": "Plot injected/reduced contaminant mass   Mads.plotmass(lambda, mass_injected, mass_reduced, filename=\"file_name\")   Arguments:   lambda  : array with all the lambda values  mass_injected  : array with associated total injected mass  mass_reduced  : array with associated total reduced mass  filename  : output filename for the generated plot  format  : output plot format ( png ,  pdf , etc.)   Dumps: image file with name  filename  and in specified  format  source:  Mads/src/MadsAnasol.jl:286", 
+            "title": "plotmass(lambda,  mass_injected,  mass_reduced,  filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotobssaresultsmadsdata-result", 
+            "text": "Plot the sensitivity analysis results for the observations  source:  Mads/src/MadsPlot.jl:387", 
+            "title": "plotobsSAresults(madsdata,  result) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotwellsaresultsmadsdata-result", 
+            "text": "Plot the sensitivity analysis results for all wells (wells class expected)  source:  Mads/src/MadsPlot.jl:295", 
+            "title": "plotwellSAresults(madsdata,  result) \u00b6"
+        }, 
+        {
+            "location": "/mads/#plotwellsaresultsmadsdata-result-wellname", 
+            "text": "Plot the sensitivity analysis results for each well (wells class expected)  source:  Mads/src/MadsPlot.jl:308", 
+            "title": "plotwellSAresults(madsdata,  result,  wellname) \u00b6"
+        }, 
+        {
+            "location": "/mads/#printsaresultsmadsdataassociativek-v-resultsassociativek-v", 
+            "text": "Print the sensitivity analysis results  source:  Mads/src/MadsSA.jl:475", 
+            "title": "printSAresults(madsdata::Associative{K, V},  results::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#quietoff", 
+            "text": "Make MADS not quiet  source:  Mads/src/MadsHelpers.jl:7", 
+            "title": "quietoff() \u00b6"
+        }, 
+        {
+            "location": "/mads/#quieton", 
+            "text": "Make MADS quiet  source:  Mads/src/MadsHelpers.jl:2", 
+            "title": "quieton() \u00b6"
+        }, 
+        {
+            "location": "/mads/#readasciipredictionsfilenameabstractstring", 
+            "text": "Read MADS predictions from an ASCII file  source:  Mads/src/MadsASCII.jl:13", 
+            "title": "readasciipredictions(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#readjsonpredictionsfilenameabstractstring", 
+            "text": "Read MADS predictions from a JSON file  source:  Mads/src/MadsJSON.jl:19", 
+            "title": "readjsonpredictions(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#readobservationsmadsdataassociativek-v", 
+            "text": "Read observations  source:  Mads/src/MadsIO.jl:282", 
+            "title": "readobservations(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#readobservations_cmadsmadsdataassociativek-v", 
+            "text": "Read observations using C Mads library  source:  Mads/src/MadsIO.jl:302", 
+            "title": "readobservations_cmads(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#readyamlpredictionsfilenameabstractstring", 
+            "text": "Read predictions from YAML MADS file  source:  Mads/src/MadsYAML.jl:202", 
+            "title": "readyamlpredictions(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#resetmodelruns", 
+            "text": "Reset the model runs count to be equal to zero  source:  Mads/src/MadsHelpers.jl:30", 
+            "title": "resetmodelruns() \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrockxarrayt-1", 
+            "text": "Rosenbrock test function  source:  Mads/src/MadsTestFunctions.jl:17", 
+            "title": "rosenbrock(x::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrock2_gradient_lmx", 
+            "text": "Parameter gradients of the Rosenbrock test function  source:  Mads/src/MadsTestFunctions.jl:7", 
+            "title": "rosenbrock2_gradient_lm(x) \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrock2_lmx", 
+            "text": "Rosenbrock test function (more difficult to solve)  source:  Mads/src/MadsTestFunctions.jl:2", 
+            "title": "rosenbrock2_lm(x) \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrock_gradientxarrayt-1-storagearrayt-1", 
+            "text": "Parameter gradients of the Rosenbrock test function  source:  Mads/src/MadsTestFunctions.jl:27", 
+            "title": "rosenbrock_gradient!(x::Array{T, 1},  storage::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrock_gradient_lmxarrayt-1", 
+            "text": "Parameter gradients of the Rosenbrock test function for LM optimization (returns the gradients for the 2 components separetely)  source:  Mads/src/MadsTestFunctions.jl:33", 
+            "title": "rosenbrock_gradient_lm(x::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrock_hessianxarrayt-1-storagearrayt-2", 
+            "text": "Parameter Hessian of the Rosenbrock test function  source:  Mads/src/MadsTestFunctions.jl:43", 
+            "title": "rosenbrock_hessian!(x::Array{T, 1},  storage::Array{T, 2}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#rosenbrock_lmxarrayt-1", 
+            "text": "Rosenbrock test function for LM optimization (returns the 2 components separetely)  source:  Mads/src/MadsTestFunctions.jl:22", 
+            "title": "rosenbrock_lm(x::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#saltellimadsdataassociativek-v", 
+            "text": "Saltelli sensitivity analysis  source:  Mads/src/MadsSA.jl:262", 
+            "title": "saltelli(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#saltellibrutemadsdataassociativek-v", 
+            "text": "Saltelli sensitivity analysis (brute force)  source:  Mads/src/MadsSA.jl:123", 
+            "title": "saltellibrute(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#saltelliprintresults2madsdataassociativek-v-resultsassociativek-v", 
+            "text": "Print the sensitivity analysis results (method 2)  source:  Mads/src/MadsSA.jl:551", 
+            "title": "saltelliprintresults2(madsdata::Associative{K, V},  results::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#searchdirkeyregex", 
+            "text": "Get files in the current directory or in a directory difined by  path  matching pattern  key  which cann be a string or regular expression   Mads.searchdir(key)  Mads.searchdir(key; path = \".\")   Arguments:   key  : matching pattern for Mads input files (string or regular expression accepted)  path  : search directory for the mads input files   Returns:   filename  : an array with file names matching the pattern in the specified directory   source:  Mads/src/MadsIO.jl:160", 
+            "title": "searchdir(key::Regex) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setallparamsoffmadsdataassociativek-v", 
+            "text": "Set all parameters OFF  source:  Mads/src/MadsParameters.jl:290", 
+            "title": "setallparamsoff!(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setallparamsonmadsdataassociativek-v", 
+            "text": "Set all parameters ON  source:  Mads/src/MadsParameters.jl:282", 
+            "title": "setallparamson!(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setdebuglevellevelint64", 
+            "text": "Set MADS debug level  source:  Mads/src/MadsHelpers.jl:20", 
+            "title": "setdebuglevel(level::Int64) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setdynamicmodelmadsdataassociativek-v-ffunction", 
+            "text": "Set Dynamic Model for MADS model calls using internal Julia functions  source:  Mads/src/MadsMisc.jl:57", 
+            "title": "setdynamicmodel(madsdata::Associative{K, V},  f::Function) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setimagefileformatfilename-format", 
+            "text": "Set image file  format  based on the  filename  extension, or sets the  filename  extension based on the requested  format . The default  format  is  SVG .  PNG ,  PDF ,  ESP , and  PS  are also supported.  Mads.setimagefileformat!(filename, format)  Arguments:   filename  : output file name used to dump plots  format  : output plot format ( png ,  pdf , etc.)   Returns:   filename  : output file name used to dump plots  format  : output plot format ( png ,  pdf , etc.)   source:  Mads/src/MadsPlot.jl:17", 
+            "title": "setimagefileformat!(filename,  format) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setmadsinputfilefilenameabstractstring", 
+            "text": "Set a default MADS input file  Mads.setmadsinputfile(filename)  Arguments:   filename  : input file name (e.g.  input_file_name.mads )   source:  Mads/src/MadsIO.jl:39", 
+            "title": "setmadsinputfile(filename::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setnprocsnp", 
+            "text": "Set number of processors  source:  Mads/src/MadsParallel.jl:15", 
+            "title": "setnprocs(np) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setnprocsnp-nt", 
+            "text": "Set number of processors / threads  source:  Mads/src/MadsParallel.jl:2", 
+            "title": "setnprocs(np,  nt) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setobservationtargetsmadsdataassociativek-v-predictionsassociativek-v", 
+            "text": "Set observations (calibration targets) in the MADS data dictionary based on  predictions  dictionary  source:  Mads/src/MadsObservations.jl:123", 
+            "title": "setobservationtargets!(madsdata::Associative{K, V},  predictions::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setobstimemadsdataassociativek-v", 
+            "text": "Set observation time based on the observation name in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:52", 
+            "title": "setobstime!(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setobsweightsmadsdataassociativek-v-valuenumber", 
+            "text": "Set observation weights in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:61", 
+            "title": "setobsweights!(madsdata::Associative{K, V},  value::Number) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setparamoffmadsdataassociativek-v-parameterkey", 
+            "text": "Set a specific parameter with a key  parameterkey  OFF  source:  Mads/src/MadsParameters.jl:303", 
+            "title": "setparamoff!(madsdata::Associative{K, V},  parameterkey) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setparamonmadsdataassociativek-v-parameterkeyabstractstring", 
+            "text": "Set a specific parameter with a key  parameterkey  ON  source:  Mads/src/MadsParameters.jl:298", 
+            "title": "setparamon!(madsdata::Associative{K, V},  parameterkey::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setparamsdistnormalmadsdataassociativek-v-mean-stddev", 
+            "text": "Set normal parameter distributions for all the model parameters in the MADS data dictionary  Mads.setparamsdistnormal!(madsdata, mean, stddev)  Arguments:   madsdata  : Mads data dictionary  mean  : array with the mean values  stddev  : array with the standard deviation values   source:  Mads/src/MadsParameters.jl:318", 
+            "title": "setparamsdistnormal!(madsdata::Associative{K, V},  mean,  stddev) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setparamsdistuniformmadsdataassociativek-v-min-max", 
+            "text": "Set uniform parameter distributions for all the model parameters in the MADS data dictionary  Mads.setparamsdistuniform!(madsdata, min, max)  Arguments:   madsdata  : Mads data dictionary  min  : array with the minimum values  max  : array with the maximum values   source:  Mads/src/MadsParameters.jl:336", 
+            "title": "setparamsdistuniform!(madsdata::Associative{K, V},  min,  max) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setparamsinitmadsdataassociativek-v-paramdictassociativek-v", 
+            "text": "Set initial parameter guesses in the MADS dictionary  Mads.setparamsinit!(madsdata, paramdict)  Arguments:   madsdata  : Mads data dictionary  paramdict  : dictionary with initial model parameter values   source:  Mads/src/MadsParameters.jl:255", 
+            "title": "setparamsinit!(madsdata::Associative{K, V},  paramdict::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setverbositylevellevelint64", 
+            "text": "Set MADS verbosity level  source:  Mads/src/MadsHelpers.jl:25", 
+            "title": "setverbositylevel(level::Int64) \u00b6"
+        }, 
+        {
+            "location": "/mads/#setwellweightsmadsdataassociativek-v-valuenumber", 
+            "text": "Set well weights in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:69", 
+            "title": "setwellweights!(madsdata::Associative{K, V},  value::Number) \u00b6"
+        }, 
+        {
+            "location": "/mads/#showallparametersmadsdataassociativek-v", 
+            "text": "Show all parameters in the Mads data dictionary  source:  Mads/src/MadsParameters.jl:406", 
+            "title": "showallparameters(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#showobservationsmadsdataassociativek-v", 
+            "text": "Show observations in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:80", 
+            "title": "showobservations(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#showparametersmadsdataassociativek-v", 
+            "text": "Show optimizable parameters in the Mads data dictionary  source:  Mads/src/MadsParameters.jl:375", 
+            "title": "showparameters(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#sinetransformsineparamsarrayt-1-lowerboundsarrayt-1-upperboundsarrayt-1-indexlogtransformedarrayt-1", 
+            "text": "Sine transformation of model parameters  source:  Mads/src/MadsSine.jl:10", 
+            "title": "sinetransform(sineparams::Array{T, 1},  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#sinetransformfunctionffunction-lowerboundsarrayt-1-upperboundsarrayt-1-indexlogtransformedarrayt-1", 
+            "text": "Sine transformation of a function  source:  Mads/src/MadsSine.jl:17", 
+            "title": "sinetransformfunction(f::Function,  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#sinetransformgradientgfunction-lowerboundsarrayt-1-upperboundsarrayt-1-indexlogtransformedarrayt-1", 
+            "text": "Sine transformation of a gradient function  source:  Mads/src/MadsSine.jl:25", 
+            "title": "sinetransformgradient(g::Function,  lowerbounds::Array{T, 1},  upperbounds::Array{T, 1},  indexlogtransformed::Array{T, 1}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#spaghettiplotmadsdataassociativek-v-paramdictarraydatastructuresordereddictk-v", 
+            "text": "Generate a combined spaghetti plot for the  selected  ( type != null ) model parameter  Mads.spaghettiplot(madsdata, paramdictarray; filename=\"\", keyword = \"\", format=\"\", xtitle=\"X\", ytitle=\"Y\", obs_plot_dots=true)  Arguments:   madsdata  : Mads data dictionary  paramdictarray  : dictionary containing the parameter data arrays to be plotted  filename  : output file name used to output the produced plots  keyword  : keyword to be added in the file name used to output the produced plots (if  filename  is not defined)  format  : output plot format ( png ,  pdf , etc.)  xtitle  :  x  axis title  ytitle  :  y  axis title  obs_plot_dots  : plot observation as dots ( true  [default] or  false )   Returns:  none  Dumps:   Image files ( mads_rootname - keyword - number_of_samples -spaghetti. default_image_extension )   source:  Mads/src/MadsMC.jl:270", 
+            "title": "spaghettiplot(madsdata::Associative{K, V},  paramdictarray::DataStructures.OrderedDict{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#spaghettiplotsmadsdataassociativek-v-paramdictarraydatastructuresordereddictk-v", 
+            "text": "Generate separate spaghetti plots for each  selected  ( type != null ) model parameter  Mads.spaghettiplots(madsdata, paramdictarray; format=\"\", keyword=\"\", xtitle=\"X\", ytitle=\"Y\", obs_plot_dots=true )  Arguments:   madsdata  : Mads data dictionary  paramdictarray  : parameter dictionary containing the data arrays to be plotted  keyword  : keyword to be added in the file name used to output the produced plots  format  : output plot format ( png ,  pdf , etc.)  xtitle  :  x  axis title  ytitle  :  y  axis title  obs_plot_dots  : plot observation as dots ( true  [default] or  false )   Returns:  none  Dumps:   Image files ( mads_rootname - keyword - param_key - number_of_samples -spaghetti. default_image_extension )   source:  Mads/src/MadsMC.jl:155", 
+            "title": "spaghettiplots(madsdata::Associative{K, V},  paramdictarray::DataStructures.OrderedDict{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#welloffmadsdata-wellnameabstractstring", 
+            "text": "Turn off a specific well in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:171", 
+            "title": "welloff!(madsdata,  wellname::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#wellonmadsdataassociativek-v-wellnameabstractstring", 
+            "text": "Turn on a specific well in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:147", 
+            "title": "wellon!(madsdata::Associative{K, V},  wellname::AbstractString) \u00b6"
+        }, 
+        {
+            "location": "/mads/#wells2observationsmadsdataassociativek-v", 
+            "text": "Convert  Wells  class to  Observations  class in the MADS data dictionary  source:  Mads/src/MadsObservations.jl:187", 
+            "title": "wells2observations!(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#writeparametersmadsdataassociativek-v", 
+            "text": "Write initial parameters  source:  Mads/src/MadsIO.jl:193", 
+            "title": "writeparameters(madsdata::Associative{K, V}) \u00b6"
+        }, 
+        {
+            "location": "/mads/#writeparametersmadsdataassociativek-v-parameters", 
+            "text": "Write parameters  source:  Mads/src/MadsIO.jl:200", 
+            "title": "writeparameters(madsdata::Associative{K, V},  parameters) \u00b6"
+        }, 
+        {
+            "location": "/mads/#writeparametersviatemplateparameters-templatefilename-outputfilename", 
+            "text": "Write parameters via MADS template  source:  Mads/src/MadsIO.jl:166", 
+            "title": "writeparametersviatemplate(parameters,  templatefilename,  outputfilename) \u00b6"
         }
     ]
 }
