@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
 	<title>Mads - MADS</title>
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -33,38 +33,13 @@
         <!-- Collapsed navigation -->
         <div class="navbar-header">
             
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">MADS</a>
+            <a class="navbar-brand" href="../">MADS</a>
         </div>
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
-            
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                
-                
-                
-                    <li class="active">
-                        <a href="./">Mads</a>
-                    </li>
-                
-                
-                </ul>
             
 
             <ul class="nav navbar-nav navbar-right">
@@ -73,17 +48,6 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
-                    <li >
-                        <a rel="next" href="..">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li class="disabled">
-                        <a rel="prev" >
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
                 
                 
             </ul>
@@ -313,7 +277,7 @@
 <h4 id="create_help_func">create_help_func() <a href="#method__create_help_func.1">¶</a></h4>
 <p>Create help files for Mads functions</p>
 <p><em>source:</em>
-<a href="https://github.com/madsjulia/Mads.jl/tree/01b92d133239ee727bd68131e1fd0652d4e21e0c/src/MadsHelp.jl#L93">Mads/src/MadsHelp.jl:93</a></p>
+<a href="https://github.com/madsjulia/Mads.jl/tree/01b92d133239ee727bd68131e1fd0652d4e21e0c/src/MadsHelp.jl#L96">Mads/src/MadsHelp.jl:96</a></p>
 <hr />
 <p><a id="method__createmadsproblem.1" class="lexicon_definition"></a></p>
 <h4 id="createmadsprobleminfilenameabstractstring-outfilenameabstractstring">createmadsproblem(infilename::AbstractString,  outfilename::AbstractString) <a href="#method__createmadsproblem.1">¶</a></h4>
@@ -656,18 +620,18 @@ The code provides a series of alternative algorithms to perform each type of mod
 <li>email: mads@lanl.gov</li>
 </ul>
 <h2 id="mads-getting-started">MADS Getting started</h2>
-<p>Install Julia and MADS using the installation instruction in the <code>Readme.md</code>.
-If you are not familiar with Julia a short on-line class is recommended.
-You can also explore the examples in the <code>Mads.jl/examples/learn_julia</code> directory of the Mads.jl repository.</p>
-<p>To start using Mads, initiate the Julia REPL and execute <code>using Mads</code> to load MADS.
+<p>Install Julia and MADS using the installation instruction in the <code>README.md</code>.
+If you are not familiar with Julia an on-line class is recommended.
+You can also explore the examples in the <code>examples/learn_julia</code> directory of the <code>Mads.jl</code> repository.</p>
+<p>To start using Mads, initiate the Julia REPL and execute <code>import Mads</code> to load MADS.
 All the MADS analyses are based on a MADS data dictionary that defines the problem.
 The MADS data dictionary is typically loaded from a YAML MADS input file.
 The loading of a MADS file can be executed as follows:</p>
 <p><code>madsdata = Mads.loadmadsfile("&lt;input_file_name&gt;.mads")</code></p>
 <p>For example, you can execute:</p>
-<p><code>madsdata = Mads.loadmadsfile("internal-linear.mads")</code></p>
-<p>To run this command, Julia needs to be executed in the <code>Mads.jl/examples/getting_started</code> directory of the Mads.jl repository.</p>
-<p>Typically, MADS data dictionary includes several classes:</p>
+<p><code>madsdata = Mads.loadmadsfile(Mads.madsdir * "/../examples/getting_started/internal-linear.mads")</code></p>
+<p>The file <code>internal-linear.mads</code> is located in <code>examples/getting_started</code> directory of the <code>Mads</code> repository.</p>
+<p>Typically, the MADS data dictionary includes several classes:</p>
 <ul>
 <li><code>Parameters</code> : lists of model parameters</li>
 <li><code>Observations</code> : lists of model observations</li>
@@ -685,10 +649,11 @@ Observations:
 Model: internal-linear.jl
 </code></pre>
 
-<p>In this case there are two parameters, <code>a</code> and <code>b</code>, defining a linear model, <code>f(t) = a * t + b</code>, described in <code>internal-linearmodel.jl</code>.
-This Julia file <code>internal-linearmodel.jl</code> is specified under <code>Model</code> in the MADS data dictionary.</p>
-<p><code>Mads.showallparameters(madsdata)</code> will show all the parameters.</p>
-<p><code>Mads.showobservations(madsdata)</code> will list all the observations.</p>
+<p>In this case there are two parameters, <code>a</code> and <code>b</code>, defining a linear model, <code>f(t) = a * t + b</code>, described in <code>internal-linearmodel.jl</code>.</p>
+<p>The Julia file <code>internal-linearmodel.jl</code> is specified under <code>Model</code> in the MADS data dictionary.</p>
+<p>Execute:</p>
+<p><code>Mads.showallparameters(madsdata)</code> to show all the parameters.</p>
+<p><code>Mads.showobservations(madsdata)</code> to list all the observations.</p>
 <p>MADS can perform various types of analyses:</p>
 <ul>
 <li><code>Mads.forward(madsdata)</code> will execute forward model simulation based on the initial parameter values.</li>
@@ -697,11 +662,11 @@ This Julia file <code>internal-linearmodel.jl</code> is specified under <code>Mo
 <li><code>Mads.forward(madsdata, optparam) will perform forward model simulation based on the parameter values</code>optparam` estimated by the inverse analyses above.</li>
 </ul>
 <p>More complicated analyses will require additional information to be provided in the MADS data dictionary.
-Examples are given in the <code>Mads.jl/examples</code> subdirectories of the Mads.jl repository</p>
+Examples are given in the <code>examples</code> subdirectories of the <code>Mads.jl</code> repository.</p>
 <h2 id="mads-licensing-copyright">MADS Licensing &amp; Copyright</h2>
 <p>Execute <code>@doc Mads</code> to see the licensing &amp; copyright information.</p>
 <p><em>source:</em>
-<a href="https://github.com/madsjulia/Mads.jl/tree/01b92d133239ee727bd68131e1fd0652d4e21e0c/src/MadsHelp.jl#L88">Mads/src/MadsHelp.jl:88</a></p>
+<a href="https://github.com/madsjulia/Mads.jl/tree/01b92d133239ee727bd68131e1fd0652d4e21e0c/src/MadsHelp.jl#L91">Mads/src/MadsHelp.jl:91</a></p>
 <hr />
 <p><a id="method__islog.1" class="lexicon_definition"></a></p>
 <h4 id="islogmadsdataassociativek-v-parameterkeyabstractstring">islog(madsdata::Associative{K, V},  parameterkey::AbstractString) <a href="#method__islog.1">¶</a></h4>
@@ -1416,12 +1381,12 @@ The function can be provided as an external function in the MADS data dictionary
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-        <script src="../js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
