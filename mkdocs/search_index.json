@@ -2,8 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "", 
+            "text": "MADS", 
             "title": "Home"
+        }, 
+        {
+            "location": "/#mads", 
+            "text": "", 
+            "title": "MADS"
         }
     ]
 }
