@@ -67,6 +67,12 @@
                 <li class="toctree-l3"><a href="#mads-getting-started">MADS Getting Started</a></li>
                 
             
+                <li class="toctree-l3"><a href="#mads-command-line-execution">MADS Command-line execution</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#mads-documentation">MADS Documentation</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#mads-licensing-copyright">MADS Licensing &amp; Copyright</a></li>
                 
             
@@ -175,24 +181,28 @@ The code provides a series of alternative algorithms to perform each type of mod
 </ul>
 </li>
 <li>repos:<ul>
-<li><a href="http://gitlab.com/mads/Mads.jl">gitlab</a></li>
 <li><a href="http://github.com/madsjulia/Mads.jl">github</a></li>
+<li><a href="http://gitlab.com/mads/Mads.jl">gitlab</a></li>
 </ul>
 </li>
 <li>git:<ul>
-<li><code>git clone git@gitlab.com:mads/Mads.jl</code></li>
 <li><code>git clone git@github.com:madsjulia/Mads.jl</code></li>
 </ul>
 </li>
-<li>email: <a href="./mads@lanl.gov">mads@lanl.gov</a></li>
+<li>
+<ul>
+<li><code>git clone git@gitlab.com:mads/Mads.jl</code>
+   email: <a href="./mads@lanl.gov">mads@lanl.gov</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="mads-getting-started">MADS Getting Started</h2>
-<p>Install <a href="http://julialang.org">Julia</a> and <a href="http://github.com/madsjulia/Mads.jl">MADS</a> (<code>Pkg.add("Mads")</code>) using the installation instruction in the <code>README.md</code>.
-If you are not familiar with Julia an on-line class is recommended (e.g., <a href="http://samuelcolvin.github.io/JuliaByExample/">Julia By Example</a>, <a href="https://learnxinyminutes.com/docs/julia/">learn X in Y minutes</a>, <a href="http://bogumilkaminski.pl/files/julia_express.pdf">Julia Express</a>).
-You can also explore the examples in the <code>examples/learn_julia</code> directory of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples">github</a>).</p>
-<p>To start using MADS, initiate the Julia REPL and execute <code>import Mads</code> to load MADS modules.
-All the MADS analyses are based on a MADS data dictionary that defines the problem.
-The MADS data dictionary is typically loaded from a YAML MADS input file.
+<p>Install <a href="http://julialang.org">Julia</a> and <a href="http://github.com/madsjulia/Mads.jl">MADS</a> (<code>Pkg.add("Mads")</code>) using the installation instruction in the <code>README.md</code> (<a href="https://github.com/madsjulia/Mads.jl">see also</a>).
+If you are not familiar with Julia, checkout <a href="http://samuelcolvin.github.io/JuliaByExample/">Julia By Example</a>, <a href="https://learnxinyminutes.com/docs/julia/">learn X in Y minutes</a>, <a href="http://bogumilkaminski.pl/files/julia_express.pdf">Julia Express</a>).
+You can also explore the Julia examples in the <code>examples/learn_julia</code> directory of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples">github</a>).</p>
+<p>To start using MADS, initiate the Julia REPL and execute <code>import Mads</code> to load MADS modules.</p>
+<p>All the MADS analyses are based on a MADS data dictionary that defines the problem.</p>
+<p>The MADS data dictionary is typically loaded from a YAML MADS input file.
 The loading of a MADS file can be executed as follows:</p>
 <p><code>madsdata = Mads.loadmadsfile("&lt;input_file_name&gt;.mads")</code></p>
 <p>For example, you can execute:</p>
@@ -202,7 +212,7 @@ The loading of a MADS file can be executed as follows:</p>
 <ul>
 <li><code>Parameters</code> : lists of model parameters</li>
 <li><code>Observations</code> : lists of model observations</li>
-<li><code>Model</code> : defines a model to predict model observations using model parameters</li>
+<li><code>Model</code> : defines a model to predict the model observations using the model parameters</li>
 </ul>
 <p>The file <code>internal-linear.mads</code> looks like this:</p>
 <pre><code>Parameters:
@@ -216,8 +226,8 @@ Observations:
 Model: internal-linear.jl
 </code></pre>
 
-<p>In this case there are two parameters, <code>a</code> and <code>b</code>, defining a linear model, <code>f(t) = a * t + b</code>, described in <code>internal-linearmodel.jl</code>.</p>
-<p>The Julia file <code>internal-linearmodel.jl</code> is specified under <code>Model</code> in the MADS data dictionary.</p>
+<p>In this case, there are two parameters, <code>a</code> and <code>b</code>, defining a linear model, <code>f(t) = a * t + b</code>, described in <code>internal-linearmodel.jl</code>.</p>
+<p>The Julia file <code>internal-linearmodel.jl</code> is specified under <code>Model</code> in the MADS data dictionary above.</p>
 <p>Execute:</p>
 <p><code>Mads.showallparameters(madsdata)</code> to show all the parameters.</p>
 <p><code>Mads.showobservations(madsdata)</code> to list all the observations.</p>
@@ -230,7 +240,16 @@ Model: internal-linear.jl
 </ul>
 <p>More complicated analyses will require additional information to be provided in the MADS data dictionary.
 Examples are given in the <code>examples</code> subdirectories of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples">github</a>).</p>
-<p>All the available MADS functions are described at <a href="http://madsjulia.github.io/Mads.jl">madsjulia.github.io</a></p>
+<h2 id="mads-command-line-execution">MADS Command-line execution</h2>
+<p>MADS can be executed at the command line using <code>madsjl.jl</code>. Link this file in a directory in your search <code>PATH</code>.</p>
+<p>For example, using <code>madsjl.jl</code> you can execute:</p>
+<pre><code>madsjl.jl diff internal-linear.mads internal-parabola.mads
+madsjl.jl internal-parabola.mads forward efast
+</code></pre>
+
+<p>in the <code>examples/getting_started</code> subdirectory of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples/getting_started">github</a>).</p>
+<h2 id="mads-documentation">MADS Documentation</h2>
+<p>All the available MADS modules and functions are described at <a href="http://madsjulia.github.io/Mads.jl">madsjulia.github.io</a></p>
 <h2 id="mads-licensing-copyright">MADS Licensing &amp; Copyright</h2>
 <p>Execute <code>@doc Mads</code> or check the file <code>COPYING</code> to see the licensing &amp; copyright information.</p>
               
@@ -280,5 +299,5 @@ Examples are given in the <code>examples</code> subdirectories of the <code>Mads
 
 <!--
 MkDocs version : 0.15.0
-Build Date UTC : 2016-01-30 14:33:29.865167
+Build Date UTC : 2016-01-31 19:51:25.715164
 -->
