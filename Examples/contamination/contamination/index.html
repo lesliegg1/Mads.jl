@@ -8,7 +8,7 @@
   
   <meta name="author" content="Velimir monty Vesselinov">
   
-  <title>Bayesian Sampling - MADS</title>
+  <title>Contaminant Transport - MADS</title>
   
 
   <link rel="shortcut icon" href="../../../mads-favicon.ico">
@@ -25,9 +25,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Bayesian Sampling";
-    var mkdocs_page_input_path = "Examples/bayesian_sampling/bayesian_sampling.md";
-    var mkdocs_page_url = "/Examples/bayesian_sampling/bayesian_sampling/";
+    var mkdocs_page_name = "Contaminant Transport";
+    var mkdocs_page_input_path = "Examples/contamination/contamination.md";
+    var mkdocs_page_url = "/Examples/contamination/contamination/";
   </script>
   
   <script src="../../../js/jquery-2.1.1.min.js"></script>
@@ -98,32 +98,38 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Bayesian Sampling</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#bayesian-sampling">Bayesian Sampling</a></li>
-                
-                    <li><a class="toctree-l4" href="#model-setup">Model setup</a></li>
-                
-                    <li><a class="toctree-l4" href="#prior-spaghetti-plots">Prior spaghetti plots</a></li>
-                
-                    <li><a class="toctree-l4" href="#model-calibration-match">Model calibration match</a></li>
-                
-                    <li><a class="toctree-l4" href="#bayesian-sampling-results">Bayesian sampling results</a></li>
-                
-                    <li><a class="toctree-l4" href="#posterior-spaghetti-plots">Posterior spaghetti plots</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../bayesian_sampling/bayesian_sampling/">Bayesian Sampling</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../contamination/contamination/">Contaminant Transport</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Contaminant Transport</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#analysis-of-contaminant-transport-in-an-aquifer">Analysis of contaminant transport in an aquifer</a></li>
+                
+                    <li><a class="toctree-l4" href="#model-setup">Model setup</a></li>
+                
+                    <li><a class="toctree-l4" href="#unknown-model-parameters">Unknown model parameters</a></li>
+                
+                    <li><a class="toctree-l4" href="#reduced-model-setup">Reduced model setup</a></li>
+                
+                    <li><a class="toctree-l4" href="#example-model-solution">Example model solution</a></li>
+                
+                    <li><a class="toctree-l4" href="#calibration-match-between-observations-and-model-predictions">Calibration match between observations and model predictions</a></li>
+                
+                    <li><a class="toctree-l4" href="#local-sensitivity-analysis">Local sensitivity analysis</a></li>
+                
+                    <li><a class="toctree-l4" href="#global-sensitivity-analysis">Global sensitivity analysis</a></li>
+                
+                    <li><a class="toctree-l4" href="#bayesian-sensitivity-analysis">Bayesian sensitivity analysis</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -249,7 +255,7 @@
         
       
     
-    <li>Bayesian Sampling</li>
+    <li>Contaminant Transport</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -263,61 +269,68 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="bayesian-sampling">Bayesian Sampling</h2>
-<p>All the figures below are generated using <code>examples/bayesian_sampling/bayesian_sampling.jl</code>.</p>
+                <h2 id="analysis-of-contaminant-transport-in-an-aquifer">Analysis of contaminant transport in an aquifer</h2>
 <h3 id="model-setup">Model setup</h3>
-<p><img alt="" src="../w01-problemsetup.svg" /></p>
+<p><img alt="" src="../w01-all_wells-problemsetup.svg" /></p>
+<p>There are 20 monitoring wells.
+Each well has 2 measurement ports: shallow (3 m below the water table labeled <code>a</code>) and deep (33 m below the water table labeled <code>b</code>).
+Contaminant concentrations are observed for 50 years at each well.
+The contaminant transport is solved using the <code>Anasol</code> package in Mads.</p>
+<h3 id="unknown-model-parameters">Unknown model parameters</h3>
 <ul>
-<li>
-<p>Contaminant source (orange rectangle)</p>
+<li>Start time of contaminant release <script type="math/tex">t_0</script>
 </li>
-<li>
-<p>3 monitoring wells</p>
+<li>End time of contaminant release <script type="math/tex">t_1</script>
+</li>
+<li>Advective pore velocity <script type="math/tex">v</script>
 </li>
 </ul>
-<h3 id="prior-spaghetti-plots">Prior spaghetti plots</h3>
-<p>Spaghetti plots of 100 model runs representing the prior model prediction uncertainties at the 3 monitoring wells.</p>
-<h4 id="joint-spaghetti-plots">Joint spaghetti plots</h4>
-<p>All model parameters are changed simultaneously within their prior uncertainty ranges.</p>
-<p><img alt="" src="../w01-prior-100-spaghetti.png" /></p>
-<h4 id="individual-spaghetti-plots">Individual spaghetti plots</h4>
-<p>A single model parameter is changed at a time.</p>
-<p><strong>Source <script type="math/tex">x</script> location</strong></p>
-<p><img alt="" src="../w01-prior-source1_x-100-spaghetti.png" /></p>
-<p><strong>Source <script type="math/tex">y</script> location</strong></p>
-<p><img alt="" src="../w01-prior-source1_y-100-spaghetti.png" /></p>
-<p><strong>Source size along <script type="math/tex">x</script> axis</strong></p>
-<p><img alt="" src="../w01-prior-source1_dx-100-spaghetti.png" /></p>
-<p><strong>Source size along <script type="math/tex">y</script> axis</strong></p>
-<p><img alt="" src="../w01-prior-source1_dx-100-spaghetti.png" /></p>
-<p><strong>Source release time <script type="math/tex">t_0</script></strong></p>
-<p><img alt="" src="../w01-prior-source1_t0-100-spaghetti.png" /></p>
-<p><strong>Source termination time <script type="math/tex">t_1</script></strong></p>
-<p><img alt="" src="../w01-prior-source1_t1-100-spaghetti.png" /></p>
-<h3 id="model-calibration-match">Model calibration match</h3>
-<p><img alt="" src="../w01-match.svg" /></p>
-<h3 id="bayesian-sampling-results">Bayesian sampling results</h3>
-<p><img alt="" src="../w01-bayes.png" /></p>
-<h3 id="posterior-spaghetti-plots">Posterior spaghetti plots</h3>
-<p>Spaghetti plots of 1000 model predictions representing the posterior model uncertainties at the 3 monitoring wells.</p>
-<h4 id="joint-spaghetti-plots_1">Joint spaghetti plots</h4>
-<p>All model parameters are changed simultaneously within their prior uncertainty ranges.</p>
-<p><img alt="" src="../w01-posterior-1000-spaghetti.png" /></p>
-<h4 id="individual-spaghetti-plots_1">Individual spaghetti plots</h4>
-<p>A single model parameter is changed at a time.</p>
-<p>Note that only the posterior uncertainties in the source release time (<script type="math/tex">t_0</script>)  and the source termination time (<script type="math/tex">t_1</script>) are producing large impact in the model predictions.</p>
-<p><strong>Source <script type="math/tex">x</script> location (all the 1000 model predictions are overlapping)</strong></p>
-<p><img alt="" src="../w01-posterior-source1_x-1000-spaghetti.png" /></p>
-<p><strong>Source <script type="math/tex">y</script> location (all the 1000 model predictions are overlapping</strong></p>
-<p><img alt="" src="../w01-posterior-source1_y-1000-spaghetti.png" /></p>
-<p><strong>Source size along <script type="math/tex">x</script> axis (all the 1000 model predictions are overlapping</strong></p>
-<p><img alt="" src="../w01-posterior-source1_dx-1000-spaghetti.png" /></p>
-<p><strong>Source size along <script type="math/tex">y</script> axis (all the 1000 model predictions are overlapping</strong></p>
-<p><img alt="" src="../w01-posterior-source1_dx-1000-spaghetti.png" /></p>
-<p><strong>Source release time <script type="math/tex">t_0</script></strong></p>
-<p><img alt="" src="../w01-posterior-source1_t0-1000-spaghetti.png" /></p>
-<p><strong>Source termination time <script type="math/tex">t_1</script></strong></p>
-<p><img alt="" src="../w01-posterior-source1_t1-1000-spaghetti.png" /></p>
+<h3 id="reduced-model-setup">Reduced model setup</h3>
+<p>Analysis of the data from only 2 monitoring locations: <code>w13a</code> and <code>w20a</code>.</p>
+<p><img alt="" src="../w01-w13a_w20a-problemsetup.svg" /></p>
+<h3 id="example-model-solution">Example model solution</h3>
+<p><img alt="" src="../w01-w13a_w20a-init-match.svg" /></p>
+<p>Model parameter values:</p>
+<ul>
+<li>
+<script type="math/tex">t_0 = 4</script>
+</li>
+<li>
+<script type="math/tex">t_1 = 15</script>
+</li>
+<li>
+<script type="math/tex">v = 40</script>
+</li>
+</ul>
+<h3 id="calibration-match-between-observations-and-model-predictions">Calibration match between observations and model predictions</h3>
+<p><img alt="" src="../w01-w13a_w20a-calib-match.svg" /></p>
+<h3 id="local-sensitivity-analysis">Local sensitivity analysis</h3>
+<p><img alt="" src="../ode-eigenmatrix.svg" /></p>
+<p><img alt="" src="../ode-eigenvalues.svg" /></p>
+<h3 id="global-sensitivity-analysis">Global sensitivity analysis</h3>
+<p><img alt="" src="../ode-SA-results.svg" /></p>
+<p>Probabilistic distribution of the prior parameter uncertainties are:</p>
+<ul>
+<li>
+<script type="math/tex">t_0</script> = Uniform(0, 10)</li>
+<li>
+<script type="math/tex">t_1</script> = Uniform(5, 40)</li>
+<li>
+<script type="math/tex">v</script> = LogUniform(0.1, 200)</li>
+</ul>
+<p><img alt="" src="../w01-w13a_w20a-source1_t0-10-spaghetti.svg" />
+<img alt="" src="../w01-w13a_w20a-source2_t1-10-spaghetti.svg" />
+<img alt="" src="../w01-w13a_w20a-vx-10-spaghetti.svg" /></p>
+<h3 id="bayesian-sensitivity-analysis">Bayesian sensitivity analysis</h3>
+<h4 id="prior-parameter-uncertainties">Prior parameter uncertainties</h4>
+<p><img alt="" src="../ode-prior-k-100-spaghetti.svg" /></p>
+<p><img alt="" src="../ode-prior-omega-100-spaghetti.svg" /></p>
+<h4 id="histogramsscatter-plots-of-bayesian-mcmc-results">Histograms/scatter plots of Bayesian MCMC results</h4>
+<p><img alt="" src="../ode-bayes.svg" /></p>
+<h4 id="posterior-parameter-uncertainties">Posterior parameter uncertainties</h4>
+<p>Note: parameter uncertainties are constrained by observation data</p>
+<p><img alt="" src="../ode-posterior-k-100-spaghetti.svg" /></p>
+<p><img alt="" src="../ode-posterior-omega-100-spaghetti.svg" /></p>
               
             </div>
           </div>
@@ -325,10 +338,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../contamination/contamination/" class="btn btn-neutral float-right" title="Contaminant Transport">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../ode/ode/" class="btn btn-neutral float-right" title="ODE Analysis">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../bigdt/source_termination/source_termination/" class="btn btn-neutral" title="Decision Analysis"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../bayesian_sampling/bayesian_sampling/" class="btn btn-neutral" title="Bayesian Sampling"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -356,10 +369,10 @@
           <a href="https://github.com/madsjulia/Mads.jl" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../bigdt/source_termination/source_termination/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../bayesian_sampling/bayesian_sampling/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../contamination/contamination/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../ode/ode/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
