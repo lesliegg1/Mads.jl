@@ -1,3 +1,0 @@
-import Mads
-
-Mads.test()
