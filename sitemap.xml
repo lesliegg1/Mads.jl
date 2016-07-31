@@ -70,7 +70,6 @@
     </url>
         
     
-
     
     <url>
      <loc>http://mads.readthedocs.io/MODEL_COUPLING/</loc>
@@ -86,17 +85,12 @@
      <changefreq>daily</changefreq>
     </url>
     
-
-    
     <url>
      <loc>http://mads.readthedocs.io/FUNCTIONS/</loc>
      <lastmod>2016-07-31</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
-
-    
-        
     <url>
      <loc>http://mads.readthedocs.io/Modules/Mads/</loc>
      <lastmod>2016-07-31</lastmod>
