@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>License - MADS</title>
+        <title>Testing & Verification - MADS</title>
       
       
       
-        <link rel="canonical" href="http://mads.readthedocs.io/COPYING/">
+        <link rel="canonical" href="http://mads.readthedocs.io/test/">
       
       
         <meta name="author" content="Velimir monty Vesselinov">
       
     
-    <meta property="og:url" content="http://mads.readthedocs.io/COPYING/">
+    <meta property="og:url" content="http://mads.readthedocs.io/test/">
     <meta property="og:title" content="MADS">
-    <meta property="og:image" content="http://mads.readthedocs.io/COPYING//../">
+    <meta property="og:image" content="http://mads.readthedocs.io/test//../">
     <meta name="apple-mobile-web-app-title" content="MADS">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -96,7 +96,7 @@
             
           </span>
         
-        License
+        Testing & Verification
       </div>
     </div>
     
@@ -180,7 +180,7 @@
           
             
   <li>
-    <a class="" title="Installation" href="../INSTALLATION/">
+    <a class="" title="Installation" href="../installation/">
       Installation
     </a>
     
@@ -189,7 +189,7 @@
           
             
   <li>
-    <a class="" title="Getting started" href="../GETTING_STARTED/">
+    <a class="" title="Getting started" href="../getting_started/">
       Getting started
     </a>
     
@@ -203,7 +203,7 @@
       
         
   <li>
-    <a class="" title="Setup" href="../EXAMPLES_SETUP/">
+    <a class="" title="Setup" href="../Examples/setup/">
       Setup
     </a>
     
@@ -270,7 +270,7 @@
           
             
   <li>
-    <a class="" title="Model Coupling" href="../MODEL_COUPLING/">
+    <a class="" title="Model Coupling" href="../model_coupling/">
       Model Coupling
     </a>
     
@@ -279,16 +279,29 @@
           
             
   <li>
-    <a class="" title="Testing & Verification" href="../TEST/">
+    <a class="current" title="Testing & Verification" href="./">
       Testing & Verification
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Testing &amp; Verification" href="#testing-verification">
+                Testing &amp; Verification
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
           
             
   <li>
-    <a class="" title="Functions" href="../FUNCTIONS/">
+    <a class="" title="Functions" href="../functions/">
       Functions
     </a>
     
@@ -360,7 +373,7 @@
           
             
   <li>
-    <a class="" title="Acknowledgments" href="../ACKNOWLEDGMENTS/">
+    <a class="" title="Acknowledgments" href="../acknowledgments/">
       Acknowledgments
     </a>
     
@@ -369,12 +382,9 @@
           
             
   <li>
-    <a class="current" title="License" href="./">
+    <a class="" title="License" href="../copying/">
       License
     </a>
-    
-      
-      
     
   </li>
 
@@ -403,13 +413,24 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>License</h1>
+            <h1>Testing & Verification</h1>
           
-          <p>Licensing: GPLv3: http://www.gnu.org/licenses/gpl-3.0.html</p>
-<p>Copyright 2016.  Los Alamos National Security, LLC.  All rights reserved.</p>
-<p>Copyright 2016.  Los Alamos National Security, LLC. This material was produced under U.S. Government contract DE-AC52-06NA25396 for Los Alamos National Laboratory (LANL), which is operated by Los Alamos National Security, LLC for the U.S. Department of Energy. The U.S. Government has rights to use, reproduce, and distribute this software.  NEITHER THE GOVERNMENT NOR LOS ALAMOS NATIONAL SECURITY, LLC MAKES ANY WARRANTY, EXPRESS OR IMPLIED, OR ASSUMES ANY LIABILITY FOR THE USE OF THIS SOFTWARE.  If software is modified to produce derivative works, such modified software should be clearly marked, so as not to confuse it with the version available from LANL.</p>
-<p>Additionally, this program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version. Accordingly, this program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
-<p>LA-CC-15-080; Copyright Number Assigned: C16008</p>
+          <h2 id="testing-verification">Testing &amp; Verification</h2>
+<p>MADS includes a series of test and verification problems. These are also provided as examples how to run the code and perform various types of data and model analyses. All the MADS examples can be found in the MADS repository: <a href="https://github.com/madsjulia/Mads.jl/tree/master/examples">github</a>.</p>
+<p>All the test and verification problems can be executed using:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">Mads</span>
+<span class="n">Mads</span><span class="o">.</span><span class="n">test</span><span class="p">()</span>
+</pre></div>
+
+
+<p>or</p>
+<div class="codehilite"><pre>Pkg.test(&quot;Mads&quot;)
+Pkg.test(&quot;Anasol&quot;)
+Pkg.test(&quot;BIGUQ&quot;)
+Pkg.test(&quot;ReusableFunctions&quot;)
+Pkg.test(&quot;MetaProgTools&quot;)
+Pkg.test(&quot;RobustPmap&quot;)
+</pre></div>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -426,7 +447,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../ACKNOWLEDGMENTS/" title="Acknowledgments">
+        <a href="../model_coupling/" title="Model Coupling">
           <span class="direction">
             Previous
           </span>
@@ -436,7 +457,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Acknowledgments
+                Model Coupling
               </div>
             </div>
           </div>
@@ -444,6 +465,22 @@
       
     </div>
     <div class="next">
+      
+        <a href="../functions/" title="Functions">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Functions
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
       
     </div>
   </nav>

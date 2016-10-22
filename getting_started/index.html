@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Acknowledgments - MADS</title>
+        <title>Getting started - MADS</title>
       
       
       
-        <link rel="canonical" href="http://mads.readthedocs.io/ACKNOWLEDGMENTS/">
+        <link rel="canonical" href="http://mads.readthedocs.io/getting_started/">
       
       
         <meta name="author" content="Velimir monty Vesselinov">
       
     
-    <meta property="og:url" content="http://mads.readthedocs.io/ACKNOWLEDGMENTS/">
+    <meta property="og:url" content="http://mads.readthedocs.io/getting_started/">
     <meta property="og:title" content="MADS">
-    <meta property="og:image" content="http://mads.readthedocs.io/ACKNOWLEDGMENTS//../">
+    <meta property="og:image" content="http://mads.readthedocs.io/getting_started//../">
     <meta name="apple-mobile-web-app-title" content="MADS">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -96,7 +96,7 @@
             
           </span>
         
-        Acknowledgments
+        Getting started
       </div>
     </div>
     
@@ -180,7 +180,7 @@
           
             
   <li>
-    <a class="" title="Installation" href="../INSTALLATION/">
+    <a class="" title="Installation" href="../installation/">
       Installation
     </a>
     
@@ -189,9 +189,40 @@
           
             
   <li>
-    <a class="" title="Getting started" href="../GETTING_STARTED/">
+    <a class="current" title="Getting started" href="./">
       Getting started
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="MADS Getting Started" href="#mads-getting-started">
+                MADS Getting Started
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="MADS Command-line execution" href="#mads-command-line-execution">
+                MADS Command-line execution
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="MADS Documentation" href="#mads-documentation">
+                MADS Documentation
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="MADS Licensing &amp; Copyright" href="#mads-licensing-copyright">
+                MADS Licensing &amp; Copyright
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -203,7 +234,7 @@
       
         
   <li>
-    <a class="" title="Setup" href="../EXAMPLES_SETUP/">
+    <a class="" title="Setup" href="../Examples/setup/">
       Setup
     </a>
     
@@ -270,7 +301,7 @@
           
             
   <li>
-    <a class="" title="Model Coupling" href="../MODEL_COUPLING/">
+    <a class="" title="Model Coupling" href="../model_coupling/">
       Model Coupling
     </a>
     
@@ -279,7 +310,7 @@
           
             
   <li>
-    <a class="" title="Testing & Verification" href="../TEST/">
+    <a class="" title="Testing & Verification" href="../test/">
       Testing & Verification
     </a>
     
@@ -288,7 +319,7 @@
           
             
   <li>
-    <a class="" title="Functions" href="../FUNCTIONS/">
+    <a class="" title="Functions" href="../functions/">
       Functions
     </a>
     
@@ -360,21 +391,16 @@
           
             
   <li>
-    <a class="current" title="Acknowledgments" href="./">
+    <a class="" title="Acknowledgments" href="../acknowledgments/">
       Acknowledgments
     </a>
-    
-      
-        
-      
-      
     
   </li>
 
           
             
   <li>
-    <a class="" title="License" href="../COPYING/">
+    <a class="" title="License" href="../copying/">
       License
     </a>
     
@@ -405,13 +431,66 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="acknowledgments">ACKNOWLEDGMENTS</h1>
-<p>MADS development has been supported by:</p>
+            <h1>Getting started</h1>
+          
+          <h2 id="mads-getting-started">MADS Getting Started</h2>
+<p>Install <a href="http://julialang.org">Julia</a> and <a href="http://github.com/madsjulia/Mads.jl">MADS</a> (<code>Pkg.add("Mads")</code>) using the installation instruction in the <code>README.md</code> (<a href="https://github.com/madsjulia/Mads.jl">see also</a>).
+If you are not familiar with Julia, checkout <a href="http://samuelcolvin.github.io/JuliaByExample/">Julia By Example</a>, <a href="https://learnxinyminutes.com/docs/julia/">learn X in Y minutes</a>, <a href="http://bogumilkaminski.pl/files/julia_express.pdf">Julia Express</a>).
+You can also explore the Julia examples in the <code>examples/learn_julia</code> directory of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples/learn_julia">github</a>).</p>
+<p>To start using MADS, initiate the Julia REPL and execute <code>import Mads</code> to load MADS modules.</p>
+<p>All the MADS analyses are based on a MADS problem dictionary that defines the problem.</p>
+<p>The MADS problem dictionary is typically loaded from a YAML MADS input file.
+The loading of a MADS file can be executed as follows:</p>
+<p><code>madsdata = Mads.loadmadsfile("&lt;input_file_name&gt;.mads")</code></p>
+<p>For example, you can execute:</p>
+<p><code>madsdata = Mads.loadmadsfile(Mads.madsdir * "/../examples/getting_started/internal-linear.mads")</code></p>
+<p>The file <code>internal-linear.mads</code> is located in <code>examples/getting_started</code> directory of the <code>Mads.jl</code> repository.</p>
+<p>Typically, the MADS problem dictionary includes several classes:</p>
 <ul>
-<li>Los Alamos National Laboratory Environmental Programs (LANL-ADEP)</li>
-<li>Los Alamos National Laboratory Exploratory Research (LANL-ER)</li>
-<li>Department of Energy (DOE) DiaMonD project: An Integrated Multifaceted Approach to Mathematics at the Interfaces of Data, Models, and Decisions</li>
+<li><code>Parameters</code> : lists of model parameters</li>
+<li><code>Observations</code> : lists of model observations</li>
+<li><code>Model</code> : defines a model to predict the model observations using the model parameters</li>
 </ul>
+<p>The file <code>internal-linear.mads</code> looks like this:</p>
+<div class="codehilite"><pre>Parameters:
+- a : { init:  1, dist: &quot;Uniform(-10, 10)&quot; }
+- b : { init: -1, dist: &quot;Uniform(-10, 10)&quot; }
+Observations:
+- o1: { target: -3 }
+- o2: { target:  1 }
+- o3: { target:  5 }
+- o4: { target:  9 }
+Model: internal-linear.jl
+</pre></div>
+
+
+<p>In this case, there are two parameters, <code>a</code> and <code>b</code>, defining a linear model, <code>f(t) = a * t + b</code>, described in <code>internal-linearmodel.jl</code>.</p>
+<p>The Julia file <code>internal-linearmodel.jl</code> is specified under <code>Model</code> in the MADS problem dictionary above.</p>
+<p>Execute:</p>
+<p><code>Mads.showallparameters(madsdata)</code> to show all the parameters.</p>
+<p><code>Mads.showobservations(madsdata)</code> to list all the observations.</p>
+<p>MADS can perform various types of analyses:</p>
+<ul>
+<li><code>Mads.forward(madsdata)</code> will execute forward model simulation based on the initial parameter values.</li>
+<li><code>saresults = Mads.efast(madsdata)</code> will perform eFAST sensitivity analysis of the model parameters against the model observations as defined in the MADS problem dictionary.</li>
+<li><code>optparam, iaresults = Mads.calibrate(madsdata)</code> will perform calibration (inverse analysis) of the model parameters to reproduce the model observations as defined in the MADS problem dictionary; in this case, the calibration uses Levenberg-Marquardt optimization.</li>
+<li><code>Mads.forward(madsdata, optparam) will perform forward model simulation based on the parameter values</code>optparam` estimated by the inverse analyses above.</li>
+</ul>
+<p>More complicated analyses will require additional information to be provided in the MADS problem dictionary.
+Examples are given in the <code>examples</code> subdirectories of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples">github</a>).</p>
+<h2 id="mads-command-line-execution">MADS Command-line execution</h2>
+<p>MADS can be executed at the command line using <code>madsjl.jl</code>. Link this file in a directory in your search <code>PATH</code>.</p>
+<p>For example, using <code>madsjl.jl</code> you can execute:</p>
+<div class="codehilite"><pre>madsjl.jl diff internal-linear.mads internal-parabola.mads
+madsjl.jl internal-parabola.mads forward efast
+</pre></div>
+
+
+<p>in the <code>examples/getting_started</code> subdirectory of the <code>Mads.jl</code> repository (<a href="https://github.com/madsjulia/Mads.jl/tree/master/examples/getting_started">github</a>).</p>
+<h2 id="mads-documentation">MADS Documentation</h2>
+<p>All the available MADS modules and functions are described at <a href="http://madsjulia.github.io/Mads.jl">github</a> and <a href="http://madsjl.readthedocs.org/en/latest/">readthedocs</a></p>
+<h2 id="mads-licensing-copyright">MADS Licensing &amp; Copyright</h2>
+<p>Check the files <code>COPYING</code> and <code>LICENSE</code> to see the licensing &amp; copyright information.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -428,7 +507,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../Modules/RobustPmap/" title="RobustPmap">
+        <a href="../installation/" title="Installation">
           <span class="direction">
             Previous
           </span>
@@ -438,7 +517,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                RobustPmap
+                Installation
               </div>
             </div>
           </div>
@@ -447,14 +526,14 @@
     </div>
     <div class="next">
       
-        <a href="../COPYING/" title="License">
+        <a href="../Examples/setup/" title="Setup">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                License
+                Setup
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
