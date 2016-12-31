@@ -116,6 +116,18 @@
     </url>
         
     <url>
+     <loc>http://mads.readthedocs.io/Modules/AffineInvariantMCMC/</loc>
+     <lastmod>2016-12-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://mads.readthedocs.io/Modules/GeostatInversion/</loc>
+     <lastmod>2016-12-31</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>http://mads.readthedocs.io/Modules/ReusableFunctions/</loc>
      <lastmod>2016-12-31</lastmod>
      <changefreq>daily</changefreq>
