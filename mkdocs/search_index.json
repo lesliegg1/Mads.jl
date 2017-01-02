@@ -467,7 +467,7 @@
         }, 
         {
             "location": "/Notebooks/", 
-            "text": "Jupyter Notebooks\n\n\nContaminant transport \nDownload\n \nView", 
+            "text": "Jupyter Notebooks\n\n\nContaminant transport\n: \nDownload\n \nJupyter", 
             "title": "Notebooks"
         }, 
         {
@@ -476,9 +476,9 @@
             "title": "Jupyter Notebooks"
         }, 
         {
-            "location": "/Notebooks/#contaminant-transport-download-view", 
+            "location": "/Notebooks/#contaminant-transport-download-jupyter", 
             "text": "", 
-            "title": "Contaminant transport Download View"
+            "title": "Contaminant transport: Download Jupyter"
         }, 
         {
             "location": "/Examples/", 
