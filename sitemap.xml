@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>http://mads.readthedocs.io/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,7 @@
 
     
     <url>
-     <loc>http://mads.readthedocs.io/installation/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/installation/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -19,77 +19,7 @@
 
     
     <url>
-     <loc>http://mads.readthedocs.io/getting_started/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/setup/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/bigdt/source_termination/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/infogap/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/bayesian_sampling/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/blind_source_separation/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/contamination/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Examples/ode/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-    <url>
-     <loc>http://mads.readthedocs.io/model_coupling/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>http://mads.readthedocs.io/test/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>http://mads.readthedocs.io/functions/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/getting_started/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -98,49 +28,43 @@
     
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/Mads/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/setup/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/BIGUQ/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/bigdt/source_termination/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/Anasol/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/infogap/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/AffineInvariantMCMC/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/bayesian_sampling/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/GeostatInversion/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/blind_source_separation/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/ReusableFunctions/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/contamination/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://mads.readthedocs.io/Modules/MetaProgTools/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://mads.readthedocs.io/Modules/RobustPmap/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/ode/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -149,7 +73,7 @@
 
     
     <url>
-     <loc>http://mads.readthedocs.io/acknowledgments/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Notebooks/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -157,7 +81,91 @@
 
     
     <url>
-     <loc>http://mads.readthedocs.io/copying/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/model_coupling/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/test/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/functions/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/Mads/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/BIGUQ/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/Anasol/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/AffineInvariantMCMC/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/GeostatInversion/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/ReusableFunctions/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/MetaProgTools/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/RobustPmap/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/acknowledgments/</loc>
+     <lastmod>2017-01-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/copying/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
