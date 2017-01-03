@@ -26,62 +26,16 @@
     
 
     
-        
     <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/setup/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Examples/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/bigdt/source_termination/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/infogap/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/bayesian_sampling/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/blind_source_separation/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/contamination/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/ode/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
     
 
     
     <url>
      <loc>http://madsjulia.github.io/Mads.jl/Notebooks/</loc>
-     <lastmod>2017-01-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Examples/</loc>
      <lastmod>2017-01-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
