@@ -467,7 +467,7 @@
         }, 
         {
             "location": "/Notebooks/", 
-            "text": "Jupyter Notebooks\n\n\nContaminant transport\n -:- \ndownload\n \njupyter\n\n\nBlind Source Separation\n -:- \ndownload\n \njupyter", 
+            "text": "Jupyter Notebooks\n\n\nContaminant transport\n \n \ndownload\n -:- \nview\n\n\nBlind Source Separation\n \ndownload\n -:- \nview", 
             "title": "Notebooks"
         }, 
         {
@@ -476,14 +476,14 @@
             "title": "Jupyter Notebooks"
         }, 
         {
-            "location": "/Notebooks/#contaminant-transport-download-jupyter", 
+            "location": "/Notebooks/#contaminant-transport-download-view", 
             "text": "", 
-            "title": "Contaminant transport -:- download jupyter"
+            "title": "Contaminant transport &gt;&gt;&gt; download -:- view"
         }, 
         {
-            "location": "/Notebooks/#blind-source-separation-download-jupyter", 
+            "location": "/Notebooks/#blind-source-separation-download-view", 
             "text": "", 
-            "title": "Blind Source Separation -:- download jupyter"
+            "title": "Blind Source Separation &gt;&gt;&gt;download -:- view"
         }, 
         {
             "location": "/Examples/", 
