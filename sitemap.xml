@@ -161,6 +161,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/SVR/</loc>
+     <lastmod>2017-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

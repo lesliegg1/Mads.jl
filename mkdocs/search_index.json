@@ -651,6 +651,16 @@
             "title": "RobustPmap.jl"
         }, 
         {
+            "location": "/Modules/SVR/", 
+            "text": "SVR.jl\n\n\nDocumentation for SVR.jl module (all functions):\n\n\n#\n\n\nSVR.freemodel\n \n \nMethod\n.\n\n\nFree a libSVM model\n\n\nsource\n\n\n#\n\n\nSVR.predict\n \n \nMethod\n.\n\n\nPredict based on a libSVM model\n\n\nsource\n\n\n#\n\n\nSVR.readlibsvmfile\n \n \nMethod\n.\n\n\nRead a libSVM file\n\n\nsource\n\n\n#\n\n\nSVR.savemodel\n \n \nMethod\n.\n\n\nSave a libSVM model\n\n\nsource\n\n\n#\n\n\nSVR.train\n \n \nMethod\n.\n\n\nTrain based on a libSVM model\n\n\nsource", 
+            "title": "SVR"
+        }, 
+        {
+            "location": "/Modules/SVR/#svrjl", 
+            "text": "Documentation for SVR.jl module (all functions):  #  SVR.freemodel     Method .  Free a libSVM model  source  #  SVR.predict     Method .  Predict based on a libSVM model  source  #  SVR.readlibsvmfile     Method .  Read a libSVM file  source  #  SVR.savemodel     Method .  Save a libSVM model  source  #  SVR.train     Method .  Train based on a libSVM model  source", 
+            "title": "SVR.jl"
+        }, 
+        {
             "location": "/acknowledgments/", 
             "text": "ACKNOWLEDGMENTS\n\n\nMADS development has been supported by:\n\n\n\n\nLos Alamos National Laboratory Environmental Programs (LANL-ADEP)\n\n\nLos Alamos National Laboratory Exploratory Research (LANL-ER)\n\n\nDepartment of Energy (DOE) DiaMonD project: An Integrated Multifaceted Approach to Mathematics at the Interfaces of Data, Models, and Decisions", 
             "title": "Acknowledgments"
