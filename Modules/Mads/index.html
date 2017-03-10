@@ -665,7 +665,7 @@ Mads.bayessampling(madsdata, numsequences; nsteps=1000, burnin=100, thinning=1, 
 <li><code>minimumdict</code> : model parameter dictionary with the optimal values at the minimum</li>
 <li><code>results</code> : optimization algorithm results (e.g. results.minimizer)</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/54189e22c39471e210067d99b263e28811144ed6/src/MadsCalibrate.jl#L106-L131' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/54189e22c39471e210067d99b263e28811144ed6/src/MadsCalibrate.jl#L109-L134' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.calibraterandom' href='#Mads.calibraterandom'>#</a>
 <strong><code>Mads.calibraterandom</code></strong> &mdash; <em>Function</em>.</p>
 <p>Calibrate with random initial guesses</p>
@@ -696,6 +696,10 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 <li><code>bestresult</code> : optimal results tuple: [1] model parameter dictionary with the optimal values at the minimum; [2] optimization algorithm results (e.g. bestresult[2].minimizer)</li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/54189e22c39471e210067d99b263e28811144ed6/src/MadsCalibrate.jl#L3-L32' class='documenter-source'>source</a><br></p>
+<p><a id='Mads.calibraterandom_parallel' href='#Mads.calibraterandom_parallel'>#</a>
+<strong><code>Mads.calibraterandom_parallel</code></strong> &mdash; <em>Function</em>.</p>
+<p>Calibrate with random initial guesses in parallel</p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/54189e22c39471e210067d99b263e28811144ed6/src/MadsCalibrate.jl#L75-L77' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.checkmodeloutputdirs-Tuple{Associative}' href='#Mads.checkmodeloutputdirs-Tuple{Associative}'>#</a>
 <strong><code>Mads.checkmodeloutputdirs</code></strong> &mdash; <em>Method</em>.</p>
 <p>Check the directories where model outputs should be saved for MADS</p>
