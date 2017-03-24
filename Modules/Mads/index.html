@@ -1939,10 +1939,6 @@ d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
 <li><code>m::Array{String,1}</code></li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/b31e4f767468eb0466c9b467b5b8ab656720704b/src/MadsDocumentation.jl#L97-L101' class='documenter-source'>source</a><br></p>
-<p><a id='Mads.getfunctionargumentsold-Tuple{Function}' href='#Mads.getfunctionargumentsold-Tuple{Function}'>#</a>
-<strong><code>Mads.getfunctionargumentsold</code></strong> &mdash; <em>Method</em>.</p>
-<p>Get function arguments</p>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/b31e4f767468eb0466c9b467b5b8ab656720704b/src/MadsDocumentation.jl#L109-L111' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getfunctionkeywords' href='#Mads.getfunctionkeywords'>#</a>
 <strong><code>Mads.getfunctionkeywords</code></strong> &mdash; <em>Function</em>.</p>
 <p>Get function keywords</p>
@@ -1960,10 +1956,6 @@ d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
 <li><code>m::Array{String,1}</code></li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/b31e4f767468eb0466c9b467b5b8ab656720704b/src/MadsDocumentation.jl#L103-L107' class='documenter-source'>source</a><br></p>
-<p><a id='Mads.getfunctionkeywordsold-Tuple{Function}' href='#Mads.getfunctionkeywordsold-Tuple{Function}'>#</a>
-<strong><code>Mads.getfunctionkeywordsold</code></strong> &mdash; <em>Method</em>.</p>
-<p>Get function keywords</p>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/b31e4f767468eb0466c9b467b5b8ab656720704b/src/MadsDocumentation.jl#L133-L135' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getimportantsamples-Tuple{Array,Array{T,1}}' href='#Mads.getimportantsamples-Tuple{Array,Array{T,1}}'>#</a>
 <strong><code>Mads.getimportantsamples</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get important samples</p>
@@ -3840,18 +3832,6 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <p><a id='Mads.plotmass-Tuple{Array{Float64,1},Array{Float64,1},Array{Float64,1},String}' href='#Mads.plotmass-Tuple{Array{Float64,1},Array{Float64,1},Array{Float64,1},String}'>#</a>
 <strong><code>Mads.plotmass</code></strong> &mdash; <em>Method</em>.</p>
 <p>Plot injected/reduced contaminant mass</p>
-<ul>
-<li><code>Mads.plotmass(lambda, mass_injected, mass_reduced, filename="file_name")</code></li>
-</ul>
-<p>Arguments:</p>
-<ul>
-<li><code>lambda</code> : array with all the lambda values</li>
-<li><code>mass_injected</code> : array with associated total injected mass</li>
-<li><code>mass_reduced</code> : array with associated total reduced mass</li>
-<li><code>filename</code> : output filename for the generated plot</li>
-<li><code>format</code> : output plot format (<code>png</code>, <code>pdf</code>, etc.)</li>
-</ul>
-<p>Dumps: image file with name <code>filename</code> and in specified <code>format</code></p>
 <p><strong>Mads.plotmass</strong></p>
 <p>Methods</p>
 <ul>
@@ -3866,8 +3846,22 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>format</code></li>
+<li>
+<p><code>format</code></p>
+</li>
+<li>
+<p><code>Mads.plotmass(lambda, mass_injected, mass_reduced, filename="file_name")</code></p>
+</li>
 </ul>
+<p>Arguments:</p>
+<ul>
+<li><code>lambda</code> : array with all the lambda values</li>
+<li><code>mass_injected</code> : array with associated total injected mass</li>
+<li><code>mass_reduced</code> : array with associated total reduced mass</li>
+<li><code>filename</code> : output filename for the generated plot</li>
+<li><code>format</code> : output plot format (<code>png</code>, <code>pdf</code>, etc.)</li>
+</ul>
+<p>Dumps: image file with name <code>filename</code> and in specified <code>format</code></p>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/b31e4f767468eb0466c9b467b5b8ab656720704b/src/MadsAnasolPlot.jl#L3-L19' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.plotmatches' href='#Mads.plotmatches'>#</a>
 <strong><code>Mads.plotmatches</code></strong> &mdash; <em>Function</em>.</p>
