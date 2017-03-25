@@ -247,12 +247,12 @@
         }, 
         {
             "location": "/Examples/blind_source_separation/", 
-            "text": "Blind Source Separation\n\n\nFrequently there are several different physical phenomena or mechanisms (sources) than may can cause transients in the observed data.\n\n\nFor example, in the case of water-level (hydraulic pressure) data, these might me barometric pressure fluctuations, tidal effects, pumping effects, etc.\nIn the case of geochemical concentrations, these may represent a mixture of different groundwater types (sources) with different initial geochemical compositions.\n\n\nThe separation of the different signals observed in the data is important for conceptualization of the site conditions.\n\n\nBelow a series of synthetic examples are presented how transient data can be used to identify (separate/unmix) the original signals.\n\n\nMore complicated Blind Source Separation (BSS) analyses can be found in:\n\n\nAlexandrov, Boian S., and Velimir V. Vesselinov. \"Blind source separation for groundwater pressure analysis based on nonnegative matrix factorization.\" Water Resources Research, \ndoi: 0.1002/2013WR015037\n, 50.9, 7332-7347, 2014.\n\n\nAll the figures below are generated using \nexamples/blind_source_separation.jl\n. BSS can be performed using different methods. The examples below use the \nIpopt\n implementation in the \nJuMP\n Julia module.\n\n\nSources generated using sine functions and random noise\n\n\nOriginal sources (assumed unknown)\n\n\nLet us assume there are 3 unknown sources (physical processes/phenomena) causing transients in some observable state variable.\nLet us assume the transients associated with these 3 unknown sources look like this:\n\n\n\n\nMixed sources observed at 4 different monitoring locations (representing 4 different signals or observation streams)\n\n\nLet us assume that the transients of the original unknown sources are observed as a mixture at 4 different monitoring locations (observation points).\nLet us assume that the mixtures looks like this:\n\n\n\n\nReconstructed (unmixed) original sources based on the observed data\n\n\nWe want to find the original unknown sources based on the observed mixtures above.\nBSS method in MADS allow us to do this.\nFrom the mixture at the 4 monitoring locations (observation points), we can reconstruct (unmix) original sources almost perfectly:\n\n\n\n\nSources generated using sine functions\n\n\nOriginal sources (assumed unknown)\n\n\n\n\nMixed sources observed at 4 different monitoring locations (representing 4 different signals or observation streams)\n\n\n\n\nReconstructed (unmixed) sources based on the observed data\n\n\n\n\nSources generated using random noise\n\n\nOriginal sources (assumed unknown)\n\n\n\n\nMixed sources observed at 4 different monitoring locations (representing 4 different signals or observation streams)\n\n\n\n\nReconstructed (unmixed) original sources based on the observed data", 
+            "text": "Blind Source Separation\n\n\nFrequently there are several different physical phenomena or mechanisms (sources/signals) than may can cause transients in the observed data.\n\n\nFor example, in the case of water-level (hydraulic pressure) data, these might be barometric pressure fluctuations, tidal effects, pumping effects, etc.\nIn the case of geochemical concentrations, these may represent a mixture of different groundwater types (groundwater sources) with different initial geochemical compositions.\n\n\nThe separation of the different signals observed in the data is important for many tasks including model conceptualization and setup.\n\n\nBelow a series of synthetic examples are presented how transient data can be used to identify (separate/unmix) the original signals.\n\n\nMore complicated Blind Source Separation (BSS) analyses can be found in:\n\n\nAlexandrov, Boian S., and Velimir V. Vesselinov. \"Blind source separation for groundwater pressure analysis based on nonnegative matrix factorization.\" Water Resources Research, \ndoi: 0.1002/2013WR015037\n, 50.9, 7332-7347, 2014.\n\n\nAll the figures below are generated using \nexamples/blind_source_separation.jl\n. BSS can be performed using different methods.\nThe examples below use the \nIpopt\n implementation in the \nJuMP\n Julia module.\n\n\nSources generated using sine functions and random noise\n\n\nOriginal signals (assumed unknown)\n\n\nLet us assume there are 3 unknown sources (physical processes/phenomena) causing transients in some observable state variable.\nLet us assume the transients (signals) associated with these 3 unknown sources look like this:\n\n\n\n\nMixed signals observed at 4 different monitoring locations (representing 4 different observation streams)\n\n\nLet us assume that the transients of the original unknown sources are observed as a mixture at 4 different monitoring locations (observation points).\nLet us assume that the mixtures looks like this:\n\n\n\n\nReconstructed (unmixed) original signals (sources) based on the observed data\n\n\nWe want to find the original unknown signals (sources) based on the observed mixtures above.\nBSS method in MADS allow us to do this.\nFrom the mixture at the 4 monitoring locations (observation points), we can reconstruct (unmix) original signals (sources) almost perfectly:\n\n\n\n\nSources generated using sine functions and random noise representing a disturbance of normal pace of life\n\n\nOriginal sources (assumed unknown)\n\n\n\n\nMixed sources observed at 7 different observation points\n\n\n\n\nReconstructed (unmixed) original signals based on the observed data\n\n\n\n\nSources generated using sine functions\n\n\nOriginal sources (assumed unknown)\n\n\n\n\nMixed sources observed at 4 different observation points\n\n\n\n\nReconstructed (unmixed) original signals based on the observed data\n\n\n\n\nSources generated using random noise\n\n\nOriginal signals (assumed unknown)\n\n\n\n\nMixed signals observed at 4 different observation points\n\n\n\n\nReconstructed (unmixed) original signals based on the observed data", 
             "title": "Blind Source Separation"
         }, 
         {
             "location": "/Examples/blind_source_separation/#blind-source-separation", 
-            "text": "Frequently there are several different physical phenomena or mechanisms (sources) than may can cause transients in the observed data.  For example, in the case of water-level (hydraulic pressure) data, these might me barometric pressure fluctuations, tidal effects, pumping effects, etc.\nIn the case of geochemical concentrations, these may represent a mixture of different groundwater types (sources) with different initial geochemical compositions.  The separation of the different signals observed in the data is important for conceptualization of the site conditions.  Below a series of synthetic examples are presented how transient data can be used to identify (separate/unmix) the original signals.  More complicated Blind Source Separation (BSS) analyses can be found in:  Alexandrov, Boian S., and Velimir V. Vesselinov. \"Blind source separation for groundwater pressure analysis based on nonnegative matrix factorization.\" Water Resources Research,  doi: 0.1002/2013WR015037 , 50.9, 7332-7347, 2014.  All the figures below are generated using  examples/blind_source_separation.jl . BSS can be performed using different methods. The examples below use the  Ipopt  implementation in the  JuMP  Julia module.", 
+            "text": "Frequently there are several different physical phenomena or mechanisms (sources/signals) than may can cause transients in the observed data.  For example, in the case of water-level (hydraulic pressure) data, these might be barometric pressure fluctuations, tidal effects, pumping effects, etc.\nIn the case of geochemical concentrations, these may represent a mixture of different groundwater types (groundwater sources) with different initial geochemical compositions.  The separation of the different signals observed in the data is important for many tasks including model conceptualization and setup.  Below a series of synthetic examples are presented how transient data can be used to identify (separate/unmix) the original signals.  More complicated Blind Source Separation (BSS) analyses can be found in:  Alexandrov, Boian S., and Velimir V. Vesselinov. \"Blind source separation for groundwater pressure analysis based on nonnegative matrix factorization.\" Water Resources Research,  doi: 0.1002/2013WR015037 , 50.9, 7332-7347, 2014.  All the figures below are generated using  examples/blind_source_separation.jl . BSS can be performed using different methods.\nThe examples below use the  Ipopt  implementation in the  JuMP  Julia module.", 
             "title": "Blind Source Separation"
         }, 
         {
@@ -261,19 +261,39 @@
             "title": "Sources generated using sine functions and random noise"
         }, 
         {
+            "location": "/Examples/blind_source_separation/#original-signals-assumed-unknown", 
+            "text": "Let us assume there are 3 unknown sources (physical processes/phenomena) causing transients in some observable state variable.\nLet us assume the transients (signals) associated with these 3 unknown sources look like this:", 
+            "title": "Original signals (assumed unknown)"
+        }, 
+        {
+            "location": "/Examples/blind_source_separation/#mixed-signals-observed-at-4-different-monitoring-locations-representing-4-different-observation-streams", 
+            "text": "Let us assume that the transients of the original unknown sources are observed as a mixture at 4 different monitoring locations (observation points).\nLet us assume that the mixtures looks like this:", 
+            "title": "Mixed signals observed at 4 different monitoring locations (representing 4 different observation streams)"
+        }, 
+        {
+            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-original-signals-sources-based-on-the-observed-data", 
+            "text": "We want to find the original unknown signals (sources) based on the observed mixtures above.\nBSS method in MADS allow us to do this.\nFrom the mixture at the 4 monitoring locations (observation points), we can reconstruct (unmix) original signals (sources) almost perfectly:", 
+            "title": "Reconstructed (unmixed) original signals (sources) based on the observed data"
+        }, 
+        {
+            "location": "/Examples/blind_source_separation/#sources-generated-using-sine-functions-and-random-noise-representing-a-disturbance-of-normal-pace-of-life", 
+            "text": "", 
+            "title": "Sources generated using sine functions and random noise representing a disturbance of normal pace of life"
+        }, 
+        {
             "location": "/Examples/blind_source_separation/#original-sources-assumed-unknown", 
-            "text": "Let us assume there are 3 unknown sources (physical processes/phenomena) causing transients in some observable state variable.\nLet us assume the transients associated with these 3 unknown sources look like this:", 
+            "text": "", 
             "title": "Original sources (assumed unknown)"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#mixed-sources-observed-at-4-different-monitoring-locations-representing-4-different-signals-or-observation-streams", 
-            "text": "Let us assume that the transients of the original unknown sources are observed as a mixture at 4 different monitoring locations (observation points).\nLet us assume that the mixtures looks like this:", 
-            "title": "Mixed sources observed at 4 different monitoring locations (representing 4 different signals or observation streams)"
+            "location": "/Examples/blind_source_separation/#mixed-sources-observed-at-7-different-observation-points", 
+            "text": "", 
+            "title": "Mixed sources observed at 7 different observation points"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-original-sources-based-on-the-observed-data", 
-            "text": "We want to find the original unknown sources based on the observed mixtures above.\nBSS method in MADS allow us to do this.\nFrom the mixture at the 4 monitoring locations (observation points), we can reconstruct (unmix) original sources almost perfectly:", 
-            "title": "Reconstructed (unmixed) original sources based on the observed data"
+            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-original-signals-based-on-the-observed-data", 
+            "text": "", 
+            "title": "Reconstructed (unmixed) original signals based on the observed data"
         }, 
         {
             "location": "/Examples/blind_source_separation/#sources-generated-using-sine-functions", 
@@ -286,14 +306,14 @@
             "title": "Original sources (assumed unknown)"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#mixed-sources-observed-at-4-different-monitoring-locations-representing-4-different-signals-or-observation-streams_1", 
+            "location": "/Examples/blind_source_separation/#mixed-sources-observed-at-4-different-observation-points", 
             "text": "", 
-            "title": "Mixed sources observed at 4 different monitoring locations (representing 4 different signals or observation streams)"
+            "title": "Mixed sources observed at 4 different observation points"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-sources-based-on-the-observed-data", 
+            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-original-signals-based-on-the-observed-data_1", 
             "text": "", 
-            "title": "Reconstructed (unmixed) sources based on the observed data"
+            "title": "Reconstructed (unmixed) original signals based on the observed data"
         }, 
         {
             "location": "/Examples/blind_source_separation/#sources-generated-using-random-noise", 
@@ -301,19 +321,19 @@
             "title": "Sources generated using random noise"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#original-sources-assumed-unknown_2", 
+            "location": "/Examples/blind_source_separation/#original-signals-assumed-unknown_1", 
             "text": "", 
-            "title": "Original sources (assumed unknown)"
+            "title": "Original signals (assumed unknown)"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#mixed-sources-observed-at-4-different-monitoring-locations-representing-4-different-signals-or-observation-streams_2", 
+            "location": "/Examples/blind_source_separation/#mixed-signals-observed-at-4-different-observation-points", 
             "text": "", 
-            "title": "Mixed sources observed at 4 different monitoring locations (representing 4 different signals or observation streams)"
+            "title": "Mixed signals observed at 4 different observation points"
         }, 
         {
-            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-original-sources-based-on-the-observed-data_1", 
+            "location": "/Examples/blind_source_separation/#reconstructed-unmixed-original-signals-based-on-the-observed-data_2", 
             "text": "", 
-            "title": "Reconstructed (unmixed) original sources based on the observed data"
+            "title": "Reconstructed (unmixed) original signals based on the observed data"
         }, 
         {
             "location": "/Examples/contamination/", 
