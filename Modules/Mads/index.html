@@ -956,13 +956,17 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 <p>Check the directories where model outputs should be saved for MADS</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.checkmodeloutputdirs(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:429</li>
+<li><code>Mads.checkmodeloutputdirs(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:476</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
+<li><code>madsdata::Associative</code> :</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L423-L427' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li>true or false</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L465-L473' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.checkout' href='#Mads.checkout'>#</a>
 <strong><code>Mads.checkout</code></strong> &mdash; <em>Function</em>.</p>
 <p>Checkout the latest version of the Mads / Julia modules</p>
@@ -1273,13 +1277,13 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 <p>Create temporary directory</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.createtempdir(tempdirname::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:926</li>
+<li><code>Mads.createtempdir(tempdirname::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:1035</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>tempdirname::String</code></li>
+<li><code>tempdirname::String</code> : tmporary directory name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L920-L924' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L1028-L1032' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.deleteNaN!-Tuple{DataFrames.DataFrame}' href='#Mads.deleteNaN!-Tuple{DataFrames.DataFrame}'>#</a>
 <strong><code>Mads.deleteNaN!</code></strong> &mdash; <em>Method</em>.</p>
 <p>Delete rows with NaN in a Dataframe <code>df</code></p>
@@ -1382,7 +1386,7 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 <li><code>keytext</code></li>
 <li><code>maintext</code></li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsDocumentation.jl#L94-L98' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsDocumentation.jl#L97-L101' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.dumpasciifile-Tuple{String,Any}' href='#Mads.dumpasciifile-Tuple{String,Any}'>#</a>
 <strong><code>Mads.dumpasciifile</code></strong> &mdash; <em>Method</em>.</p>
 <p>Dump ASCII file</p>
@@ -1414,14 +1418,18 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 <p>Dump well data from MADS problem dictionary into a ASCII file</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.dumpwelldata(madsdata::Associative, filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:818</li>
+<li><code>Mads.dumpwelldata(madsdata::Associative, filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:914</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
-<li><code>madsdata::Associative</code></li>
+<li><code>filename::String</code> : output file name</li>
+<li><code>madsdata::Associative</code> : well data</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L812-L816' class='documenter-source'>source</a><br></p>
+<p>Dumps:</p>
+<ul>
+<li><code>filename</code> : a ASCII file</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L902-L910' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.dumpyamlfile-Tuple{String,Any}' href='#Mads.dumpyamlfile-Tuple{String,Any}'>#</a>
 <strong><code>Mads.dumpyamlfile</code></strong> &mdash; <em>Method</em>.</p>
 <p>Dump YAML file</p>
@@ -1431,8 +1439,8 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>data</code> : YAML data)</li>
-<li><code>filename::String</code></li>
+<li><code>data</code> : YAML data</li>
+<li><code>filename::String</code> : output file name</li>
 </ul>
 <p>Keywords</p>
 <ul>
@@ -1448,8 +1456,8 @@ Mads.calibraterandom(madsdata, numberofsamples; tolX=1e-3, tolG=1e-6, maxEval=10
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
-<li><code>madsdata::Associative</code></li>
+<li><code>filename::String</code> : output file name</li>
+<li><code>madsdata::Associative</code> : MADS problem dictionary</li>
 </ul>
 <p>Keywords</p>
 <ul>
@@ -1605,22 +1613,19 @@ Mads.emceesampling(madsdata, p0; numwalkers=10, nsteps=100, burnin=10, thinning=
 <li><code>sill::Number</code></li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsKriging.jl#L37-L41' class='documenter-source'>source</a><br></p>
-<p><a id='Mads.filterkeys' href='#Mads.filterkeys'>#</a>
-<strong><code>Mads.filterkeys</code></strong> &mdash; <em>Function</em>.</p>
+<p><a id='Mads.filterkeys-Tuple{Associative,Regex}' href='#Mads.filterkeys-Tuple{Associative,Regex}'>#</a>
+<strong><code>Mads.filterkeys</code></strong> &mdash; <em>Method</em>.</p>
 <p>Filter dictionary keys based on a string or regular expression</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.filterkeys(dict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:592</li>
-<li><code>Mads.filterkeys(dict::Associative, key::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:591</li>
-<li><code>Mads.filterkeys(dict::Associative, key::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:592</li>
+<li><code>Mads.filterkeys(dict::Associative, key::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:648</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>dict::Associative</code></li>
-<li><code>key::Regex</code></li>
-<li><code>key::String</code></li>
+<li><code>dict::Associative</code> : dictionary</li>
+<li><code>key::Regex</code> : the regular expression or string used to filter dictionary keys</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L594-L598' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L641-L645' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.forward' href='#Mads.forward'>#</a>
 <strong><code>Mads.forward</code></strong> &mdash; <em>Function</em>.</p>
 <p>Perform a forward run using the initial or provided values for the model parameters</p>
@@ -1795,35 +1800,39 @@ Mads.functions(Mads, &quot;get&quot;)
 <p>Get dictionary values for keys based on a string or regular expression</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.getdictvalues(dict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:610</li>
-<li><code>Mads.getdictvalues(dict::Associative, key::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:609</li>
-<li><code>Mads.getdictvalues(dict::Associative, key::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:610</li>
+<li><code>Mads.getdictvalues(dict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:662</li>
+<li><code>Mads.getdictvalues(dict::Associative, key::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:661</li>
+<li><code>Mads.getdictvalues(dict::Associative, key::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:662</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>dict::Associative</code></li>
-<li><code>key::Regex</code></li>
-<li><code>key::String</code></li>
+<li><code>dict::Associative</code> : dictionary</li>
+<li><code>key::Regex</code> : the key to find value for</li>
+<li><code>key::String</code> : the key to find value for</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L612-L616' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L664-L668' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getdir-Tuple{String}' href='#Mads.getdir-Tuple{String}'>#</a>
 <strong><code>Mads.getdir</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get directory</p>
-<p>Example:</p>
-<div class="codehilite"><pre><span></span>d = Mads.getdir(&quot;a.mads&quot;) # d = &quot;.&quot;
-d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
-</pre></div>
-
-
 <p>Methods</p>
 <ul>
-<li><code>Mads.getdir(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:271</li>
+<li><code>Mads.getdir(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:281</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : file name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L258-L269' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>d</code> : directory in file name</li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">getdir</span><span class="p">(</span><span class="s">&quot;a.mads&quot;</span><span class="p">)</span> <span class="c"># d = &quot;.&quot;</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">getdir</span><span class="p">(</span><span class="s">&quot;test/a.mads&quot;</span><span class="p">)</span> <span class="c"># d = &quot;test&quot;</span>
+</pre></div>
+
+
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L263-L278' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getdistribution-Tuple{String,String,String}' href='#Mads.getdistribution-Tuple{String,String,String}'>#</a>
 <strong><code>Mads.getdistribution</code></strong> &mdash; <em>Method</em>.</p>
 <p>Parse distribution from a string</p>
@@ -1841,28 +1850,32 @@ d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
 <p><a id='Mads.getextension-Tuple{String}' href='#Mads.getextension-Tuple{String}'>#</a>
 <strong><code>Mads.getextension</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get file name extension</p>
-<p>Example:</p>
-<div class="codehilite"><pre><span></span>ext = Mads.getextension(&quot;a.mads&quot;) # ext = &quot;mads&quot;
-</pre></div>
-
-
 <p>Methods</p>
 <ul>
-<li><code>Mads.getextension(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:414</li>
+<li><code>Mads.getextension(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:456</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : file name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L402-L412' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li>file name extension</li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="n">ext</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">getextension</span><span class="p">(</span><span class="s">&quot;a.mads&quot;</span><span class="p">)</span> <span class="c"># ext = &quot;mads&quot;</span>
+</pre></div>
+
+
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L439-L453' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getfunctionarguments' href='#Mads.getfunctionarguments'>#</a>
 <strong><code>Mads.getfunctionarguments</code></strong> &mdash; <em>Function</em>.</p>
 <p>Get function arguments</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.getfunctionarguments(f::Function)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:51</li>
-<li><code>Mads.getfunctionarguments(f::Function, m::Array{String,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:55</li>
-<li><code>Mads.getfunctionarguments(f::Function, m::Array{String,1}, l::Integer)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:55</li>
+<li><code>Mads.getfunctionarguments(f::Function)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:54</li>
+<li><code>Mads.getfunctionarguments(f::Function, m::Array{String,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:58</li>
+<li><code>Mads.getfunctionarguments(f::Function, m::Array{String,1}, l::Integer)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:58</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -1870,15 +1883,15 @@ d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
 <li><code>l::Integer</code></li>
 <li><code>m::Array{String,1}</code></li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsDocumentation.jl#L100-L104' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsDocumentation.jl#L103-L107' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getfunctionkeywords' href='#Mads.getfunctionkeywords'>#</a>
 <strong><code>Mads.getfunctionkeywords</code></strong> &mdash; <em>Function</em>.</p>
 <p>Get function keywords</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.getfunctionkeywords(f::Function)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:74</li>
-<li><code>Mads.getfunctionkeywords(f::Function, m::Array{String,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:79</li>
-<li><code>Mads.getfunctionkeywords(f::Function, m::Array{String,1}, l::Integer)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:79</li>
+<li><code>Mads.getfunctionkeywords(f::Function)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:77</li>
+<li><code>Mads.getfunctionkeywords(f::Function, m::Array{String,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:82</li>
+<li><code>Mads.getfunctionkeywords(f::Function, m::Array{String,1}, l::Integer)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsDocumentation.jl:82</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -1886,7 +1899,7 @@ d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
 <li><code>l::Integer</code></li>
 <li><code>m::Array{String,1}</code></li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsDocumentation.jl#L106-L110' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsDocumentation.jl#L109-L113' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getimportantsamples-Tuple{Array,Array{T,1}}' href='#Mads.getimportantsamples-Tuple{Array,Array{T,1}}'>#</a>
 <strong><code>Mads.getimportantsamples</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get important samples</p>
@@ -1916,76 +1929,95 @@ d = Mads.getdir(&quot;test/a.mads&quot;) # d = &quot;test&quot;
 <p><a id='Mads.getmadsdir-Tuple{}' href='#Mads.getmadsdir-Tuple{}'>#</a>
 <strong><code>Mads.getmadsdir</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get the directory where currently Mads is running</p>
-<p><code>problemdir = Mads.getmadsdir()</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.getmadsdir()</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:306</li>
+<li><code>Mads.getmadsdir()</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:325</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L298-L304' class='documenter-source'>source</a><br></p>
+<p>Usage:</p>
+<ul>
+<li><code>problemdir = Mads.getmadsdir()</code></li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>problemdir</code> : problem directory</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L311-L323' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getmadsinputfile-Tuple{}' href='#Mads.getmadsinputfile-Tuple{}'>#</a>
 <strong><code>Mads.getmadsinputfile</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get the default MADS input file set as a MADS global variable using <code>setmadsinputfile(filename)</code></p>
+<p>Methods</p>
+<ul>
+<li><code>Mads.getmadsinputfile()</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:240</li>
+</ul>
+<p>Usage:</p>
 <p><code>Mads.getmadsinputfile()</code></p>
-<p>Arguments: <code>none</code></p>
 <p>Returns:</p>
 <ul>
 <li><code>filename</code> : input file name (e.g. <code>input_file_name.mads</code>)</li>
 </ul>
-<p>Methods</p>
-<ul>
-<li><code>Mads.getmadsinputfile()</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:244</li>
-</ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L230-L242' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L226-L238' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getmadsproblemdir-Tuple{Associative}' href='#Mads.getmadsproblemdir-Tuple{Associative}'>#</a>
 <strong><code>Mads.getmadsproblemdir</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get the directory where the Mads data file is located</p>
-<p><code>Mads.getmadsproblemdir(madsdata)</code></p>
+<p>Methods</p>
+<ul>
+<li><code>Mads.getmadsproblemdir(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:308</li>
+</ul>
+<p>Arguments</p>
+<ul>
+<li><code>madsdata::Associative</code> :</li>
+</ul>
+<p>Usage:</p>
+<ul>
+<li><code>Mads.getmadsproblemdir(madsdata)</code></li>
+</ul>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span>madsdata = Mads.loadmadsproblem(&quot;../../a.mads&quot;)
-madsproblemdir = Mads.getmadsproblemdir(madsdata)
+<div class="codehilite"><pre><span></span><span class="n">madsdata</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">loadmadsproblem</span><span class="p">(</span><span class="s">&quot;../../a.mads&quot;</span><span class="p">)</span>
+<span class="n">madsproblemdir</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">getmadsproblemdir</span><span class="p">(</span><span class="n">madsdata</span><span class="p">)</span>
 </pre></div>
 
 
 <p>where <code>madsproblemdir</code> = <code>"../../"</code></p>
-<p>Methods</p>
-<ul>
-<li><code>Mads.getmadsproblemdir(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:295</li>
-</ul>
-<p>Arguments</p>
-<ul>
-<li><code>madsdata::Associative</code></li>
-</ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L278-L293' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L288-L305' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getmadsrootname-Tuple{Associative}' href='#Mads.getmadsrootname-Tuple{Associative}'>#</a>
 <strong><code>Mads.getmadsrootname</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get the MADS problem root name</p>
-<p><code>madsrootname = Mads.getmadsrootname(madsdata)</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.getmadsrootname(madsdata::Associative; first, version)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:255</li>
+<li><code>Mads.getmadsrootname(madsdata::Associative; first, version)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:260</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
+<li><code>madsdata::Associative</code> :</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>first</code></li>
-<li><code>version</code></li>
+<li><code>first</code> : use the first . in filename as the seperator between root name and extention [default=<code>true</code>])</li>
+<li><code>version</code> : delete version information from filename for the returned rootname, [default=<code>false</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L247-L253' class='documenter-source'>source</a><br></p>
+<p>Usage:</p>
+<p><code>madsrootname = Mads.getmadsrootname(madsdata)</code></p>
+<p>Returns:</p>
+<ul>
+<li><code>r</code> : root of file name</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L243-L255' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getnextmadsfilename-Tuple{String}' href='#Mads.getnextmadsfilename-Tuple{String}'>#</a>
 <strong><code>Mads.getnextmadsfilename</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get next mads file name</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.getnextmadsfilename(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:382</li>
+<li><code>Mads.getnextmadsfilename(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:419</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : file name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L376-L380' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>filename</code> : next mads file name</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L408-L416' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getnonlogparamkeys-Tuple{Associative,Array{T,1}}' href='#Mads.getnonlogparamkeys-Tuple{Associative,Array{T,1}}'>#</a>
 <strong><code>Mads.getnonlogparamkeys</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get the keys in the MADS problem dictionary for parameters that are NOT log-transformed (<code>log</code>)</p>
@@ -2323,26 +2355,30 @@ madsproblemdir = Mads.getmadsproblemdir(madsdata)
 <p><a id='Mads.getrootname-Tuple{String}' href='#Mads.getrootname-Tuple{String}'>#</a>
 <strong><code>Mads.getrootname</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get file name root</p>
-<p>Example:</p>
-<div class="codehilite"><pre><span></span>r = Mads.getrootname(&quot;a.rnd.dat&quot;) # r = &quot;a&quot;
-r = Mads.getrootname(&quot;a.rnd.dat&quot;, first=false) # r = &quot;a.rnd&quot;
-</pre></div>
-
-
 <p>Methods</p>
 <ul>
-<li><code>Mads.getrootname(filename::String; first, version)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:329</li>
+<li><code>Mads.getrootname(filename::String; first, version)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:355</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : file name</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>first</code></li>
-<li><code>version</code></li>
+<li><code>first</code> : use the first . in filename as the seperator between root name and extention [default=<code>true</code>])</li>
+<li><code>version</code> : delete version information from filename for the returned rootname, [default=<code>false</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L316-L327' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>r</code> : root of file name</li>
+</ul>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">getrootname</span><span class="p">(</span><span class="s">&quot;a.rnd.dat&quot;</span><span class="p">)</span> <span class="c"># r = &quot;a&quot;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Mads</span><span class="o">.</span><span class="n">getrootname</span><span class="p">(</span><span class="s">&quot;a.rnd.dat&quot;</span><span class="p">,</span> <span class="n">first</span><span class="o">=</span><span class="kc">false</span><span class="p">)</span> <span class="c"># r = &quot;a.rnd&quot;</span>
+</pre></div>
+
+
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L335-L350' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.getsindx-Tuple{Associative}' href='#Mads.getsindx-Tuple{Associative}'>#</a>
 <strong><code>Mads.getsindx</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get sin-space dx</p>
@@ -2519,47 +2555,54 @@ r = Mads.getrootname(&quot;a.rnd.dat&quot;, first=false) # r = &quot;a.rnd&quot;
 <li><code>filename::String</code></li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsFunc.jl#L280-L285' class='documenter-source'>source</a><br></p>
-<p><a id='Mads.indexkeys' href='#Mads.indexkeys'>#</a>
-<strong><code>Mads.indexkeys</code></strong> &mdash; <em>Function</em>.</p>
+<p><a id='Mads.indexkeys-Tuple{Associative,Regex}' href='#Mads.indexkeys-Tuple{Associative,Regex}'>#</a>
+<strong><code>Mads.indexkeys</code></strong> &mdash; <em>Method</em>.</p>
 <p>Find indexes for dictionary keys based on a string or regular expression</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.indexkeys(dict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:601</li>
-<li><code>Mads.indexkeys(dict::Associative, key::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:600</li>
-<li><code>Mads.indexkeys(dict::Associative, key::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:601</li>
+<li><code>Mads.indexkeys(dict::Associative, key::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:658</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>dict::Associative</code></li>
-<li><code>key::Regex</code></li>
-<li><code>key::String</code></li>
+<li><code>dict::Associative</code> : dictionary</li>
+<li><code>key::Regex</code> : the key to find index for</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L603-L607' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L651-L655' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.ins_obs-Tuple{String,String}' href='#Mads.ins_obs-Tuple{String,String}'>#</a>
 <strong><code>Mads.ins_obs</code></strong> &mdash; <em>Method</em>.</p>
 <p>Apply Mads instruction file <code>instructionfilename</code> to read model input file <code>inputfilename</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.ins_obs(instructionfilename::String, inputfilename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:755</li>
+<li><code>Mads.ins_obs(instructionfilename::String, inputfilename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:839</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>inputfilename::String</code></li>
-<li><code>instructionfilename::String</code></li>
+<li><code>inputfilename::String</code> : read model input file</li>
+<li><code>instructionfilename::String</code> : instruction file name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L749-L753' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>obsdict</code> : result dictionary</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L827-L835' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.instline2regexs-Tuple{String}' href='#Mads.instline2regexs-Tuple{String}'>#</a>
 <strong><code>Mads.instline2regexs</code></strong> &mdash; <em>Method</em>.</p>
 <p>Convert an instruction line in the Mads instruction file into regular expressions</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.instline2regexs(instline::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:678</li>
+<li><code>Mads.instline2regexs(instline::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:742</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>instline::String</code></li>
+<li><code>instline::String</code> : instruction line</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L672-L676' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>regexs</code> : regular expressions</li>
+<li><code>obsnames</code> :</li>
+<li><code>getparamhere</code> :</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L729-L739' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.invobsweights!-Tuple{Associative,Number}' href='#Mads.invobsweights!-Tuple{Associative,Number}'>#</a>
 <strong><code>Mads.invobsweights!</code></strong> &mdash; <em>Method</em>.</p>
 <p>Inversely proportional observation weights in the MADS problem dictionary</p>
@@ -2727,14 +2770,14 @@ r = Mads.getrootname(&quot;a.rnd.dat&quot;, first=false) # r = &quot;a.rnd&quot;
 <p>Link files in a temporary directory</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.linktempdir(madsproblemdir::String, tempdirname::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:951</li>
+<li><code>Mads.linktempdir(madsproblemdir::String, tempdirname::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:1062</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsproblemdir::String</code></li>
-<li><code>tempdirname::String</code></li>
+<li><code>madsproblemdir::String</code> : mads problem directory</li>
+<li><code>tempdirname::String</code> : temporary directory name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L945-L949' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L1054-L1058' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.loadasciifile-Tuple{String}' href='#Mads.loadasciifile-Tuple{String}'>#</a>
 <strong><code>Mads.loadasciifile</code></strong> &mdash; <em>Method</em>.</p>
 <p>Load ASCII file</p>
@@ -2768,7 +2811,7 @@ r = Mads.getrootname(&quot;a.rnd.dat&quot;, first=false) # r = &quot;a.rnd&quot;
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : input file name (e.g. <code>input_file_name.mads</code>)</li>
 </ul>
 <p>Keywords</p>
 <ul>
@@ -2800,7 +2843,7 @@ r = Mads.getrootname(&quot;a.rnd.dat&quot;, first=false) # r = &quot;a.rnd&quot;
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : file name</li>
 </ul>
 <p>Keywords</p>
 <ul>
@@ -3517,14 +3560,18 @@ forward_preds = computeconcentrations(paramdict)
 <p>Match an instruction line in the Mads instruction file with model input file</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.obslineismatch(obsline::String, regexs::Array{Regex,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:721</li>
+<li><code>Mads.obslineismatch(obsline::String, regexs::Array{Regex,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:791</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>obsline::String</code></li>
-<li><code>regexs::Array{Regex,1}</code></li>
+<li><code>obsline::String</code> : instruction line</li>
+<li><code>regexs::Array{Regex,1}</code> :</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L715-L719' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li>true or false</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L779-L787' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.of' href='#Mads.of'>#</a>
 <strong><code>Mads.of</code></strong> &mdash; <em>Function</em>.</p>
 <p>Compute objective function</p>
@@ -3571,17 +3618,13 @@ forward_preds = computeconcentrations(paramdict)
 <p>Parse loaded Mads problem dictionary</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.parsemadsdata!(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:61</li>
+<li><code>Mads.parsemadsdata!(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:57</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
+<li><code>madsdata::Associative</code> : Mads problem dictionary</li>
 </ul>
-<p>Arguments:</p>
-<ul>
-<li><code>madsdata</code> : Mads problem dictionary</li>
-</ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L50-L59' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L50-L54' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.parsenodenames' href='#Mads.parsenodenames'>#</a>
 <strong><code>Mads.parsenodenames</code></strong> &mdash; <em>Function</em>.</p>
 <p>Parse string with node names defined in SLURM</p>
@@ -3983,32 +4026,35 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 <p>Read model outputs saved for MADS</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.readmodeloutput(madsdata::Associative; obskeys, path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:539</li>
+<li><code>Mads.readmodeloutput(madsdata::Associative; obskeys)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:591</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
+<li><code>madsdata::Associative</code> :</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>obskeys</code></li>
-<li><code>path</code></li>
+<li><code>obskeys</code> : [default=getobskeys(madsdata)])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L533-L537' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L583-L587' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.readobservations' href='#Mads.readobservations'>#</a>
 <strong><code>Mads.readobservations</code></strong> &mdash; <em>Function</em>.</p>
 <p>Read observations</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.readobservations(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:785</li>
-<li><code>Mads.readobservations(madsdata::Associative, obskeys::Array{T&lt;:Any,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:785</li>
+<li><code>Mads.readobservations(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:875</li>
+<li><code>Mads.readobservations(madsdata::Associative, obskeys::Array{T&lt;:Any,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:875</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
-<li><code>obskeys::Array{T&lt;:Any,1}</code></li>
+<li><code>madsdata::Associative</code> :</li>
+<li><code>obskeys::Array{T&lt;:Any,1}</code> : observation keys, [default=<code>getobskeys(madsdata)</code>]</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L779-L783' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>observations</code> : observations</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L863-L871' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.readobservations_cmads-Tuple{Associative}' href='#Mads.readobservations_cmads-Tuple{Associative}'>#</a>
 <strong><code>Mads.readobservations_cmads</code></strong> &mdash; <em>Method</em>.</p>
 <p>Read observations using C Mads library</p>
@@ -4030,7 +4076,7 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : file name</li>
 </ul>
 <p>Keywords</p>
 <ul>
@@ -4046,16 +4092,20 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 <p>Get observations for a set of regular expressions</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.regexs2obs(obsline::String, regexs::Array{Regex,1}, obsnames::Array{String,1}, getparamhere::Array{Bool,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:731</li>
+<li><code>Mads.regexs2obs(obsline::String, regexs::Array{Regex,1}, obsnames::Array{String,1}, getparamhere::Array{Bool,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:809</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>getparamhere::Array{Bool,1}</code></li>
-<li><code>obsline::String</code></li>
-<li><code>obsnames::Array{String,1}</code></li>
-<li><code>regexs::Array{Regex,1}</code></li>
+<li><code>getparamhere::Array{Bool,1}</code> :</li>
+<li><code>obsline::String</code> :</li>
+<li><code>obsnames::Array{String,1}</code> :</li>
+<li><code>regexs::Array{Regex,1}</code> : regular expressions</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L725-L729' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li><code>obsdict</code> : observations</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L795-L803' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.reload-Tuple{}' href='#Mads.reload-Tuple{}'>#</a>
 <strong><code>Mads.reload</code></strong> &mdash; <em>Method</em>.</p>
 <p>Reload Mads modules</p>
@@ -4174,65 +4224,65 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 <p>Remove directory</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.rmdir(dir::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:871</li>
+<li><code>Mads.rmdir(dir::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:973</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>dir::String</code></li>
+<li><code>dir::String</code> : the directory to be removed</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>path</code></li>
+<li><code>path</code> : path of the directory, [default=<code>current path</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L865-L869' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L965-L969' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.rmfile-Tuple{String}' href='#Mads.rmfile-Tuple{String}'>#</a>
 <strong><code>Mads.rmfile</code></strong> &mdash; <em>Method</em>.</p>
 <p>Remove file</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.rmfile(filename::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:885</li>
+<li><code>Mads.rmfile(filename::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:989</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : the file to be removed</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>path</code></li>
+<li><code>path</code> : path of the file, [default=<code>current path</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L879-L883' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L981-L985' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.rmfiles_ext-Tuple{String}' href='#Mads.rmfiles_ext-Tuple{String}'>#</a>
 <strong><code>Mads.rmfiles_ext</code></strong> &mdash; <em>Method</em>.</p>
 <p>Remove files with extension <code>ext</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.rmfiles_ext(ext::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:899</li>
+<li><code>Mads.rmfiles_ext(ext::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:1005</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>ext::String</code></li>
+<li><code>ext::String</code> : extension</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>path</code></li>
+<li><code>path</code> : path of the files to be removed, [default=<code>.</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L893-L897' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L997-L1001' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.rmfiles_root-Tuple{String}' href='#Mads.rmfiles_root-Tuple{String}'>#</a>
 <strong><code>Mads.rmfiles_root</code></strong> &mdash; <em>Method</em>.</p>
 <p>Remove files with root <code>root</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.rmfiles_root(root::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:910</li>
+<li><code>Mads.rmfiles_root(root::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:1018</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>root::String</code></li>
+<li><code>root::String</code> : root</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>path</code></li>
+<li><code>path</code> : path of the files to be removed, [default=<code>.</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L904-L908' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L1010-L1014' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.rosenbrock-Tuple{Array{T,1}}' href='#Mads.rosenbrock-Tuple{Array{T,1}}'>#</a>
 <strong><code>Mads.rosenbrock</code></strong> &mdash; <em>Method</em>.</p>
 <p>Rosenbrock test function</p>
@@ -4417,47 +4467,40 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 <p>Save calibration results</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.savecalibrationresults(madsdata::Associative, results)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:213</li>
+<li><code>Mads.savecalibrationresults(madsdata::Associative, results)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:210</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
-<li><code>results</code></li>
+<li><code>madsdata::Associative</code> :</li>
+<li><code>results</code> : the calibration results</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L204-L208' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L199-L203' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.savemadsfile' href='#Mads.savemadsfile'>#</a>
 <strong><code>Mads.savemadsfile</code></strong> &mdash; <em>Function</em>.</p>
 <p>Save MADS problem dictionary <code>madsdata</code> in MADS input file <code>filename</code></p>
+<p>Methods</p>
+<ul>
+<li><code>Mads.savemadsfile(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:169</li>
+<li><code>Mads.savemadsfile(madsdata::Associative, filename::String; julia, explicit)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:169</li>
+</ul>
+<p>Arguments</p>
+<ul>
+<li><code>filename::String</code> : input file name (e.g. <code>input_file_name.mads</code>)</li>
+<li><code>madsdata::Associative</code> : Mads problem dictionar</li>
+</ul>
+<p>Keywords</p>
+<ul>
+<li><code>explicit</code> : if <code>true</code> ignores MADS YAML file modifications and rereads the original input file, [default=<code>false</code>])</li>
+<li><code>julia</code> : if <code>true</code> use Julia JSON module to save, [default=<code>false</code>])</li>
+</ul>
+<p>Usage:</p>
 <ul>
 <li><code>Mads.savemadsfile(madsdata)</code></li>
 <li><code>Mads.savemadsfile(madsdata, "test.mads")</code></li>
 <li><code>Mads.savemadsfile(madsdata, parameters, "test.mads")</code></li>
 <li><code>Mads.savemadsfile(madsdata, parameters, "test.mads", explicit=true)</code></li>
 </ul>
-<p>Arguments:</p>
-<ul>
-<li><code>madsdata</code> : Mads problem dictionary</li>
-<li><code>parameters</code> : Dictionary with parameters (optional)</li>
-<li><code>filename</code> : input file name (e.g. <code>input_file_name.mads</code>)</li>
-<li><code>julia</code> : if <code>true</code> use Julia JSON module to save</li>
-<li><code>explicit</code> : if <code>true</code> ignores MADS YAML file modifications and rereads the original input file</li>
-</ul>
-<p>Methods</p>
-<ul>
-<li><code>Mads.savemadsfile(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:174</li>
-<li><code>Mads.savemadsfile(madsdata::Associative, filename::String; julia, explicit)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:174</li>
-</ul>
-<p>Arguments</p>
-<ul>
-<li><code>filename::String</code></li>
-<li><code>madsdata::Associative</code></li>
-</ul>
-<p>Keywords</p>
-<ul>
-<li><code>explicit</code></li>
-<li><code>julia</code></li>
-</ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L155-L172' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L151-L162' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.savemcmcresults-Tuple{Array,String}' href='#Mads.savemcmcresults-Tuple{Array,String}'>#</a>
 <strong><code>Mads.savemcmcresults</code></strong> &mdash; <em>Method</em>.</p>
 <p>Save MCMC chain in a file</p>
@@ -4497,39 +4540,33 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 <li><code>pointsize</code></li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsPlot.jl#L346-L357' class='documenter-source'>source</a><br></p>
-<p><a id='Mads.searchdir' href='#Mads.searchdir'>#</a>
-<strong><code>Mads.searchdir</code></strong> &mdash; <em>Function</em>.</p>
+<p><a id='Mads.searchdir-Tuple{Regex}' href='#Mads.searchdir-Tuple{Regex}'>#</a>
+<strong><code>Mads.searchdir</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get files in the current directory or in a directory defined by <code>path</code> matching pattern <code>key</code> which can be a string or regular expression</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.searchdir(key::String; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:568</li>
-<li><code>Mads.searchdir(key::Regex; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:567</li>
+<li><code>Mads.searchdir(key::Regex; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:638</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>key::Regex</code></li>
-<li><code>key::String</code></li>
+<li><code>key::Regex</code> : matching pattern for Mads input files (string or regular expression accepted)</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>path</code></li>
-</ul>
-<p>Examples:</p>
-<ul>
-<li><code>Mads.searchdir("a")</code></li>
-<li><code>Mads.searchdir(r"[A-B]"; path = ".")</code></li>
-<li><code>Mads.searchdir(r".*.cov"; path = ".")</code></li>
-</ul>
-<p>Arguments:</p>
-<ul>
-<li><code>key</code> : matching pattern for Mads input files (string or regular expression accepted)</li>
-<li><code>path</code> : search directory for the mads input files</li>
+<li><code>path</code> : search directory for the mads input files, [default=<code>.</code>])</li>
 </ul>
 <p>Returns:</p>
 <ul>
 <li><code>filename</code> : an array with file names matching the pattern in the specified directory</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L570-L589' class='documenter-source'>source</a><br></p>
+<p>Examples:</p>
+<div class="codehilite"><pre><span></span><span class="o">-</span> <span class="sb">`Mads.searchdir(&quot;a&quot;)`</span>
+<span class="o">-</span> <span class="sb">`Mads.searchdir(r&quot;[A-B]&quot;; path = &quot;.&quot;)`</span>
+<span class="o">-</span> <span class="sb">`Mads.searchdir(r&quot;.*.cov&quot;; path = &quot;.&quot;)`</span>
+</pre></div>
+
+
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L619-L635' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.set_nprocs_per_task' href='#Mads.set_nprocs_per_task'>#</a>
 <strong><code>Mads.set_nprocs_per_task</code></strong> &mdash; <em>Function</em>.</p>
 <p>Set number of processors needed for each parallel task at each node</p>
@@ -4634,49 +4671,50 @@ plotmatches(madsdata, result, r&quot;NO3&quot;; filename=&quot;&quot;, format=&q
 <p><a id='Mads.setmadsinputfile-Tuple{String}' href='#Mads.setmadsinputfile-Tuple{String}'>#</a>
 <strong><code>Mads.setmadsinputfile</code></strong> &mdash; <em>Method</em>.</p>
 <p>Set a default MADS input file</p>
-<p><code>Mads.setmadsinputfile(filename)</code></p>
-<p>Arguments:</p>
-<ul>
-<li><code>filename</code> : input file name (e.g. <code>input_file_name.mads</code>)</li>
-</ul>
 <p>Methods</p>
 <ul>
-<li><code>Mads.setmadsinputfile(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:227</li>
+<li><code>Mads.setmadsinputfile(filename::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:223</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>filename::String</code></li>
+<li><code>filename::String</code> : input file name (e.g. <code>input_file_name.mads</code>)</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L215-L225' class='documenter-source'>source</a><br></p>
+<p>Usage:</p>
+<p><code>Mads.setmadsinputfile(filename)</code></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L212-L220' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.setmodelinputs-Tuple{Associative,Associative}' href='#Mads.setmodelinputs-Tuple{Associative,Associative}'>#</a>
 <strong><code>Mads.setmodelinputs</code></strong> &mdash; <em>Method</em>.</p>
 <p>Set model input files; delete files where model output should be saved for MADS</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.setmodelinputs(madsdata::Associative, parameters::Associative; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:473</li>
+<li><code>Mads.setmodelinputs(madsdata::Associative, parameters::Associative; path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:523</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
-<li><code>parameters::Associative</code></li>
+<li><code>madsdata::Associative</code> :</li>
+<li><code>parameters::Associative</code> :</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>path</code></li>
+<li><code>path</code> : path for the files, [default=<code>.</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L467-L471' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L514-L518' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.setnewmadsfilename-Tuple{Associative}' href='#Mads.setnewmadsfilename-Tuple{Associative}'>#</a>
 <strong><code>Mads.setnewmadsfilename</code></strong> &mdash; <em>Method</em>.</p>
 <p>Set new mads file name</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.setnewmadsfilename(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:357</li>
+<li><code>Mads.setnewmadsfilename(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:389</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>madsdata::Associative</code></li>
+<li><code>madsdata::Associative</code> :</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L351-L355' class='documenter-source'>source</a><br></p>
+<p>Returns:</p>
+<ul>
+<li>the new file name</li>
+</ul>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L377-L385' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.setobservationtargets!-Tuple{Associative,Associative}' href='#Mads.setobservationtargets!-Tuple{Associative,Associative}'>#</a>
 <strong><code>Mads.setobservationtargets!</code></strong> &mdash; <em>Method</em>.</p>
 <p>Set observations (calibration targets) in the MADS problem dictionary based on a <code>predictions</code> dictionary</p>
@@ -5215,27 +5253,27 @@ Mads.spaghettiplots(madsdata, number_of_samples; format=&quot;&quot;, keyword=&q
 <p>Create a symbolic link of a file <code>filename</code> in a directory <code>dirtarget</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.symlinkdir(filename::String, dirtarget::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:859</li>
+<li><code>Mads.symlinkdir(filename::String, dirtarget::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:959</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>dirtarget::String</code></li>
-<li><code>filename::String</code></li>
+<li><code>dirtarget::String</code> : target directory</li>
+<li><code>filename::String</code> : file name</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L853-L857' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L951-L955' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.symlinkdirfiles-Tuple{String,String}' href='#Mads.symlinkdirfiles-Tuple{String,String}'>#</a>
 <strong><code>Mads.symlinkdirfiles</code></strong> &mdash; <em>Method</em>.</p>
 <p>Create a symbolic link of all the files in a directory <code>dirsource</code> in a directory <code>dirtarget</code></p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.symlinkdirfiles(dirsource::String, dirtarget::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:843</li>
+<li><code>Mads.symlinkdirfiles(dirsource::String, dirtarget::String)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:941</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>dirsource::String</code></li>
-<li><code>dirtarget::String</code></li>
+<li><code>dirsource::String</code> : source directory</li>
+<li><code>dirtarget::String</code> : target directory</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L837-L841' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L933-L937' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.tag' href='#Mads.tag'>#</a>
 <strong><code>Mads.tag</code></strong> &mdash; <em>Function</em>.</p>
 <p>Tag the Mads modules with a default argument <code>:patch</code></p>
@@ -5262,7 +5300,7 @@ Mads.spaghettiplots(madsdata, number_of_samples; format=&quot;&quot;, keyword=&q
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>testname::String</code></li>
+<li><code>testname::String</code> : name of the test to execute (module or example)</li>
 </ul>
 <p>Keywords</p>
 <ul>
@@ -5379,24 +5417,24 @@ Mads.spaghettiplots(madsdata, number_of_samples; format=&quot;&quot;, keyword=&q
 <li><code>madsdata::Associative</code></li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsObservations.jl#L519-L523' class='documenter-source'>source</a><br></p>
-<p><a id='Mads.writeparameters' href='#Mads.writeparameters'>#</a>
-<strong><code>Mads.writeparameters</code></strong> &mdash; <em>Function</em>.</p>
+<p><a id='Mads.writeparametersviatemplate-Tuple{Any,Any,Any}' href='#Mads.writeparametersviatemplate-Tuple{Any,Any,Any}'>#</a>
+<strong><code>Mads.writeparametersviatemplate</code></strong> &mdash; <em>Method</em>.</p>
 <p>Write <code>parameters</code> via MADS template (<code>templatefilename</code>) to an output file (<code>outputfilename</code>)</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.writeparametersviatemplate(parameters, templatefilename, outputfilename; respect_space)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:619</li>
+<li><code>Mads.writeparametersviatemplate(parameters, templatefilename, outputfilename; respect_space)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsIO.jl:682</li>
 </ul>
 <p>Arguments</p>
 <ul>
-<li><code>outputfilename</code></li>
-<li><code>parameters</code></li>
-<li><code>templatefilename</code></li>
+<li><code>outputfilename</code> : output file name</li>
+<li><code>parameters</code> : parameters</li>
+<li><code>templatefilename</code> : tmplate file name</li>
 </ul>
 <p>Keywords</p>
 <ul>
-<li><code>respect_space</code></li>
+<li><code>respect_space</code> : [default=<code>false</code>])</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L666-L670' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/58b2f2c4fd9c7d29f77e3b3b89e039ac131ecb25/src/MadsIO.jl#L672-L676' class='documenter-source'>source</a><br></p>
                 
                   
                 
