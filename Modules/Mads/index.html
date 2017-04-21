@@ -3788,20 +3788,20 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <ul>
 <li><code>colors</code> : array with plot colors</li>
 <li><code>display</code> : [default=<code>false</code>]</li>
-<li><code>dpi</code> : [default=<code>Mads.dpi</code>]</li>
+<li><code>dpi</code> : graph resolution [default=<code>Mads.dpi</code>]</li>
 <li><code>filename</code> : output file name</li>
 <li><code>format</code> : output plot format (<code>png</code>, <code>pdf</code>, etc.) [default=<code>Mads.graphbackend</code>]</li>
-<li><code>hsize</code> : [default=<code>6Gadfly.inch</code>]</li>
-<li><code>key2time</code></li>
-<li><code>linewidth</code> : [default=<code>2Gadfly.pt</code>]</li>
-<li><code>noise</code> : [default=<code>0</code>]</li>
-<li><code>obs_plot_dots</code> : [default=<code>true</code>]</li>
-<li><code>plotdata</code> : [default=<code>true</code>]</li>
-<li><code>pointsize</code> : [default=<code>4Gadfly.pt</code>]</li>
-<li><code>separate_files</code> : [default=<code>false</code>]</li>
+<li><code>hsize</code> : graph horizontal size[default=<code>6Gadfly.inch</code>]</li>
+<li><code>key2time</code> : user provided function to convert observation keys to observation times</li>
+<li><code>linewidth</code> : line width [default=<code>2Gadfly.pt</code>]</li>
+<li><code>noise</code> : random noise magnitude [default=<code>0</code>; no noise]</li>
+<li><code>obs_plot_dots</code> : plot data as dots or line [default=<code>true</code>]</li>
+<li><code>plotdata</code> : plot data (if <code>false</code> model predictions are ploted only) [default=<code>true</code>]</li>
+<li><code>pointsize</code> : data dot size [default=<code>4Gadfly.pt</code>]</li>
+<li><code>separate_files</code> : plot data for multiple wells separately [default=<code>false</code>]</li>
 <li><code>title</code> : graph title</li>
-<li><code>vsize</code> : [default=<code>4Gadfly.inch</code>]</li>
-<li><code>xtitle</code> : x-axis title [default=<code>time</code>]</li>
+<li><code>vsize</code> : graph vertical size [default=<code>4Gadfly.inch</code>]</li>
+<li><code>xtitle</code> : x-axis title [default=<code>"Time"</code>]</li>
 <li><code>ytitle</code> : y-axis title</li>
 </ul>
 <p>Dumps:</p>
@@ -3822,7 +3822,7 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <p>Plot the sensitivity analysis results for the observations</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.plotobsSAresults(madsdata::Associative, result::Associative; filter, keyword, filename, format, debug, separate_files, xtitle, ytitle, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:549</li>
+<li><code>Mads.plotobsSAresults(madsdata::Associative, result::Associative; filter, keyword, filename, format, debug, separate_files, xtitle, ytitle, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:550</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3846,7 +3846,7 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <ul>
 <li>plot of the sensitivity analysis results for the observations</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L527-L535' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L528-L536' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.plotrobustnesscurves-Tuple{Associative,Dict}' href='#Mads.plotrobustnesscurves-Tuple{Associative,Dict}'>#</a>
 <strong><code>Mads.plotrobustnesscurves</code></strong> &mdash; <em>Method</em>.</p>
 <p>Plot BIG-DT robustness curves</p>
@@ -3879,8 +3879,8 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <p>Create plots of data series</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.plotseries(X::Array{T&lt;:Any,2})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:1061</li>
-<li><code>Mads.plotseries(X::Array{T&lt;:Any,2}, filename::String; format, xtitle, ytitle, title, name, combined, hsize, vsize, linewidth, dpi, colors)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:1061</li>
+<li><code>Mads.plotseries(X::Array{T&lt;:Any,2})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:1062</li>
+<li><code>Mads.plotseries(X::Array{T&lt;:Any,2}, filename::String; format, xtitle, ytitle, title, name, combined, hsize, vsize, linewidth, dpi, colors)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:1062</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3905,14 +3905,14 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <ul>
 <li>Plots of data series</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L1038-L1046' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L1039-L1047' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.plotwellSAresults' href='#Mads.plotwellSAresults'>#</a>
 <strong><code>Mads.plotwellSAresults</code></strong> &mdash; <em>Function</em>.</p>
 <p>Plot the sensitivity analysis results for all the wells in the MADS problem dictionary (wells class expected)</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.plotwellSAresults(madsdata::Associative, result; xtitle, ytitle, filename, format)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:415</li>
-<li><code>Mads.plotwellSAresults(madsdata::Associative, result, wellname; xtitle, ytitle, filename, format)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:426</li>
+<li><code>Mads.plotwellSAresults(madsdata::Associative, result; xtitle, ytitle, filename, format)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:416</li>
+<li><code>Mads.plotwellSAresults(madsdata::Associative, result, wellname; xtitle, ytitle, filename, format)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:427</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3931,7 +3931,7 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <ul>
 <li>Plot of the sensitivity analysis results for all the wells in the MADS problem dictionary</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L510-L518' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L511-L519' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.printSAresults-Tuple{Associative,Associative}' href='#Mads.printSAresults-Tuple{Associative,Associative}'>#</a>
 <strong><code>Mads.printSAresults</code></strong> &mdash; <em>Method</em>.</p>
 <p>Print sensitivity analysis results</p>
@@ -4533,7 +4533,7 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <p>Create histogram/scatter plots of model parameter samples</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.scatterplotsamples(madsdata::Associative, samples::Array{T&lt;:Any,2}, filename::String; format, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:378</li>
+<li><code>Mads.scatterplotsamples(madsdata::Associative, samples::Array{T&lt;:Any,2}, filename::String; format, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:379</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -4550,7 +4550,7 @@ plotgrid(madsdata, parameters; addtitle=true, title=&quot;&quot;, filename=&quot
 <ul>
 <li>histogram/scatter plots of model parameter samples</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L363-L371' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L364-L372' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.searchdir' href='#Mads.searchdir'>#</a>
 <strong><code>Mads.searchdir</code></strong> &mdash; <em>Function</em>.</p>
 <p>Get files in the current directory or in a directory defined by <code>path</code> matching pattern <code>key</code> which can be a string or regular expression</p>
@@ -5106,9 +5106,9 @@ Mads.setobstime!(madsdata, r&quot;[A-x]*_t([0-9,.]+)&quot;)
 <p>Generate a combined spaghetti plot for the <code>selected</code> (<code>type != null</code>) model parameter</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.spaghettiplot(madsdata::Associative, number_of_samples::Integer; plotdata, filename, keyword, format, xtitle, ytitle, yfit, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:848</li>
-<li><code>Mads.spaghettiplot(madsdata::Associative, dictarray::Associative; plotdata, filename, keyword, format, xtitle, ytitle, yfit, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:852</li>
-<li><code>Mads.spaghettiplot(madsdata::Associative, array::Array; plotdata, filename, keyword, format, xtitle, ytitle, yfit, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:889</li>
+<li><code>Mads.spaghettiplot(madsdata::Associative, number_of_samples::Integer; plotdata, filename, keyword, format, xtitle, ytitle, yfit, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:849</li>
+<li><code>Mads.spaghettiplot(madsdata::Associative, dictarray::Associative; plotdata, filename, keyword, format, xtitle, ytitle, yfit, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:853</li>
+<li><code>Mads.spaghettiplot(madsdata::Associative, array::Array; plotdata, filename, keyword, format, xtitle, ytitle, yfit, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:890</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -5142,14 +5142,14 @@ Mads.setobstime!(madsdata, r&quot;[A-x]*_t([0-9,.]+)&quot;)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L1004-L1020' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L1005-L1021' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.spaghettiplots' href='#Mads.spaghettiplots'>#</a>
 <strong><code>Mads.spaghettiplots</code></strong> &mdash; <em>Function</em>.</p>
 <p>Generate separate spaghetti plots for each <code>selected</code> (<code>type != null</code>) model parameter</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.spaghettiplots(madsdata::Associative, number_of_samples::Integer; format, keyword, xtitle, ytitle, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:707</li>
-<li><code>Mads.spaghettiplots(madsdata::Associative, paramdictarray::DataStructures.OrderedDict; format, keyword, xtitle, ytitle, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:711</li>
+<li><code>Mads.spaghettiplots(madsdata::Associative, number_of_samples::Integer; format, keyword, xtitle, ytitle, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:708</li>
+<li><code>Mads.spaghettiplots(madsdata::Associative, paramdictarray::DataStructures.OrderedDict; format, keyword, xtitle, ytitle, obs_plot_dots, seed, linewidth, pointsize)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsPlot.jl:712</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -5178,7 +5178,7 @@ Mads.setobstime!(madsdata, r&quot;[A-x]*_t([0-9,.]+)&quot;)
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L819-L834' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/13e8dc0ee76ffa7e5f1e8b95a22063320a413e18/src/MadsPlot.jl#L820-L835' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.sphericalcov-Tuple{Number,Number,Number}' href='#Mads.sphericalcov-Tuple{Number,Number,Number}'>#</a>
 <strong><code>Mads.sphericalcov</code></strong> &mdash; <em>Method</em>.</p>
 <p>Spherical spatial covariance function</p>
