@@ -120,7 +120,7 @@
     </url>
         
     <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Modules/BIGUQ/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/AffineInvariantMCMC/</loc>
      <lastmod>2017-05-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -132,7 +132,13 @@
     </url>
         
     <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Modules/AffineInvariantMCMC/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/BIGUQ/</loc>
+     <lastmod>2017-05-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/DocumentFunction/</loc>
      <lastmod>2017-05-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -144,13 +150,13 @@
     </url>
         
     <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Modules/ReusableFunctions/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/MetaProgTools/</loc>
      <lastmod>2017-05-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://madsjulia.github.io/Mads.jl/Modules/MetaProgTools/</loc>
+     <loc>http://madsjulia.github.io/Mads.jl/Modules/ReusableFunctions/</loc>
      <lastmod>2017-05-28</lastmod>
      <changefreq>daily</changefreq>
     </url>

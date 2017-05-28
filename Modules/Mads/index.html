@@ -443,8 +443,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../BIGUQ/" title="BIGUQ" class="md-nav__link">
-      BIGUQ
+    <a href="../AffineInvariantMCMC/" title="AffineInvariantMCMC" class="md-nav__link">
+      AffineInvariantMCMC
     </a>
   </li>
 
@@ -467,8 +467,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../AffineInvariantMCMC/" title="AffineInvariantMCMC" class="md-nav__link">
-      AffineInvariantMCMC
+    <a href="../BIGUQ/" title="BIGUQ" class="md-nav__link">
+      BIGUQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../DocumentFunction/" title="DocumentFunction" class="md-nav__link">
+      DocumentFunction
     </a>
   </li>
 
@@ -491,8 +503,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ReusableFunctions/" title="ReusableFunctions" class="md-nav__link">
-      ReusableFunctions
+    <a href="../MetaProgTools/" title="MetaProgTools" class="md-nav__link">
+      MetaProgTools
     </a>
   </li>
 
@@ -503,8 +515,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../MetaProgTools/" title="MetaProgTools" class="md-nav__link">
-      MetaProgTools
+    <a href="../ReusableFunctions/" title="ReusableFunctions" class="md-nav__link">
+      ReusableFunctions
     </a>
   </li>
 
@@ -1039,7 +1051,7 @@
 <p>Methods</p>
 <ul>
 <li><code>Mads.computemass(madsdata::Associative; time)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsAnasol.jl:282</li>
-<li><code>Mads.computemass(madsfiles::Union{Regex,String}; time, path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsAnasol.jl:323</li>
+<li><code>Mads.computemass(madsfiles::Union{Regex,String}; time, path)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsAnasol.jl:321</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -1062,7 +1074,7 @@
 </pre></div>
 
 
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/MadsAnasol.jl#L346-L362' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/MadsAnasol.jl#L344-L360' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.computeparametersensitities-Tuple{Associative,Associative}' href='#Mads.computeparametersensitities-Tuple{Associative,Associative}'>#</a>
 <strong><code>Mads.computeparametersensitities</code></strong> &mdash; <em>Method</em>.</p>
 <p>Compute sensitivities for each model parameter; averaging the sensitivity indices over the entire observation range</p>
@@ -5801,6 +5813,22 @@
 <li><code>respect_space</code> : respect provided space in the template file to fit model parameters [default=<code>false</code>]</li>
 </ul>
 <p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/MadsIO.jl#L664-L668' class='documenter-source'>source</a><br></p>
+<p><a id='Mads.@stderrcapture-Tuple{Any}' href='#Mads.@stderrcapture-Tuple{Any}'>#</a>
+<strong><code>Mads.@stderrcapture</code></strong> &mdash; <em>Macro</em>.</p>
+<p>Capture STDERR of a block</p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/MadsSTDOUT.jl#L21-L23' class='documenter-source'>source</a><br></p>
+<p><a id='Mads.@stdoutcapture-Tuple{Any}' href='#Mads.@stdoutcapture-Tuple{Any}'>#</a>
+<strong><code>Mads.@stdoutcapture</code></strong> &mdash; <em>Macro</em>.</p>
+<p>Capture STDOUT of a block</p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/MadsSTDOUT.jl#L3-L5' class='documenter-source'>source</a><br></p>
+<p><a id='Mads.@stdouterrcapture-Tuple{Any}' href='#Mads.@stdouterrcapture-Tuple{Any}'>#</a>
+<strong><code>Mads.@stdouterrcapture</code></strong> &mdash; <em>Macro</em>.</p>
+<p>Capture STDERR &amp; STDERR of a block</p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/MadsSTDOUT.jl#L39-L41' class='documenter-source'>source</a><br></p>
+<p><a id='Mads.@tryimport-Tuple{Symbol}' href='#Mads.@tryimport-Tuple{Symbol}'>#</a>
+<strong><code>Mads.@tryimport</code></strong> &mdash; <em>Macro</em>.</p>
+<p>Try to import a module</p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/07739c8a35dc00e3c3c15e61ee23d21de6cd466a/src/Mads.jl#L38' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.MadsModel' href='#Mads.MadsModel'>#</a>
 <strong><code>Mads.MadsModel</code></strong> &mdash; <em>Type</em>.</p>
 <p>MadsModel type applied for MathProgBase analyses</p>
@@ -5838,13 +5866,13 @@
           </a>
         
         
-          <a href="../BIGUQ/" title="BIGUQ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../AffineInvariantMCMC/" title="AffineInvariantMCMC" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                BIGUQ
+                AffineInvariantMCMC
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
