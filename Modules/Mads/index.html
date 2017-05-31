@@ -2645,8 +2645,8 @@
 <p>Levenberg-Marquardt optimization</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.levenberg_marquardt(f::Function, g::Function, x0)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:331</li>
-<li><code>Mads.levenberg_marquardt(f::Function, g::Function, x0, o::Function; root, tolX, tolG, tolOF, maxEval, maxIter, maxJacobians, lambda, lambda_scale, lambda_mu, lambda_nu, np_lambda, show_trace, alwaysDoJacobian, callbackiteration, callbackjacobian)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:331</li>
+<li><code>Mads.levenberg_marquardt(f::Function, g::Function, x0)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:330</li>
+<li><code>Mads.levenberg_marquardt(f::Function, g::Function, x0, o::Function; root, tolX, tolG, tolOF, maxEval, maxIter, maxJacobians, lambda, lambda_scale, lambda_mu, lambda_nu, np_lambda, show_trace, alwaysDoJacobian, callbackiteration, callbackjacobian)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:330</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -2674,7 +2674,7 @@
 <li><code>tolOF</code> : objective function update tolerance [default=<code>1e-3</code>]</li>
 <li><code>tolX</code> : parameter space tolerance [default=<code>1e-4</code>]</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L284-L288' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L283-L287' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.linktempdir-Tuple{String,String}' href='#Mads.linktempdir-Tuple{String,String}'>#</a>
 <strong><code>Mads.linktempdir</code></strong> &mdash; <em>Method</em>.</p>
 <p>Link files in a temporary directory</p>
@@ -3145,7 +3145,7 @@
 <p>Make forward model, gradient, objective functions needed for Levenberg-Marquardt optimization</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.makelmfunctions(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:112</li>
+<li><code>Mads.makelmfunctions(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:111</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3155,7 +3155,7 @@
 <ul>
 <li>forward model, gradient, objective functions</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L101-L109' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L100-L108' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.makelocalsafunction-Tuple{Associative}' href='#Mads.makelocalsafunction-Tuple{Associative}'>#</a>
 <strong><code>Mads.makelocalsafunction</code></strong> &mdash; <em>Method</em>.</p>
 <p>Make gradient function needed for local sensitivity analysis</p>
@@ -3646,7 +3646,7 @@
 <p>Naive Levenberg-Marquardt optimization: get the LM parameter space step</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.naive_get_deltax(JpJ::Array{Float64,2}, Jp::Array{Float64,2}, f0::Array{Float64,1}, lambda::Number)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:219</li>
+<li><code>Mads.naive_get_deltax(JpJ::Array{Float64,2}, Jp::Array{Float64,2}, f0::Array{Float64,1}, lambda::Number)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:218</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3659,14 +3659,14 @@
 <ul>
 <li>the LM parameter space step</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L205-L213' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L204-L212' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.naive_levenberg_marquardt' href='#Mads.naive_levenberg_marquardt'>#</a>
 <strong><code>Mads.naive_levenberg_marquardt</code></strong> &mdash; <em>Function</em>.</p>
 <p>Naive Levenberg-Marquardt optimization</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.naive_levenberg_marquardt(f::Function, g::Function, x0::Array{Float64,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:269</li>
-<li><code>Mads.naive_levenberg_marquardt(f::Function, g::Function, x0::Array{Float64,1}, o::Function; maxIter, maxEval, np_lambda, lambda, lambda_mu)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:269</li>
+<li><code>Mads.naive_levenberg_marquardt(f::Function, g::Function, x0::Array{Float64,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:268</li>
+<li><code>Mads.naive_levenberg_marquardt(f::Function, g::Function, x0::Array{Float64,1}, o::Function; maxIter, maxEval, np_lambda, lambda, lambda_mu)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:268</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3687,13 +3687,13 @@
 <ul>
 <li></li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L250-L258' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L249-L257' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.naive_lm_iteration-Tuple{Function,Function,Function,Array{Float64,1},Array{Float64,1},Array{Float64,1}}' href='#Mads.naive_lm_iteration-Tuple{Function,Function,Function,Array{Float64,1},Array{Float64,1},Array{Float64,1}}'>#</a>
 <strong><code>Mads.naive_lm_iteration</code></strong> &mdash; <em>Method</em>.</p>
 <p>Naive Levenberg-Marquardt optimization: perform LM iteration</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.naive_lm_iteration(f::Function, g::Function, o::Function, x0::Array{Float64,1}, f0::Array{Float64,1}, lambdas::Array{Float64,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:240</li>
+<li><code>Mads.naive_lm_iteration(f::Function, g::Function, o::Function, x0::Array{Float64,1}, f0::Array{Float64,1}, lambdas::Array{Float64,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:239</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3708,7 +3708,7 @@
 <ul>
 <li></li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L224-L232' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L223-L231' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.noplot-Tuple{}' href='#Mads.noplot-Tuple{}'>#</a>
 <strong><code>Mads.noplot</code></strong> &mdash; <em>Method</em>.</p>
 <p>Disable MADS plotting</p>
@@ -3739,9 +3739,9 @@
 <p>Compute objective function</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.of(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:60</li>
-<li><code>Mads.of(madsdata::Associative, resultvec::Array{T&lt;:Any,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:53</li>
-<li><code>Mads.of(madsdata::Associative, resultdict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:57</li>
+<li><code>Mads.of(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:59</li>
+<li><code>Mads.of(madsdata::Associative, resultvec::Array{T&lt;:Any,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:52</li>
+<li><code>Mads.of(madsdata::Associative, resultdict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:56</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3749,7 +3749,7 @@
 <li><code>resultdict::Associative</code> : result dictionary</li>
 <li><code>resultvec::Array{T&lt;:Any,1}</code> : result vector</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L64-L68' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L63-L67' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.paramarray2dict-Tuple{Associative,Array}' href='#Mads.paramarray2dict-Tuple{Associative,Array}'>#</a>
 <strong><code>Mads.paramarray2dict</code></strong> &mdash; <em>Method</em>.</p>
 <p>Convert a parameter array to a parameter dictionary of arrays</p>
@@ -3814,7 +3814,7 @@
 <p>Compute the sum of squared residuals for observations that match a regular expression</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.partialof(madsdata::Associative, resultdict::Associative, regex::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:86</li>
+<li><code>Mads.partialof(madsdata::Associative, resultdict::Associative, regex::Regex)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:85</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -3826,7 +3826,7 @@
 <ul>
 <li>the sum of squared residuals for observations that match the regular expression</li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L73-L81' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L72-L80' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.pkgversion-Tuple{String}' href='#Mads.pkgversion-Tuple{String}'>#</a>
 <strong><code>Mads.pkgversion</code></strong> &mdash; <em>Method</em>.</p>
 <p>Get package version</p>
@@ -4340,9 +4340,9 @@
 <p>Compute residuals</p>
 <p>Methods</p>
 <ul>
-<li><code>Mads.residuals(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:34</li>
+<li><code>Mads.residuals(madsdata::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:33</li>
 <li><code>Mads.residuals(madsdata::Associative, resultvec::Array{T&lt;:Any,1})</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:7</li>
-<li><code>Mads.residuals(madsdata::Associative, resultdict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:31</li>
+<li><code>Mads.residuals(madsdata::Associative, resultdict::Associative)</code> : /Users/monty/.julia/v0.5/Mads/src/MadsLevenbergMarquardt.jl:30</li>
 </ul>
 <p>Arguments</p>
 <ul>
@@ -4354,7 +4354,7 @@
 <ul>
 <li></li>
 </ul>
-<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L38-L46' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/madsjulia/Mads.jl/tree/d002af1102fe971bf9e506b4755c533787055cf0/src/MadsLevenbergMarquardt.jl#L37-L45' class='documenter-source'>source</a><br></p>
 <p><a id='Mads.restartoff-Tuple{}' href='#Mads.restartoff-Tuple{}'>#</a>
 <strong><code>Mads.restartoff</code></strong> &mdash; <em>Method</em>.</p>
 <p>MADS restart off</p>
