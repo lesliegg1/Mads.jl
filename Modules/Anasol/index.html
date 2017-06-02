@@ -608,37 +608,39 @@
 <h1 id="anasoljl">Anasol.jl</h1>
 <p>Module Anasol.jl provides a series of analytical solutions for groundwater contaminant transport in 1, 2, and 3 dimensions. The provided solutions have:</p>
 <ul>
-<li>
-<p>different source types</p>
+<li>different source types</li>
+</ul>
+<div class="codehilite"><pre><span></span>- instantaneous contaminant release
+- continuous contaminant release with a unit flux
+- continuous contaminant release with a given constant flux
+</pre></div>
+
+
 <ul>
-<li>instantaneous contaminant release</li>
-<li>continuous contaminant release with a unit flux</li>
-<li>continuous contaminant release with a given constant flux</li>
-<li>
-<p>different source shapes</p>
-</li>
-<li>
-<p>constrained (within predefined limits)</p>
-</li>
-<li>distributed (assuming normal distribution)</li>
-<li>
-<p>different dispersion models</p>
-</li>
-<li>
-<p>classical (Fickian)</p>
-</li>
-<li>fractional Brownian</li>
-<li>
-<p>different boundaries along each axis</p>
-</li>
-<li>
-<p>infinite (no boundary)</p>
-</li>
-<li>reflecting</li>
-<li>absorbing</li>
+<li>different source shapes</li>
 </ul>
-</li>
+<div class="codehilite"><pre><span></span>- constrained (within predefined limits)
+- distributed (assuming normal distribution)
+</pre></div>
+
+
+<ul>
+<li>different dispersion models</li>
 </ul>
+<div class="codehilite"><pre><span></span>- classical (Fickian)
+- fractional Brownian
+</pre></div>
+
+
+<ul>
+<li>different boundaries along each axis</li>
+</ul>
+<div class="codehilite"><pre><span></span>- infinite (no boundary)
+- reflecting
+- absorbing
+</pre></div>
+
+
 <p>All functions have the following arguments:</p>
 <ul>
 <li><code>t</code>: time to compute the concentration</li>
