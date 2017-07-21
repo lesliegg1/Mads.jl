@@ -264,10 +264,13 @@ function sampling(param::Vector, J::Array, numsamples::Number; seed::Integer=-1,
 	numgooddirections = numdirections
 	while !done
 		try
-			covmat = (v * diagm(1 ./ d) * u') .* scale
+			covmat = (v * diagm(1.0 ./ d) * u') .* scale
+			@show covmat
 			dist = Distributions.MvNormal(zeros(numgooddirections), covmat)
+			@show dist
 			done = true
 		catch errmsg
+			printerrormsg(errmsg)
 			# printerrormsg(errmsg)
 			numgooddirections -= 1
 			if numgooddirections <= 0
@@ -276,6 +279,9 @@ function sampling(param::Vector, J::Array, numsamples::Number; seed::Integer=-1,
 			gooddirections = vo[:, 1:numgooddirections]
 			newJ = J * gooddirections
 			u, d, v = svd(newJ' * newJ)
+			@show u
+			@show d
+			@show v
 		end
 	end
 	madsinfo("Reduction in sampling directions ... (from $(numdirections) to $(numgooddirections))")
