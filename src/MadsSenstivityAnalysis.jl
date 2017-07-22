@@ -258,10 +258,8 @@ function sampling(param::Vector, J::Array, numsamples::Number; seed::Integer=-1,
 	@show d
 	@show v
 	done = false
-	uo = u
-	dd = d
-	vo = v
-	gooddirections = []
+	vo = copy(v)
+	local gooddirections
 	local dist
 	numdirections = length(d)
 	numgooddirections = numdirections
