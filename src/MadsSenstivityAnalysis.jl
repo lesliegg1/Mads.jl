@@ -265,18 +265,18 @@ function sampling(param::Vector, J::Array, numsamples::Number; seed::Integer=-1,
 	numgooddirections = numdirections
 	while !done
 		try
-			covmat = (v * diagm(1.0 ./ d) * u') .* scale
+			covmat = (v * diagm(1 ./ d) * u') .* scale
 			@show covmat
 			dist = Distributions.MvNormal(zeros(numgooddirections), covmat)
 			@show dist
 			done = true
 		catch errmsg
 			printerrormsg(errmsg)
-			# printerrormsg(errmsg)
 			numgooddirections -= 1
 			if numgooddirections <= 0
 				madscritical("Reduction in sampling directions failed!")
 			end
+			@show vo[:, 1:numgooddirections]
 			gooddirections = vo[:, 1:numgooddirections]
 			newJ = J * gooddirections
 			u, d, v = svd(newJ' * newJ)
