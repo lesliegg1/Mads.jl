@@ -254,6 +254,9 @@ Returns:
 """
 function sampling(param::Vector, J::Array, numsamples::Number; seed::Integer=-1, scale::Number=1)
 	u, d, v = svd(J' * J)
+	@show u
+	@show d
+	@show v
 	done = false
 	uo = u
 	dd = d
