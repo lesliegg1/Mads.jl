@@ -21,7 +21,7 @@ import JSON
 #include("/Users/jlaughli/codes/mads.jl/src/MadsYAML_noPyYAML.jl")
 #@everywhere include("/Users/jlaughli/codes/mads.jl/src/MadsLog.jl")
 
-Mads.madsinfo("TEST eFAST senstivity analysis:")
+Mads.mads@info("TEST eFAST senstivity analysis:")
 
 # Load in .mads data file to analyze
 md = Mads.loadmadsfile("/home/jlaughli/Julia Code/examples/contamination/w01_w1a_w10a_w20a.mads")
@@ -36,7 +36,7 @@ N = resultsefast["samplesize"];
 
 # get MADS rootname
 rootname = Mads.getmadsrootname(md)
-Mads.madsinfo("""Mads root name: $(rootname)""")
+Mads.mads@info("""Mads root name: $(rootname)""")
 
 # Save eFAST results as JSON file
 f = open("$rootname-eFAST-results-N=$N.json", "w")

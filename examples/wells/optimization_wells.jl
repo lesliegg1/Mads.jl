@@ -7,7 +7,7 @@ end
 @everywhere cdir = pwd()
 @everywhere cd(workdir)
 
-info("Levenberg-Marquardt optimization of an external call problem using the code WELLS ...")
+@info("Levenberg-Marquardt optimization of an external call problem using the code WELLS ...")
 
 md = Mads.loadmadsfile("w01.mads")
 params, results = Mads.calibrate(md)

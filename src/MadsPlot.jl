@@ -164,7 +164,7 @@ function plotmatches(madsdata::Associative, result::Associative, rx::Regex; plot
 				newobs[k]["time"] = key2time(k)
 			end
 			if !haskey(result, k)
-				warn("Observation `$k` is missing!")
+				@warn("Observation `$k` is missing!")
 			else
 				newresult[k] = result[k]
 			end
@@ -906,7 +906,7 @@ function spaghettiplot(madsdata::Associative, dictarray::Associative; seed::Inte
 	spaghettiplot(madsdata::Associative, Y; kw...)
 end
 function spaghettiplot(madsdata::Associative, array::Array; plotdata::Bool=true, filename::String="", keyword::String="", format::String="", xtitle::String="X", ytitle::String="Y", yfit::Bool=false, obs_plot_dots::Bool=true, linewidth::Measures.Length{:mm,Float64}=2Gadfly.pt, pointsize::Measures.Length{:mm,Float64}=4Gadfly.pt, grayscale::Bool=false)
-	madsinfo("Spaghetti plots for all the selected model parameter (type != null) ...\n")
+	mads@info("Spaghetti plots for all the selected model parameter (type != null) ...\n")
 	rootname = getmadsrootname(madsdata)
 	obskeys = Mads.getobskeys(madsdata)
 	nT = length(obskeys)
@@ -1198,7 +1198,7 @@ function plotlocalsa(filenameroot::String; keyword::String="", filename::String=
 			catch
 				madswarn("Gadfly could not plot!")
 			end
-			Mads.madsinfo("Jacobian matrix plot saved in $filename")
+			Mads.mads@info("Jacobian matrix plot saved in $filename")
 		end
 	end
 	filename = "$(filenameroot)-covariance.dat"
@@ -1236,7 +1236,7 @@ function plotlocalsa(filenameroot::String; keyword::String="", filename::String=
 			filename = "$(rootname)-eigenmatrix" * ext
 			filename, format = setplotfileformat(filename, format)
 			Gadfly.draw(Gadfly.eval(Symbol(format))(filename, 4Gadfly.inch+0.25Gadfly.inch*nP, 4Gadfly.inch+0.25Gadfly.inch*nP), eigenmat)
-			Mads.madsinfo("Eigen matrix plot saved in $filename")
+			Mads.mads@info("Eigen matrix plot saved in $filename")
 			if sizeof(sortedeigenv) > 0
 				eigenval = Gadfly.plot(x=1:length(sortedeigenv), y=sortedeigenv, Gadfly.Scale.x_discrete, Gadfly.Scale.y_log10,
 							Gadfly.Geom.bar,
@@ -1245,7 +1245,7 @@ function plotlocalsa(filenameroot::String; keyword::String="", filename::String=
 				filename = "$(rootname)-eigenvalues" * ext
 				filename, format = setplotfileformat(filename, format)
 				Gadfly.draw(Gadfly.eval(Symbol(format))(filename, 4Gadfly.inch+0.25Gadfly.inch*nP, 4Gadfly.inch), eigenval)
-				Mads.madsinfo("Eigen values plot saved in $filename")
+				Mads.mads@info("Eigen values plot saved in $filename")
 			end
 		end
 	end

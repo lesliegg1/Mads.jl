@@ -11,7 +11,7 @@ cd(madsdirname)
 
 md = Mads.loadmadsfile("w01.mads") # load Mads input file into Mads Dictionary
 rootname = Mads.getmadsrootname(md) # get problem rootname
-Mads.madsinfo("Mads root name: $(rootname)")
+Mads.mads@info("Mads root name: $(rootname)")
 display(md) # show the content of the Mads input file
 Mads.showallparameters(md) # show all the model parameters
 Mads.showparameters(md) # show all the adjustable model parameters
@@ -52,22 +52,22 @@ Mads.plotmatches(md, inverse_predictions, filename=rootname * "-w13a_w20a-calib-
 Mads.display("w01-w13a_w20a-calib-match.svg")
 
 # Sensitivity analysis: spaghetti plots based on prior parameter uncertainty ranges
-Mads.madsinfo("Prior spaghetti plot ...")
+Mads.mads@info("Prior spaghetti plot ...")
 paramvalues=Mads.getparamrandom(md, 100)
 Mads.spaghettiplot(md, paramvalues, keyword="w13a_w20a-prior", xtitle = "Time [a]", ytitle = "Concentration [ppb]")
 Mads.display("w01-w13a_w20a-prior-100-spaghetti.svg")
 
-Mads.madsinfo("Bayesian sampling ...")
+Mads.mads@info("Bayesian sampling ...")
 mcmcchain = Mads.bayessampling(md, seed=20151001)
 
-Mads.madsinfo("Bayesian scatter plots ...")
+Mads.mads@info("Bayesian scatter plots ...")
 Mads.scatterplotsamples(md, mcmcchain.value', rootname * "-bayes.png")
 Mads.display(rootname * "-bayes.png")
 
 # convert the parameters in the chain to a parameter dictionary of arrays
 mcmcvalues = Mads.paramarray2dict(md, mcmcchain.value')
 
-Mads.madsinfo("Posterior (Bayesian) spaghetti plot ...")
+Mads.mads@info("Posterior (Bayesian) spaghetti plot ...")
 Mads.spaghettiplot(md, mcmcvalues, keyword="w13a_w20a-posterior", format="PNG", xtitle = "Time [a]", ytitle = "Concentration [ppb]")
 Mads.display("w01-w13a_w20a-posterior-1000-spaghetti.png")
 

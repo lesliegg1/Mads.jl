@@ -30,7 +30,7 @@ function addsource!(madsdata::Associative, sourceid::Int=0)
 	else
 		madserror("There are no sources in the Mads dictionary!")
 	end
-	info("There are $(length(madsdata["Sources"])) sources now!")
+	@info("There are $(length(madsdata["Sources"])) sources now!")
 end
 
 """
@@ -56,7 +56,7 @@ function removesource!(madsdata::Associative, sourceid::Int=0)
 	else
 		madserror("There are no sources in the Mads dictionary!")
 	end
-	info("There are $(length(madsdata["Sources"])) sources now!")
+	@info("There are $(length(madsdata["Sources"])) sources now!")
 end
 
 """
@@ -473,7 +473,7 @@ end
 function computemass(madsfiles::Union{Regex,String}; time::Number=0, path::String=".")
 	mf = searchdir(madsfiles, path=path)
 	nf = length(mf)
-	Mads.madsinfo("Number of files = $nf")
+	Mads.mads@info("Number of files = $nf")
 	lambda = Array{Float64}(nf)
 	mass_injected = Array{Float64}(nf)
 	mass_reduced = Array{Float64}(nf)

@@ -28,7 +28,7 @@ fcmxv(n_x, x, M, n_o, o) = ccall( (:my_c_mxv, "libmy.dylib"), Int32, (Int64, Ptr
 fjmxv(M, x) = M * x
 
 # sqrt comparison
-info("sqrt ...")
+@info("sqrt ...")
 println("c ...")
 @time fcsqrt(2)
 println("julia ...")
@@ -36,7 +36,7 @@ println("julia ...")
 @Base.Test.test_approx_eq fcsqrt(2) sqrt(2)
 
 # function example #1
-info("func #1 ...")
+@info("func #1 ...")
 println("c ...")
 @time fcfunc_ex1(100, 6.4)
 println("julia ...")
@@ -50,7 +50,7 @@ o_c = Array{Float64}(nO)
 o_j = Array{Float64}(nO)
 
 # function example #2
-info("func #2 ...")
+@info("func #2 ...")
 println("c ...")
 @time fcfunc_ex2(nP, x, nO, o_c)
 println("julia ...")
@@ -60,7 +60,7 @@ println("julia ...")
 M = ones(nO, nP)
 M[:,end] = 100000
 
-info("Matrix vector multiplication ...")
+@info("Matrix vector multiplication ...")
 println("c (bad) ...")
 @time fcmxv_bad(nP, x, M, nO, o_c);
 println("c ...")

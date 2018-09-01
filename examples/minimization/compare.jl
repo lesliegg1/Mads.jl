@@ -18,7 +18,7 @@ end
 
 nvar = 1
 
-info("NLopt")
+@info("NLopt")
 m = JuMP.Model(solver=NLopt.NLoptSolver(algorithm=:LD_LBFGS))
 JuMP.register(m, :func_nlopt, nvar, func_nlopt, autodiff=true)
 @JuMP.variable(m, x[i=1:nvar], start=2)
@@ -26,7 +26,7 @@ JuMP.setNLobjective(m, :Min, Expr(:call, :func_nlopt, [x[i] for i=1:nvar]...))
 @time JuMP.solve(m)
 JuMP.getvalue(x)
 
-info("Ipopt")
+@info("Ipopt")
 m = JuMP.Model(solver=Ipopt.IpoptSolver())
 JuMP.register(m, :func_nlopt, nvar, func_nlopt, autodiff=true)
 @JuMP.variable(m, x[i=1:nvar], start=2)
@@ -34,5 +34,5 @@ JuMP.setNLobjective(m, :Min, Expr(:call, :func_nlopt, [x[i] for i=1:nvar]...))
 @time JuMP.solve(m)
 JuMP.getvalue(x)
 
-info("Mads")
+@info("Mads")
 @time minimizer, results = Mads.minimize(func_mads, [2.]; upperbounds=[4.], lowerbounds=[0.])

@@ -37,9 +37,9 @@ $(DocumentFunction.documentfunction(madsinfo;
 argtext=Dict("message"=>"information/status message",
             "level"=>"output verbosity level [default=`0`]")))
 """
-function madsinfo(message::AbstractString, level::Int=0)
+function mads@info(message::AbstractString, level::Int=0)
 	if !quiet && level < verbositylevel
-		info(Libc.strftime("%Y-%m-%d %H:%M:%S", time()) * " " * message); flush(Base.STDOUT); flush(Base.STDERR)
+		@info(Libc.strftime("%Y-%m-%d %H:%M:%S", time()) * " " * message); flush(Base.STDOUT); flush(Base.STDERR)
 	end
 end
 
@@ -50,7 +50,7 @@ $(DocumentFunction.documentfunction(madswarn;
 argtext=Dict("message"=>"warning message")))
 """
 function madswarn(message::AbstractString)
-	warn(Libc.strftime("%Y-%m-%d %H:%M:%S", time()) * " " * message  * "\n"); flush(Base.STDOUT); flush(Base.STDERR)
+	@warn(Libc.strftime("%Y-%m-%d %H:%M:%S", time()) * " " * message  * "\n"); flush(Base.STDOUT); flush(Base.STDERR)
 end
 
 """

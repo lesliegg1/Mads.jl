@@ -22,7 +22,7 @@ function loadyamlfile(filename::String; julia::Bool=false) # load YAML file
 			yamldata = YAML.load(f) # works better; delimiters are well defined and "1e6" correctly interpreted as a number
 		catch e
 			printerrormsg(e)
-			warn("Python YAML fails!")
+			@warn("Python YAML fails!")
 			yamldata = yaml.load(f)
 		end
 	else

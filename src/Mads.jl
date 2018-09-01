@@ -10,21 +10,6 @@ Licensing: GPLv3: http://www.gnu.org/licenses/gpl-3.0.html
 """
 module Mads
 
-import JLD
-import YAML
-import JSON
-
-import Anasol
-import BIGUQ
-import AffineInvariantMCMC
-import GeostatInversion
-import Kriging
-import MetaProgTools
-import ReusableFunctions
-import RobustPmap
-import SVR
-import DocumentFunction
-
 global madsgit = true
 try
 	run(pipeline(`git help`, stdout=DevNull, stderr=DevNull))
@@ -33,7 +18,7 @@ catch
 end
 
 global madsbash = true
-if !Sys.is_windows()
+if !Sys.iswindows()
 	try
 		run(pipeline(`bash --help`, stdout=DevNull, stderr=DevNull))
 	catch
@@ -60,14 +45,33 @@ macro tryimport(s::Symbol)
 				eval(parse($importq))
 			catch errmsg
 				Mads.printerrormsg(errmsg)
-				warn($warnstring)
+				@warn($warnstring)
 			end
 		else
-			info($infostring)
+			@info($infostring)
 		end
 	end
 	return :($(esc(q)))
 end
+
+@tryimport JLD
+if !isdefined(:Mads, :JLD)
+	import JLD2
+	const JLD = JLD2
+end
+import YAML
+import JSON
+
+import Anasol
+import BIGUQ
+import AffineInvariantMCMC
+import GeostatInversion
+import Kriging
+import MetaProgTools
+import ReusableFunctions
+import RobustPmap
+import SVR
+import DocumentFunction
 
 if !haskey(ENV, "MADS_NO_PYTHON")
 	@tryimport PyCall
@@ -76,7 +80,7 @@ if !haskey(ENV, "MADS_NO_PYTHON")
 			eval(:(@PyCall.pyimport yaml))
 		catch
 			ENV["PYTHON"] = ""
-			warn("PyYAML is not available (in the available python installation)")
+			@warn("PyYAML is not available (in the available python installation)")
 		end
 		if !isdefined(Mads, :yaml)
 			if haskey(ENV, "PYTHON") && ENV["PYTHON"] == ""
@@ -87,7 +91,7 @@ if !haskey(ENV, "MADS_NO_PYTHON")
 				eval(:(@PyCall.pyimport yaml))
 				pyyamlok = true
 			catch
-				warn("PyYAML is not available (in Conda)")
+				@warn("PyYAML is not available (in Conda)")
 			end
 			if pyyamlok
 				eval(:(@PyCall.pyimport yaml))
@@ -157,8 +161,8 @@ include("MadsSVR.jl")
 
 if Mads.pkgversion("Gadfly") == v"0.6.1"
 	ENV["MADS_NO_GADFLY"] = ""
-	warn("Gadfly v0.6.1 has bugs; update or downgrade to another version!")
-	warn("Gadfly plotting is disabled!")
+	@warn("Gadfly v0.6.1 has bugs; update or downgrade to another version!")
+	@warn("Gadfly plotting is disabled!")
 end
 
 if !haskey(ENV, "MADS_NO_PLOT")
@@ -180,7 +184,7 @@ else
 	ENV["MADS_NO_PYPLOT"] = ""
 	ENV["MADS_NO_DISPLAY"] = ""
 	global graphoutput = false
-	warn("Mads plotting is disabled")
+	@warn("Mads plotting is disabled")
 end
 
 if haskey(ENV, "MADS_TRAVIS")

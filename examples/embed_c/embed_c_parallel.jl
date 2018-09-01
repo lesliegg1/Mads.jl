@@ -15,7 +15,7 @@ addprocs(4)
 @everywhere M = ones(nO, nP)
 @everywhere M[:,end] = 100000
 
-info("Matrix vector multiplication in parallel ...")
+@info("Matrix vector multiplication in parallel ...")
 println("C (bad) ...")
 @time fcmxv_bad(nP, x, M, nO, o_c);
 @time map(i->fcmxv_bad(nP, x, M, nO, o_c), 1:10);

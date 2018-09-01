@@ -47,9 +47,9 @@ function loadmadsfile(filename::String; bigfile::Bool=false, julia::Bool=true, f
 		if any(isn)
 			l = length(isn[isn.==true])
 			if l == 1
-				warn("There is 1 observation with a missing target!")
+				@warn("There is 1 observation with a missing target!")
 			else
-				warn("There are $(l) observations with missing targets!")
+				@warn("There are $(l) observations with missing targets!")
 			end
 		end
 	end
@@ -275,7 +275,7 @@ function savemadsfile(madsdata::Associative, filename::String=""; julia::Bool=fa
 		if !isfile(filenameobs)
 			printobservations(madsdata, filenameobs)
 		else
-			warn("External observation file already exist ($(filenameobs)); delete if needed!")
+			@warn("External observation file already exist ($(filenameobs)); delete if needed!")
 		end
 		madsdata2["Observations"] = Dict{String,String}("filename"=>filenameobs)
 	else
@@ -447,7 +447,7 @@ function getmadsdir()
 		problemdir = "."
 	else
 		problemdir = getdir(source_path)
-		madsinfo("Problem directory: $(problemdir)")
+		mads@info("Problem directory: $(problemdir)")
 	end
 	return problemdir
 end
@@ -644,7 +644,7 @@ function setmodelinputs(madsdata::Associative, parameters::Associative=Mads.getp
 		for instruction in madsdata["Instructions"]
 			filename = instruction["ins"]
 			if !isfile(filename)
-				warn("Instruction file $filename is missing!"); errorflag = true
+				@warn("Instruction file $filename is missing!"); errorflag = true
 			end
 			filename = instruction["read"]
 			Mads.rmfile(filename, path=path) # delete the parameter file links
@@ -654,7 +654,7 @@ function setmodelinputs(madsdata::Associative, parameters::Associative=Mads.getp
 		for template in madsdata["Templates"]
 			filename = template["tpl"]
 			if !isfile(filename)
-				warn("Template file $filename is missing!"); errorflag = true
+				@warn("Template file $filename is missing!"); errorflag = true
 			end
 			filename = template["write"]
 			Mads.rmfile(filename, path=path) # delete the parameter file links
@@ -849,7 +849,7 @@ function writeparametersviatemplate(parameters, templatefilename, outputfilename
 				s = string(parameters[varname])
 			end
 			write(outfile, s)
-			madsinfo("Replacing " * varname * " -> " * s, 1)
+			mads@info("Replacing " * varname * " -> " * s, 1)
 		end
 		write(outfile, splitline[end]) # write the rest of the line after the last separator
 		write(outfile, "\n")
@@ -1067,7 +1067,7 @@ function readobservations(madsdata::Associative, obskeys::Vector=getobskeys(mads
 			delete!(observations, k)
 		elseif obscount[k] > 1
 			observations[k] /= obscount[k]
-			madsinfo("Observation $k detected $(obscount[k]) times; an average is computed")
+			mads@info("Observation $k detected $(obscount[k]) times; an average is computed")
 		end
 	end
 	return observations
@@ -1225,7 +1225,7 @@ function createtempdir(tempdirname::String)
 		try
 			attempt += 1
 			Mads.mkdir(tempdirname)
-			Mads.madsinfo("Created temporary directory: $(tempdirname)", 1)
+			Mads.mads@info("Created temporary directory: $(tempdirname)", 1)
 			trying = false
 		catch errmsg
 			sleep(attempt * 0.5)
@@ -1251,7 +1251,7 @@ function linktempdir(madsproblemdir::String, tempdirname::String)
 		try
 			attempt += 1
 			Mads.symlinkdirfiles(madsproblemdir, tempdirname)
-			Mads.madsinfo("Links created in temporary directory: $(tempdirname)", 1)
+			Mads.mads@info("Links created in temporary directory: $(tempdirname)", 1)
 			trying = false
 		catch errmsg
 			Mads.rmdir(tempdirname)
@@ -1286,7 +1286,7 @@ function recursivemkdir(s::String)
 	end
 	for i = length(d):-1:1
 		if isfile(d[i])
-			warn("File $d[i] exists!")
+			@warn("File $d[i] exists!")
 		elseif !isdir(d[i])
 			mkdir(d[i])
 		end

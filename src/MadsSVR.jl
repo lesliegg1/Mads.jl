@@ -25,11 +25,11 @@ function svrtrain(madsdata::Associative, paramarray::Array{Float64,2}; check::Bo
 		rootname = Mads.getmadsrootname(madsdata)
 		Mads.spaghettiplot(madsdata, predictions, keyword="svr-training", format="SVG")
 		Mads.display("$rootname-svr-training-$numberofsamples-spaghetti.svg")
-		info("SVR discrepancy $(maximum(abs.(svrpredictions2 .- predictions)))")
+		@info("SVR discrepancy $(maximum(abs.(svrpredictions2 .- predictions)))")
 		Mads.spaghettiplot(madsdata, svrpredictions2, keyword="svr-prediction2", format="SVG")
 		Mads.display("$rootname-svr-prediction2-$numberofsamples-spaghetti.svg")
 		svrpredictions = svrpredict(svrmodel, paramarray)
-		info("SVR discrepancy $(maximum(abs.(svrpredictions .- predictions)))")
+		@info("SVR discrepancy $(maximum(abs.(svrpredictions .- predictions)))")
 		Mads.spaghettiplot(madsdata, svrpredictions, keyword="svr-prediction", format="SVG")
 		Mads.display("$rootname-svr-prediction-$numberofsamples-spaghetti.svg")
 	end
@@ -167,7 +167,7 @@ function svrload(npred::Int, rootname::String, numberofsamples::Int)
 		if isfile(filename)
 			svrmodel[i] = SVR.loadmodel(filename)
 		else
-			warn("$filename does not exist")
+			@warn("$filename does not exist")
 		end
 	end
 	return svrmodel

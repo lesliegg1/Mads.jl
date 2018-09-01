@@ -13,7 +13,7 @@ else
 end
 
 if embed_c_mylib == ""
-	warn("embed_c test is skipped!")
+	@warn("embed_c test is skipped!")
 else
 	# Build the C library if it doesn't exist
 	if isfile(joinpath(workdir, embed_c_mylib)) != true
@@ -41,7 +41,7 @@ else
 
 			@Base.Test.test fcfunc_ex1(n,d) ≈ r
 		else
-			warn("C library does not exist!")
+			@warn("C library does not exist!")
 		end
 	end
 end

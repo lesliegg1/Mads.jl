@@ -10,10 +10,10 @@ ns = 100
 rsetdict = Mads.getparamrandom(md, ns)
 rsetarray = hcat(map(i->rsetdict[i], keys(rsetdict))...)'
 
-info("Mads")
+@info("Mads")
 @time rf = Mads.forward(md, rsetarray);
 
-info("FastMadsAnasol")
+@info("FastMadsAnasol")
 include("/Users/monty/Julia/FastMadsAnasol.jl/base.jl")
 @makemadslikeanasol madslike "w01purebig.mads"
 ra = Array{Float64}(ns);

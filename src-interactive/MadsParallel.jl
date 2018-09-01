@@ -25,7 +25,7 @@ Get the number of processors
 $(DocumentFunction.documentfunction(getprocs))
 """
 function getprocs()
-	info("Number of processors: $(nworkers()) $(workers())\n")
+	@info("Number of processors: $(nworkers()) $(workers())\n")
 end
 
 function setprocs(np::Integer, nt::Integer)
@@ -86,7 +86,7 @@ function setprocs(; ntasks_per_node::Integer=0, nprocs_per_task::Integer=nprocs_
 		end
 		h = parsenodenames(s, c)
 	else
-		warn("Unknown parallel environment!")
+		@warn("Unknown parallel environment!")
 	end
 	if length(h) > 0
 		if nworkers() > 1
@@ -98,12 +98,12 @@ function setprocs(; ntasks_per_node::Integer=0, nprocs_per_task::Integer=nprocs_
 		arguments[:dir] = dir
 		if test
 			for i = 1:length(h)
-				info("Connecting to $(h[i]) ...")
+				@info("Connecting to $(h[i]) ...")
 				try
 					addprocs([h[i]]; arguments...)
 				catch e
 					print(e.msg)
-					warn("Connection to $(h[i]) failed!")
+					@warn("Connection to $(h[i]) failed!")
 				end
 			end
 		else
@@ -121,12 +121,12 @@ function setprocs(; ntasks_per_node::Integer=0, nprocs_per_task::Integer=nprocs_
 				addprocs(h; arguments...)
 			catch errmsg
 				if in(:errmsg, fieldnames(errmsg))
-					warn(strip(errmsg.errmsg))
+					@warn(strip(errmsg.errmsg))
 				else
-					warn(errmsg)
+					@warn(errmsg)
 				end
 				addprocsfailed = true
-				warn("Connection to $(h) failed!")
+				@warn("Connection to $(h) failed!")
 			end
 			if quiet
 				redirect_stdout(originalSTDOUT);
@@ -139,20 +139,20 @@ function setprocs(; ntasks_per_node::Integer=0, nprocs_per_task::Integer=nprocs_
 				close(errRead);
 			end
 			if addprocsfailed
-				warn("Connection to $(h) failed!")
+				@warn("Connection to $(h) failed!")
 				error(errmsg)
 			end
 		end
 		sleep(0.1)
 		if nprocs() > 1
-			info("Number of processors: $(nworkers())")
-			info("Workers: $(join(h, " "))")
+			@info("Number of processors: $(nworkers())")
+			@info("Workers: $(join(h, " "))")
 		else
-			warn("No workers found to add!")
-			info("Number of processors: $(nworkers())")
+			@warn("No workers found to add!")
+			@info("Number of processors: $(nworkers())")
 		end
 	else
-		warn("No processors found to add!")
+		@warn("No processors found to add!")
 	end
 	return h
 end
@@ -288,7 +288,7 @@ function runremote(cmd::String, nodenames::Array{String,1}=madsservers)
 		catch e
 			println(strip(e.msg))
 			push!(output, "")
-			warn("$i is not accessible or command failed")
+			@warn("$i is not accessible or command failed")
 		end
 	end
 	return output;

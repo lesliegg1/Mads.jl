@@ -14,14 +14,14 @@ paramdict = Mads.getparamrandom(md, numberofsamples)
 paramarray = hcat(map(i->collect(paramdict[i]), keys(paramdict))...)
 @time predictions = Mads.forward(md, paramdict)'
 
-Mads.madsinfo("Model predictions ...")
+Mads.mads@info("Model predictions ...")
 Mads.spaghettiplot(md, predictions, keyword="w13a-model", format="PNG")
 Mads.display("$rootname-w13a-model-$numberofsamples-spaghetti.png")
 
 @time svrpredictions = svrexec(paramarray)
-info("SVR discrepancy $(maximum(abs.(svrpredictions .- predictions)))")
+@info("SVR discrepancy $(maximum(abs.(svrpredictions .- predictions)))")
 
-Mads.madsinfo("SVR predictions ...")
+Mads.mads@info("SVR predictions ...")
 Mads.spaghettiplot(md, svrpredictions, keyword="w13a-svr", format="PNG")
 Mads.display("$rootname-w13a-svr-$numberofsamples-spaghetti.png")
 

@@ -1,6 +1,6 @@
 import Mads
 
-Mads.madsinfo("Levenberg-Marquardt optimization of an internal call problem using templates and Julia script to parse the model outputs:")
+Mads.mads@info("Levenberg-Marquardt optimization of an internal call problem using templates and Julia script to parse the model outputs:")
 workdir = Mads.getmadsdir() # get the directory where the problem is executed
 if workdir == "."
 	workdir = joinpath(Mads.madsdir, "..", "examples", "optimization")

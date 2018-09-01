@@ -4,7 +4,7 @@ end
 
 md = Mads.loadmadsfile("w01.mads") # load Mads input file into Julia Dictionary
 rootname = Mads.getmadsrootname(md) # get problem rootname
-Mads.madsinfo("Mads root name: $(rootname)")
+Mads.mads@info("Mads root name: $(rootname)")
 
 Mads.allwellsoff!(md) # turn off all wells
 Mads.wellon!(md, "w13a") # use well w13a

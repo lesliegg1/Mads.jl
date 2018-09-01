@@ -52,7 +52,7 @@ Get MADS restart status
 $(DocumentFunction.documentfunction(getrestart;
 argtext=Dict("madsdata"=>"MADS problem dictionary")))
 """
-function getrestart(madsdata::Associative)
+function getrestart(madsdata::AbstractDict)
 	haskey(madsdata, "Restart") ? madsdata["Restart"] : restart # note madsdata["Restart"] can be a string
 end
 
@@ -167,11 +167,11 @@ function resetmodelruns()
 	global modelruns = 0
 end
 
-function haskeyword(madsdata::Associative, keyword::String)
+function haskeyword(madsdata::AbstractDict, keyword::String)
 	return haskey(madsdata, "Problem") ? haskeyword(madsdata, "Problem", keyword) : false
 end
-function haskeyword(madsdata::Associative, class::String, keyword::String)
-	if typeof(madsdata[class]) <: Associative
+function haskeyword(madsdata::AbstractDict, class::String, keyword::String)
+	if typeof(madsdata[class]) <: AbstractDict
 		return haskey(madsdata[class], keyword) ? true : false
 	elseif typeof(madsdata[class]) <: String
 		return madsdata[class] == keyword
@@ -205,16 +205,16 @@ Examples:
 ```
 """ haskeyword
 
-function addkeyword!(madsdata::Associative, keyword::String)
+function addkeyword!(madsdata::AbstractDict, keyword::String)
 	haskey(madsdata, "Problem") ? addkeyword!(madsdata, "Problem", keyword) : madsdata["Problem"] = keyword
 	return
 end
-function addkeyword!(madsdata::Associative, class::String, keyword::String)
+function addkeyword!(madsdata::AbstractDict, class::String, keyword::String)
 	if haskeyword(madsdata, class, keyword)
 		madswarn("Keyword `$keyword` already exists")
 		return
 	end
-	if typeof(madsdata[class]) <: Associative
+	if typeof(madsdata[class]) <: AbstractDict
 		push!(madsdata[class], keyword=>true)
 	elseif typeof(madsdata[class]) <: String
 		madsdata[class] = [keyword, madsdata[class]]
@@ -232,15 +232,15 @@ argtext=Dict("madsdata"=>"MADS problem dictionary",
             "class"=>"dictionary class; if not provided searches for `keyword` in `Problem` class")))
 """ addkeyword!
 
-function deletekeyword!(madsdata::Associative, keyword::String)
+function deletekeyword!(madsdata::AbstractDict, keyword::String)
 	if haskeyword(madsdata, keyword)
 		deletekeyword!(madsdata, "Problem", keyword)
 	end
 	return
 end
-function deletekeyword!(madsdata::Associative, class::String, keyword::String)
+function deletekeyword!(madsdata::AbstractDict, class::String, keyword::String)
 	if haskeyword(madsdata, class, keyword)
-		if typeof(madsdata[class]) <: Associative && haskey(madsdata[class], keyword)
+		if typeof(madsdata[class]) <: AbstractDict && haskey(madsdata[class], keyword)
 			delete!(madsdata[class], keyword)
 		elseif typeof(madsdata[class]) <: String
 			madsdata[class] = ""
@@ -270,7 +270,7 @@ Returns:
 
 - sin-space dx value
 """
-function getsindx(madsdata::Associative)
+function getsindx(madsdata::AbstractDict)
 	sindx = sindxdefault
 	if Mads.haskeyword(madsdata, "sindx")
 		sindx = madsdata["Problem"]["sindx"]
@@ -291,7 +291,7 @@ Returns:
 
 - nothing
 """
-function setsindx!(madsdata::Associative, sindx::Number)
+function setsindx!(madsdata::AbstractDict, sindx::Number)
 	setsindx(sindx)
 	if Mads.haskeyword(madsdata, "sindx")
 		madsdata["Problem"]["sindx"] = sindx
@@ -376,10 +376,10 @@ argtext=Dict("seed"=>"random seed",
 function setseed(seed::Integer=-1, quiet::Bool=true)
 	if seed >= 0
 		srand(seed)
-		!quiet && info("New seed: $seed")
+		!quiet && @info("New seed: $seed")
 	else
 		s = Int(Base.Random.GLOBAL_RNG.seed[1])
-		!quiet && info("Current seed: $s")
+		!quiet && @info("Current seed: $s")
 	end
 end
 
@@ -411,7 +411,7 @@ function pkgversion(modulestr::String)
 		return convert(VersionNumber, m[2])
 	catch
 		o = stdoutcaptureoff()
-		warn("Module $(modulestr) is not available")
+		@warn("Module $(modulestr) is not available")
 		return v"0.0.0"
 	end
 end
@@ -432,12 +432,12 @@ function ispkgavailable(modulename::String; quiet::Bool=false)
 		Pkg.available(modulename)
 		if typeof(Pkg.installed(modulename)) == Void
 			flag=false
-			!quiet && info("Module $modulename is not available")
+			!quiet && @info("Module $modulename is not available")
 		else
 			flag=true
 		end
 	catch
-		!quiet && info("Module $modulename is not available")
+		!quiet && @info("Module $modulename is not available")
 	end
 	return flag
 end

@@ -98,7 +98,7 @@ function checkout(modulename::String=""; git::Bool=true, master::Bool=false, for
 	end
 	for i in modulenames
 		if git
-			info("Checking out $(i) ...")
+			@info("Checking out $(i) ...")
 			cwd = pwd()
 			cd(Pkg.dir(i))
 			if master
@@ -116,7 +116,7 @@ function checkout(modulename::String=""; git::Bool=true, master::Bool=false, for
 			try
 				Pkg.checkout(i)
 			catch
-				warn("$i cannot be checked out; most probably it is dirty!")
+				@warn("$i cannot be checked out; most probably it is dirty!")
 			end
 		end
 	end
@@ -135,14 +135,14 @@ function push(modulename::String="")
 		modulenames = madsmodules
 	end
 	for i in modulenames
-		info("Pushing $(i) ...")
+		@info("Pushing $(i) ...")
 		cwd = pwd()
 		cd(Pkg.dir(i))
 		try
 			run(`git push`)
 		catch e
 			printerrormsg(e)
-			warn("$i cannot be pushed!")
+			@warn("$i cannot be pushed!")
 		end
 		cd(cwd)
 	end
@@ -167,7 +167,7 @@ function diff(modulename::String="")
 			run(`git diff --word-diff "*.jl"`)
 		catch e
 			printerrormsg(e)
-			warn("$i cannot be diffed!")
+			@warn("$i cannot be diffed!")
 		end
 		cd(cwd)
 	end
@@ -212,13 +212,13 @@ function commit(commitmsg::String, modulename::String="")
 		modulenames = madsmodules
 	end
 	for i in modulenames
-		info("Commiting changes in $(i) ...")
+		@info("Commiting changes in $(i) ...")
 		cwd = pwd()
 		cd(Pkg.dir(i))
 		try
 			run(`git commit -a -m $(commitmsg)`)
 		catch
-			warn("Nothing to commit in $(i).")
+			@warn("Nothing to commit in $(i).")
 		end
 		cd(cwd)
 	end
@@ -232,14 +232,14 @@ end
 function status(madsmodule::String; git::Bool=madsgit, gitmore::Bool=false)
 	if git
 		cwd = pwd()
-		info("Git status $(madsmodule) ...")
+		@info("Git status $(madsmodule) ...")
 		cd(Pkg.dir(madsmodule))
 		run(`git status -s`)
 		runcmd("git log `git describe --tags --abbrev=0`..HEAD --oneline"; quiet=false, pipe=true);
 		if gitmore
-			info("Git ID HEAD   $(madsmodule) ...")
+			@info("Git ID HEAD   $(madsmodule) ...")
 			run(`git rev-parse --verify HEAD`)
-			info("Git ID master $(madsmodule) ...")
+			@info("Git ID master $(madsmodule) ...")
 			run(`git rev-parse --verify master`)
 		end
 		cd(cwd)
@@ -252,18 +252,18 @@ function status(madsmodule::String; git::Bool=madsgit, gitmore::Bool=false)
 			o = stdoutcaptureoff()
 		catch
 			o = stdoutcaptureoff()
-			warn("Module $(modulestr) is not available")
+			@warn("Module $(modulestr) is not available")
 		end
 		a = ascii(String(o))
 		print(a)
 		if ismatch(r"(dirty)", a)
-			warn("$madsmodule latest changes are not committed!")
+			@warn("$madsmodule latest changes are not committed!")
 			tag_flag = false
 		elseif ismatch(r"[0-9]\+", a)
-			warn("$madsmodule latest changes are not tagged!")
+			@warn("$madsmodule latest changes are not tagged!")
 			tag_flag = true
 		elseif ismatch(r"master", a)
-			info("$madsmodule latest changes are already tagged!")
+			@info("$madsmodule latest changes are already tagged!")
 			tag_flag = false
 		end
 		return tag_flag
@@ -296,15 +296,15 @@ function tag(madsmodule::String, versionsym::Symbol=:patch)
 				PkgDev.tag(madsmodule, versionsym)
 			catch e
 				printerrormsg(e)
-				warn("$madsmodule cannot be tagged!")
+				@warn("$madsmodule cannot be tagged!")
 				return
 			end
 		else
-			warn("PkgDev is missing!")
+			@warn("PkgDev is missing!")
 		end
-		info("$madsmodule is now tagged!")
+		@info("$madsmodule is now tagged!")
 	else
-		warn("$madsmodule cannot be tagged!")
+		@warn("$madsmodule cannot be tagged!")
 	end
 end
 
@@ -325,14 +325,14 @@ argtext=Dict("madsmodule"=>"mads module name",
 """
 function untag(madsmodule::String, version::String)
 	cwd = pwd()
-	info("Git untag $(madsmodule) ...")
+	@info("Git untag $(madsmodule) ...")
 	cd(Pkg.dir(madsmodule))
 	try
 		run(`git tag -d $version`)
 		run(`git push origin :refs/tags/$version`)
 	catch e
 		printerrormsg(e)
-		warn("Untag of $madsmodule failed!")
+		@warn("Untag of $madsmodule failed!")
 	end
 	cd(cwd)
 end
@@ -348,9 +348,9 @@ function create_documentation()
 	d = pwd()
 	cd(Pkg.dir("Mads"))
 	# run(`git pull gh gh-pages`)
-	info("mkdocs build & deploy ...")
+	@info("mkdocs build & deploy ...")
 	run(`mkdocs gh-deploy --clean`)
-	info("mkdocs done.")
+	@info("mkdocs done.")
 	cd(d)
 	return
 end

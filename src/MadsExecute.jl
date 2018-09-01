@@ -66,7 +66,7 @@ function runcmd(cmd::Cmd; quiet::Bool=Mads.quiet, pipe::Bool=false, waittime::Fl
 			erroutput = readlines(cmderr)
 			if length(erroutput) > 0
 				for i in erroutput
-					warn("$(strip(i))")
+					@warn("$(strip(i))")
 				end
 			end
 		end
@@ -85,7 +85,7 @@ function runcmd(cmd::Cmd; quiet::Bool=Mads.quiet, pipe::Bool=false, waittime::Fl
 		end
 	end
 	if cmdproc.exitcode != 0
-		warn("Execution of command `$(string(cmd))` produced an error ($(cmdproc.exitcode))!")
+		@warn("Execution of command `$(string(cmd))` produced an error ($(cmdproc.exitcode))!")
 	end
 	if pipe
 		return cmdout, cmderr

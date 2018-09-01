@@ -21,6 +21,7 @@ Images
 YAML
 JSON
 JLD
+JLD2
 ProgressMeter
 Distributions
 DataStructures

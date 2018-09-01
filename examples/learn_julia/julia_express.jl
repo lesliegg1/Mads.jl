@@ -418,7 +418,7 @@ fld(-5, 3), mod(-5, 3) # (-2, 1), division towards minus infinity
 div(-5, 3), rem(-5, 3) # (-1, -2), division towards zero
 find(x -> mod(x, 2) == 0, 1:8) # find indices for which function returns true
 identity([1 2 3]) # identity returned
-info("Info") # print information, similarly warn and error (raises error)
+@info("Info") # print information, similarly @warn( and error (raises error)
 ntuple(3, x->2x) # create tuple by calling x->2x with values 1, 2 and 3
 isdefined(:x) # if variable x is defined (:x is a symbol)
 fieldtype(1:2,:len) # get type of the field in composite type (passed as symbol)

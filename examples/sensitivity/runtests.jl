@@ -15,7 +15,7 @@ Mads.computeparametersensitities(md, sa_results)
 
 filename_correct = joinpath(workdir, "sobol-efast-results_correct.json")
 if Mads.create_tests
-	warn("Generating test file $filename_correct ... ")
+	@warn("Generating test file $filename_correct ... ")
 	file = open(filename_correct, "w")
 	JSON.print(file, sa_results)
 	close(file)

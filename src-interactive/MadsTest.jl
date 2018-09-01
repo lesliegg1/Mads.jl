@@ -53,7 +53,7 @@ function test(testname::String=""; madstest::Bool=true)
 	orig_dir = pwd()
 	if testname == ""
 		madstest && include(joinpath(Pkg.dir("Mads"), "test", "runtests.jl"))
-		info("Mads modules testing:")
+		@info("Mads modules testing:")
 		for i in madsmodules[2:end]
 			print_with_color(:cyan, "* $i testing ...\n")
 			tic()
@@ -84,7 +84,7 @@ function test(testname::String=""; madstest::Bool=true)
 						include(file)
 						toc()
 					else
-						warn("Test $file for module $testname is missing!")
+						@warn("Test $file for module $testname is missing!")
 					end
 				end
 			end

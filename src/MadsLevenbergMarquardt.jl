@@ -191,7 +191,7 @@ function makelmfunctions(madsdata::Associative)
 		try
 			fevals = RobustPmap.rpmap(f_lm, p)
 		catch errmsg
-			warn(Base.stacktrace())
+			@warn(Base.stacktrace())
 			printerrormsg(errmsg)
 			Mads.madscritical("RobustPmap LM execution of forward runs fails!")
 		end
@@ -438,7 +438,7 @@ function levenberg_marquardt(f::Function, g::Function, x0, o::Function=x->(x'*x)
 			first_lambda = false
 		end
 		lambda_current = lambda_down = lambda_up = lambda
-		Mads.madsinfo(@sprintf "Iteration %02d: Starting lambda: %e" g_calls lambda_current)
+		Mads.mads@info(@sprintf "Iteration %02d: Starting lambda: %e" g_calls lambda_current)
 		for npl = 1:np_lambda
 			if npl == 1 # first lambda
 				lambda_current = lambda_p[npl] = lambda
@@ -456,7 +456,7 @@ function levenberg_marquardt(f::Function, g::Function, x0, o::Function=x->(x'*x)
 			predicted_residual = []
 			delta_x = []
 			try
-				Mads.madsinfo(@sprintf "#%02d lambda: %e" npl lambda);
+				Mads.mads@info(@sprintf "#%02d lambda: %e" npl lambda);
 				u, s, v = svd(JpJ + lambda * DtDidentity)
 				is = similar(s)
 				for i=1:length(s)
@@ -494,7 +494,7 @@ function levenberg_marquardt(f::Function, g::Function, x0, o::Function=x->(x'*x)
 		try
 			phisanddelta_xs = RobustPmap.rpmap(getphianddelta_x, collect(1:np_lambda))
 		catch errmsg
-			warn(Base.stacktrace())
+			@warn(Base.stacktrace())
 			printerrormsg(errmsg)
 			Mads.madscritical("RobustPmap LM execution to get OF and lambdas fails!")
 		end
@@ -516,7 +516,7 @@ function levenberg_marquardt(f::Function, g::Function, x0, o::Function=x->(x'*x)
 		try
 			trial_fs = RobustPmap.rpmap(f, map(dx->x + dx, delta_xs))
 		catch errmsg
-			warn(Base.stacktrace())
+			@warn(Base.stacktrace())
 			printerrormsg(errmsg)
 			Mads.madscritical("RobustPmap LM execution of the forward models fails!")
 		end
@@ -572,16 +572,16 @@ function levenberg_marquardt(f::Function, g::Function, x0, o::Function=x->(x'*x)
 		# check convergence criteria:
 		nx = norm(delta_x)
 		if nx < tolX * ( tolX + norm(x) )
-			Mads.madsinfo("Small parameter step size: $nx < $tolX (tolX)")
+			Mads.mads@info("Small parameter step size: $nx < $tolX (tolX)")
 			x_converged = true
 		end
 		ng = norm(J' * fcur, Inf)
 		if ng < tolG
-			Mads.madsinfo("Small gradient: $ng < $tolG (norm(J^T * fcur) < tolG)")
+			Mads.mads@info("Small gradient: $ng < $tolG (norm(J^T * fcur) < tolG)")
 			g_converged = true
 		end
 		if best_residual < tolOF
-			Mads.madsinfo("Small objective function: $best_residual < $tolOF (tolOF)")
+			Mads.mads@info("Small objective function: $best_residual < $tolOF (tolOF)")
 			of_converged = true
 		end
 		converged = g_converged | x_converged | of_converged

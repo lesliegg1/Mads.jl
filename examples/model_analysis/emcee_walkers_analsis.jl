@@ -4,7 +4,7 @@ md = Mads.loadmadsfile(joinpath("models", "internal-polynomial.mads"))
 
 Mads.mkdir("emcee_results")
 
-info("AffineInvariantMCMC (EMCEE) Bayesian analysis with different number of walkers:")
+@info("AffineInvariantMCMC (EMCEE) Bayesian analysis with different number of walkers:")
 for nw = (100, 50, 20, 10, 5, 1)
 	Mads.setobsweights!(md, 1000000)
 	@time chain, llhoods  = Mads.emceesampling(md; numwalkers=nw, nsteps=1000000, burnin=100000, thinning=100, seed=2016)

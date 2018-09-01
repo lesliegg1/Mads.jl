@@ -20,7 +20,7 @@ end
 
 if isdefined(:OrdinaryDiffEq) && Mads.pkgversion("OrdinaryDiffEq") >= v"3.1.0"
 	# load parameter data from MADS YAML file
-	Mads.madsinfo("Loading data ...")
+	Mads.mads@info("Loading data ...")
 	workdir = Mads.getmadsdir() # get the directory where the problem is executed
 	if workdir == "."
 		workdir = joinpath(Mads.madsdir, "..", "examples", "ode")
@@ -39,7 +39,7 @@ if isdefined(:OrdinaryDiffEq) && Mads.pkgversion("OrdinaryDiffEq") >= v"3.1.0"
 	@Base.Test.testset "ODE Solver" begin
 		# create a function for the ODE solver
 		funcosc = makefunc(paramdict)
-		Mads.madsinfo("Solve ODE ...")
+		Mads.mads@info("Solve ODE ...")
 		t = collect(0:.1:100)
 		initialconditions = [1., 0.]
 		odeprob = OrdinaryDiffEq.ODEProblem(funcosc, initialconditions, (0.0, 100.0))
@@ -62,15 +62,15 @@ if isdefined(:OrdinaryDiffEq) && Mads.pkgversion("OrdinaryDiffEq") >= v"3.1.0"
 		@Base.Test.test isapprox(ys, good_ode_ys, atol=1e-6)
 
 		# create an observation dictionary in the MADS problem dictionary
-		Mads.madsinfo("Create MADS Observations ...")
+		Mads.mads@info("Create MADS Observations ...")
 		Mads.createobservations!(md, t, ys[:,1], weight = 10)
 		Mads.createobservations!(md, t, ys[:,1], weight_type = "inverse", logtransform=true)
 		Mads.createobservations!(md, Dict("a"=>1,"c"=>1), weight = 10)
 		Mads.createobservations!(md, Dict("a"=>1,"c"=>1), weight_type = "inverse", logtransform=true)
 		Mads.createobservations!(md, t, ys[:,1])
-		# Mads.madsinfo("Show MADS Observations ...")
+		# Mads.mads@info("Show MADS Observations ...")
 		# Mads.showobservations(md)
 	end
 else
-	warn("OrdinaryDiffEq.jl is missing")
+	@warn("OrdinaryDiffEq.jl is missing")
 end

@@ -55,12 +55,12 @@ function forward(madsdata::Associative, paramarray::Array; all::Bool=false, chec
 	elseif length(s) == 2
 		nrow, ncol = s
 		if nrow != np && ncol != np
-			warn("Incorrect array size: size(paramarray) = $(size(paramarray))")
+			@warn("Incorrect array size: size(paramarray) = $(size(paramarray))")
 			return
 		elseif nrow == np
 			nr = ncol
 			if ncol == np
-				warn("Matrix columns assumed to represent the parameters!")
+				@warn("Matrix columns assumed to represent the parameters!")
 			end
 		elseif ncol == np
 			np = ncol

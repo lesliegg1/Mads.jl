@@ -23,15 +23,15 @@ wd = Mads.getwellsdata(md, time=true)'
 # display(data)
 
 # Sensitivity analysis: spaghetti plots based on prior parameter uncertainty ranges
-Mads.madsinfo("Prior spaghetti plot ...")
+Mads.mads@info("Prior spaghetti plot ...")
 Mads.spaghettiplot(md, predictions, keyword="w13a_w20a-prior")
 
-Mads.madsinfo("Bayesian sampling ...")
+Mads.mads@info("Bayesian sampling ...")
 mcmcchain = Mads.bayessampling(md, seed=20151001)
 
-Mads.madsinfo("Bayesian scatter plots ...")
+Mads.mads@info("Bayesian scatter plots ...")
 Mads.scatterplotsamples(md, mcmcchain.value', rootname * "-bayes.png")
 
 posterior_predictions = Mads.forward(md, mcmcchain.value')
-Mads.madsinfo("Posterior (Bayesian) spaghetti plot ...")
+Mads.mads@info("Posterior (Bayesian) spaghetti plot ...")
 Mads.spaghettiplot(md, posterior_predictions, keyword="w13a_w20a-posterior", format="PNG")

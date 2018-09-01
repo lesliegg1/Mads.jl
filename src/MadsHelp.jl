@@ -24,7 +24,7 @@ function functions(re::Regex; stdout::Bool=false, quiet::Bool=false)
 		eval(Mads, :(@tryimport $(Symbol(i))))
 		n += functions(Symbol(i), re; stdout=stdout, quiet=quiet)
 	end
-	n > 0 && string == "" && info("Total number of functions: $n")
+	n > 0 && string == "" && @info("Total number of functions: $n")
 	return
 end
 function functions(string::String=""; stdout::Bool=false, quiet::Bool=false)
@@ -33,7 +33,7 @@ function functions(string::String=""; stdout::Bool=false, quiet::Bool=false)
 		eval(Mads, :(@tryimport $(Symbol(i))))
 		n += functions(Symbol(i), string; stdout=stdout, quiet=quiet)
 	end
-	n > 0 && string == "" && info("Total number of functions: $n")
+	n > 0 && string == "" && @info("Total number of functions: $n")
 	return
 end
 function functions(m::Union{Symbol, Module}, re::Regex; stdout::Bool=false, quiet::Bool=false)
@@ -51,7 +51,7 @@ function functions(m::Union{Symbol, Module}, re::Regex; stdout::Bool=false, quie
 			end
 		end
 		if length(functions) > 0
-			!quiet && info("$(m) functions:")
+			!quiet && @info("$(m) functions:")
 			sort!(functions)
 			n = length(functions)
 			if stdout
@@ -61,9 +61,9 @@ function functions(m::Union{Symbol, Module}, re::Regex; stdout::Bool=false, quie
 			end
 		end
 	catch
-		warn("Module $m not defined!")
+		@warn("Module $m not defined!")
 	end
-	n > 0 && string == "" && info("Number of functions in module $m: $n")
+	n > 0 && string == "" && @info("Number of functions in module $m: $n")
 	return n
 end
 function functions(m::Union{Symbol, Module}, string::String=""; stdout::Bool=false, quiet::Bool=false)
@@ -84,7 +84,7 @@ function functions(m::Union{Symbol, Module}, string::String=""; stdout::Bool=fal
 			end
 		end
 		if length(functions) > 0
-			!quiet && info("$(m) functions:")
+			!quiet && @info("$(m) functions:")
 			sort!(functions)
 			n = length(functions)
 			if stdout
@@ -94,9 +94,9 @@ function functions(m::Union{Symbol, Module}, string::String=""; stdout::Bool=fal
 			end
 		end
 	catch
-		warn("Module $m not defined!")
+		@warn("Module $m not defined!")
 	end
-	n > 0 && string == "" && info("Number of functions in module $m: $n")
+	n > 0 && string == "" && @info("Number of functions in module $m: $n")
 	return n
 end
 

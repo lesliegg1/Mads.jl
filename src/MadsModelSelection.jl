@@ -11,7 +11,7 @@ function modelinformationcriteria(madsdata::Associative, par::Array{Float64}=Arr
 	f = Mads.forward(madsdata, par)
 	l = Mads.localsa(madsdata, datafiles=false, imagefiles=false, par=par, obs=collect(values(f)))
 	if l == nothing
-		Mads.warn("Local sensitivity analysis fails!")
+		Mads.@warn("Local sensitivity analysis fails!")
 		return
 	end
 	ofval = Mads.of(madsdata, f)

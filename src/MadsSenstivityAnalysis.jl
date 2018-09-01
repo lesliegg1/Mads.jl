@@ -172,7 +172,7 @@ function localsa(madsdata::Associative; sinspace::Bool=true, keyword::String="",
 		end
 	end
 	if J == nothing
-		warn("Jacobian computation failed")
+		@warn("Jacobian computation failed")
 		return
 	end
 	if any(isnan, J)
@@ -199,7 +199,7 @@ function localsa(madsdata::Associative; sinspace::Bool=true, keyword::String="",
 		catch
 			madswarn("Gadfly could not plot!")
 		end
-		Mads.madsinfo("Jacobian matrix plot saved in $filename")
+		Mads.mads@info("Jacobian matrix plot saved in $filename")
 	end
 	JpJ = J' * J
 	covar = Array{Float64}(0)
@@ -212,7 +212,7 @@ function localsa(madsdata::Associative; sinspace::Bool=true, keyword::String="",
 		catch errmsg2
 			printerrormsg(errmsg1)
 			printerrormsg(errmsg2)
-			Mads.warn("JpJ inversion fails")
+			Mads.@warn("JpJ inversion fails")
 			return nothing
 		end
 	end
@@ -243,7 +243,7 @@ function localsa(madsdata::Associative; sinspace::Bool=true, keyword::String="",
 		filename = "$(rootname)-eigenmatrix" * ext
 		filename, format = setplotfileformat(filename, format)
 		Gadfly.draw(Gadfly.eval(Symbol(format))(filename, 4Gadfly.inch+0.25Gadfly.inch*nP, 4Gadfly.inch+0.25Gadfly.inch*nP), eigenmat)
-		Mads.madsinfo("Eigen matrix plot saved in $filename")
+		Mads.mads@info("Eigen matrix plot saved in $filename")
 		eigenval = Gadfly.plot(x=1:length(sortedeigenv), y=sortedeigenv, Gadfly.Scale.x_discrete, Gadfly.Scale.y_log10,
 					Gadfly.Geom.bar,
 					Gadfly.Theme(point_size=20Gadfly.pt, major_label_font_size=14Gadfly.pt, minor_label_font_size=12Gadfly.pt, key_title_font_size=16Gadfly.pt, key_label_font_size=12Gadfly.pt),
@@ -251,7 +251,7 @@ function localsa(madsdata::Associative; sinspace::Bool=true, keyword::String="",
 		filename = "$(rootname)-eigenvalues" * ext
 		filename, format = setplotfileformat(filename, format)
 		Gadfly.draw(Gadfly.eval(Symbol(format))(filename, 4Gadfly.inch+0.25Gadfly.inch*nP, 4Gadfly.inch), eigenval)
-		Mads.madsinfo("Eigen values plot saved in $filename")
+		Mads.mads@info("Eigen values plot saved in $filename")
 	end
 	Dict("of"=>ofval, "jacobian"=>J, "covar"=>covar, "stddev"=>stddev, "eigenmatrix"=>sortedeigenm, "eigenvalues"=>sortedeigenv)
 end
@@ -293,7 +293,7 @@ function sampling(param::Vector, J::Array, numsamples::Number; seed::Integer=-1,
 			u, d, v = svd(newJ' * newJ)
 		end
 	end
-	madsinfo("Reduction in sampling directions ... (from $(numdirections) to $(numgooddirections))")
+	mads@info("Reduction in sampling directions ... (from $(numdirections) to $(numgooddirections))")
 	setseed(seed)
 	gooddsamples = Distributions.rand(dist, numsamples)
 	llhoods = map(i->Distributions.loglikelihood(dist, gooddsamples[:, i:i]''), 1:numsamples)
@@ -489,13 +489,13 @@ function saltellibrute(madsdata::Associative; N::Integer=1000, seed::Integer=-1,
 	for i = 1:length(obskeys)
 		variance[obskeys[i]] = sum[obskeys[i]] / (numsamples - 1)
 	end
-	madsinfo("Compute the main effect (first order) sensitivities (indices)")
+	mads@info("Compute the main effect (first order) sensitivities (indices)")
 	mes = DataStructures.OrderedDict{String,DataStructures.OrderedDict}()
 	for k = 1:length(obskeys)
 		mes[obskeys[k]] = DataStructures.OrderedDict{String,Float64}()
 	end
 	for i = 1:length(paramkeys)
-		madsinfo("Parameter : $(paramkeys[i])")
+		mads@info("Parameter : $(paramkeys[i])")
 		cond_means = Array{DataStructures.OrderedDict}(numoneparamsamples)
 		@ProgressMeter.showprogress 1 "Computing ... "  for j = 1:numoneparamsamples
 			cond_means[j] = DataStructures.OrderedDict()
@@ -526,7 +526,7 @@ function saltellibrute(madsdata::Associative; N::Integer=1000, seed::Integer=-1,
 			mes[obskeys[k]][paramkeys[i]] = std(v) ^ 2 / variance[obskeys[k]]
 		end
 	end
-	madsinfo("Compute the total effect sensitivities (indices)") # TODO we should use the same samples for total and main effect
+	mads@info("Compute the total effect sensitivities (indices)") # TODO we should use the same samples for total and main effect
 	tes = DataStructures.OrderedDict{String,DataStructures.OrderedDict}()
 	var = DataStructures.OrderedDict{String,DataStructures.OrderedDict}()
 	for k = 1:length(obskeys)
@@ -534,7 +534,7 @@ function saltellibrute(madsdata::Associative; N::Integer=1000, seed::Integer=-1,
 		var[obskeys[k]] = DataStructures.OrderedDict{String,Float64}()
 	end
 	for i = 1:length(paramkeys)
-		madsinfo("Parameter : $(paramkeys[i])")
+		mads@info("Parameter : $(paramkeys[i])")
 		cond_vars = Array{DataStructures.OrderedDict}(nummanyparamsamples)
 		cond_means = Array{DataStructures.OrderedDict}(nummanyparamsamples)
 		@ProgressMeter.showprogress 1 "Computing ... " for j = 1:nummanyparamsamples
@@ -1499,7 +1499,7 @@ function efast(md::Associative; N::Integer=100, M::Integer=6, gamma::Number=4, s
 
 	## Begin eFAST analysis:
 
-	madsinfo("Begin eFAST analysis ... ")
+	mads@info("Begin eFAST analysis ... ")
 
 	# This script determines complementary frequencies
 	(W_comp, Wcmax) = eFAST_getCompFreq(Wi, nprime, M)
@@ -1522,9 +1522,9 @@ function efast(md::Associative; N::Integer=100, M::Integer=6, gamma::Number=4, s
 	# nworkers() is quite high, we choose to parallelize over n, Nr, AND also model output
 
 	if P>1
-		madsinfo("Parallelizing of resampling & parameters");
+		mads@info("Parallelizing of resampling & parameters");
 	else
-		madsinfo("No Parallelization!");
+		mads@info("No Parallelization!");
 	end
 
 	## Storing constants inside of a cell

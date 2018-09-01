@@ -1,9 +1,9 @@
-info("start")
+@info("start")
 include(joinpath(Pkg.dir("Mads"), "src-interactive", "MadsParallel.jl"))
-info("setprocs")
+@info("setprocs")
 setprocs()
 
-# import Mads 
+# import Mads
 # Mads.setprocs()
 # reload("Mads")
 # @everywhere @show isdefined(:Mads)

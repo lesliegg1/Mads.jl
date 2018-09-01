@@ -1,10 +1,10 @@
 include(joinpath(Pkg.dir("Mads"), "src", "MadsParallel.jl"))
-info("Set processors ...")
+@info("Set processors ...")
 setprocs(ntasks_per_node=1)
 
-info("Import MADS ...")
+@info("Import MADS ...")
 import Mads
 @everywhere Mads.quietoff()
 
-info("Test MADS ... ")
+@info("Test MADS ... ")
 Mads.test()

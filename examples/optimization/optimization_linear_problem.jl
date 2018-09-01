@@ -1,7 +1,7 @@
 import Mads
 import Base.Test
 
-Mads.madsinfo("Levenberg-Marquardt optimization of an internal problem:")
+Mads.mads@info("Levenberg-Marquardt optimization of an internal problem:")
 problemdir = dirname(Base.source_path())
 
 md = Mads.loadmadsfile(joinpath(problemdir, "internal-linearmodel.mads"))

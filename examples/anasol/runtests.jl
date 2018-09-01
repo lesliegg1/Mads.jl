@@ -51,7 +51,7 @@ if isdefined(Mads, :plotgrid)
 		@Mads.stdouterrcapture Mads.plotgrid(md)
 	catch errmsg
 		Mads.printerrormsg(errmsg)
-		warn("PyPlot problem!")
+		@warn("PyPlot problem!")
 	end
 end
 madsOf = Mads.of(md)

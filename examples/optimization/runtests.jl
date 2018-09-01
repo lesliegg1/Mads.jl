@@ -33,7 +33,7 @@ end
 	run_optimization_tests()
 
 	if Mads.long_tests
-		Mads.madsinfo("External optimization ...")
+		Mads.mads@info("External optimization ...")
 
 		md = Mads.loadmadsfile(joinpath(workdir, "external-jld.mads"))
 		jparam, jresults = Mads.calibrate(md, maxEval=2, np_lambda=1, maxJacobians=1)

@@ -32,14 +32,14 @@ Returns:
 - BIG-DT problem type
 """
 function makebigdt!(madsdata::Associative, choice::Associative)
-	Mads.madsinfo("Decision parameters:")
+	Mads.mads@info("Decision parameters:")
 	for paramname in keys(choice["Parameters"])
 		if Mads.isopt(madsdata, paramname)
 			Mads.madscritical("Decision parameter, $paramname, is also an adjustable (type = \"opt\") parameter.")
 		end
 		c = choice["Parameters"][paramname]
 		madsdata["Parameters"][paramname]["init"] = c
-		Mads.madsinfo("Decision parameter $paramname set to $c.")
+		Mads.mads@info("Decision parameter $paramname set to $c.")
 	end
 	makeloglikelihood = makearrayconditionalloglikelihood(madsdata)
 	logprior = makearrayfunction(madsdata, makelogprior(madsdata))
@@ -132,9 +132,9 @@ function dobigdt(madsdata::Associative, nummodelruns::Int; numhorizons::Int=100,
 	maxfailureprobs = Array{Float64}(numhorizons, length(madsdata["Choices"]))
 	local horizons::Array{Float64, 1}
 	local likelihoodparams::Array{Float64, 2} = zeros(0, 0)
-	Mads.madsinfo("Choices:")
+	Mads.mads@info("Choices:")
 	for i = 1:length(madsdata["Choices"])
-		Mads.madsinfo("Choice #$i: $(madsdata["Choices"][i]["name"])")
+		Mads.mads@info("Choice #$i: $(madsdata["Choices"][i]["name"])")
 		bigdt = makebigdt(madsdata, madsdata["Choices"][i])
 		if length(likelihoodparams) == 0
 			minlikelihoodparams = bigdt.likelihoodparamsmin(maxHorizon)

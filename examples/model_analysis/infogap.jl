@@ -5,7 +5,7 @@ import Gadfly
 
 Mads.mkdir("infogap_results")
 
-info("Information Gap analysis")
+@info("Information Gap analysis")
 
 h = [0.001, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1]
 lmin = Vector{Any}(4)

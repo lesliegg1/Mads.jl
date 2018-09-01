@@ -5,7 +5,7 @@ import ProgressMeter
 
 # load MADS problem
 madsdirname = Mads.getmadsdir()
-Mads.madsinfo("""Mads working directory: $(madsdirname)""")
+Mads.mads@info("""Mads working directory: $(madsdirname)""")
 madsfilename = Mads.getmadsinputfile()
 if madsfilename == ""
 	madsfilename = "w01short.mads"
@@ -28,11 +28,11 @@ catch
 	end
 end
 
-Mads.madsinfo("""Mads input file: $(madsfilenamelong)""")
+Mads.mads@info("""Mads input file: $(madsfilenamelong)""")
 
 # get MADS rootname
 rootname = Mads.getmadsrootname(md)
-Mads.madsinfo("""Mads root name: $(rootname)""")
+Mads.mads@info("""Mads root name: $(rootname)""")
 
 # get all the parameters
 paramkeys = Mads.getparamkeys(md)
@@ -54,7 +54,7 @@ forward_preds = computeconcentrations(paramdict_init)
 forward_preds2 = Mads.forward(md)
 @assert forward_preds == forward_preds2
 
-Mads.madsinfo("Manual sensitivity analysis ...")
+Mads.mads@info("Manual sensitivity analysis ...")
 numberofsamples = 10
 paramvalues=Mads.getparamrandom(md, numberofsamples)
 Mads.allwellsoff!(md)
@@ -85,7 +85,7 @@ Mads.printSAresults(md, result)
 Mads.plotwellSAresults(md,result,"w1a")
 
 # parameter space exploration
-Mads.madsinfo("Parameter space exploration ...")
+Mads.mads@info("Parameter space exploration ...")
 numberofsamples = 100
 paramvalues=Mads.getparamrandom(md, numberofsamples)
 Y = Array{Float64}(length(md["Observations"]),numberofsamples * length(paramvalues))

@@ -9,7 +9,7 @@ function display(filename::String)
 		return
 	end
 	if !isfile(filename)
-		warn("File `$filename` is missing!")
+		@warn("File `$filename` is missing!")
 		return
 	end
 	if isdefined(:TerminalExtensions) || (isdefined(Main, :IJulia) && Main.IJulia.inited)
@@ -54,7 +54,7 @@ function display(filename::String)
 			try
 				run(`xdg-open $filename`)
 			catch
-				warn("Do not know how to open `$filename`")
+				@warn("Do not know how to open `$filename`")
 			end
 		end
 	end

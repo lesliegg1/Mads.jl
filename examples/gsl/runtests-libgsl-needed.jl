@@ -33,7 +33,7 @@ function gsl_integration_qag(f::Function, a::Real, b::Real, epsrel::Real=1e-12, 
 	return (result[1], abserr[1])
 end
 
-info("GSL integration of a linear model ...")
+@info("GSL integration of a linear model ...")
 md = Mads.loadmadsfile(madsdirname * "internal-linearmodel.mads")
 flinearmodel = Mads.makemadscommandfunction(md)
 f2(x) = flinearmodel(Dict("a"=>0., "b"=>x))["o1"]

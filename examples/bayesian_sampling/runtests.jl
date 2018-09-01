@@ -2,7 +2,7 @@ import Mads
 import JLD
 import Base.Test
 
-Mads.madsinfo("Bayesian sampling ...")
+Mads.mads@info("Bayesian sampling ...")
 
 workdir = Mads.getmadsdir() # get the directory where the problem is executed
 if workdir == "."

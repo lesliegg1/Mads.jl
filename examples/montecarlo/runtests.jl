@@ -2,7 +2,7 @@ import Mads
 import DataStructures
 import Base.Test
 
-Mads.madsinfo("Monte Carlo analysis ...")
+Mads.mads@info("Monte Carlo analysis ...")
 workdir = Mads.getmadsdir() # get the directory where the problem is executed
 if workdir == "."
 	workdir = joinpath(Mads.madsdir, "..", "examples", "montecarlo")

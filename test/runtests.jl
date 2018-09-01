@@ -1,7 +1,7 @@
 import Mads
 import Base.Test
 
-info("Running MADS tests:")
+@info("Running MADS tests:")
 
 print_with_color(:cyan, "* miscellaneous ...\n")
 tic()
