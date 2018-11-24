@@ -1111,7 +1111,7 @@ Dumps:
 
 - Plots of data series
 """
-function plotseries(X::Array, filename::String=""; format::String="", xtitle::String = "", ytitle::String = "", title::String="", logx::Bool=false, logy::Bool=false, keytitle::String="", name::String="Signal", names::Array{String,1}=["$name $i" for i in 1:size(X,2)], combined::Bool=true, hsize::Measures.Length{:mm,Float64}=8Gadfly.inch, vsize::Measures.Length{:mm,Float64}=4Gadfly.inch, linewidth::Measures.Length{:mm,Float64}=2Gadfly.pt, pointsize::Measures.Length{:mm,Float64}=1.5Gadfly.pt, dpi::Integer=Mads.dpi, colors::Array{String,1}=Mads.colors, xmin=nothing, xmax=nothing, ymin=nothing, ymax=nothing, xaxis=1:size(X,1), plotline::Bool=true, colorkey::Bool=true)
+function plotseries(X::Array, filename::String=""; format::String="", xtitle::String = "", ytitle::String = "", title::String="", logx::Bool=false, logy::Bool=false, keytitle::String="", name::String="Signal", names::Array{String,1}=["$name $i" for i in 1:size(X,2)], combined::Bool=true, hsize::Measures.Length{:mm,Float64}=8Gadfly.inch, vsize::Measures.Length{:mm,Float64}=4Gadfly.inch, linewidth::Measures.Length{:mm,Float64}=2Gadfly.pt, pointsize::Measures.Length{:mm,Float64}=1.5Gadfly.pt, dpi::Integer=Mads.dpi, colors::Array{String,1}=Mads.colors, xmin=nothing, xmax=nothing, ymin=nothing, ymax=nothing, xaxis=1:size(X,1), plotline::Bool=true, code::Bool=false, colorkey::Bool=true)
 
 	glog = []
 	if logx
@@ -1152,25 +1152,27 @@ function plotseries(X::Array, filename::String=""; format::String="", xtitle::St
 		ncolors = length(colors)
 		if ncolors == 0 || ncolors < nS
 			cs = colorkey ? [Gadfly.Guide.ColorKey(title=keytitle)] : [Gadfly.Theme(key_position = :none)]
-			pS = Gadfly.plot([Gadfly.layer(x=xaxis, y=X[:,i],
+			c = [Gadfly.layer(x=xaxis, y=X[:,i],
 				geometry...,
 				color = ["$(names[i])" for j in 1:nT])
 				for i in 1:nS]..., glog...,
 				Gadfly.Guide.XLabel(xtitle), Gadfly.Guide.YLabel(ytitle),
 				Gadfly.Guide.title(title),
 				cs...,
-				Gadfly.Coord.Cartesian(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax))
+				Gadfly.Coord.Cartesian(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)
 		else
 			cs = colorkey ? [Gadfly.Guide.manual_color_key(keytitle, names, [colors[(i-1)%ncolors+1] for i in 1:nS])] : [Gadfly.Theme(key_position = :none)]
-			pS = Gadfly.plot([Gadfly.layer(x=xaxis, y=X[:,i],
+			c = [Gadfly.layer(x=xaxis, y=X[:,i],
 				geometry...,
 				Gadfly.Theme(line_width=linewidth, point_size=pointsize, highlight_width=0Gadfly.pt, default_color=parse(Colors.Colorant, colors[(i-1)%ncolors+1])))
 				for i in 1:nS]..., glog...,
 				Gadfly.Guide.XLabel(xtitle), Gadfly.Guide.YLabel(ytitle),
 				Gadfly.Guide.title(title),
 				cs...,
-				Gadfly.Coord.Cartesian(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax))
+				Gadfly.Coord.Cartesian(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax)
+
 		end
+		pS = Gadfly.plot(c...)
 	else
 		hsize_plot = hsize
 		vsize_plot = vsize / 2 * nS
@@ -1179,6 +1181,7 @@ function plotseries(X::Array, filename::String=""; format::String="", xtitle::St
 			pp[i] = Gadfly.plot(x=xaxis, y=X[:,i], glog..., geometry..., Gadfly.Guide.XLabel(xtitle), Gadfly.Guide.YLabel(ytitle), Gadfly.Guide.title("$(names[i])"), Gadfly.Coord.Cartesian(xmin=xmin, xmax=xmax, ymin=ymin, ymax=ymax))
 		end
 		pS = Gadfly.vstack(pp...)
+		c = nothing
 	end
 	try
 		if filename != ""
@@ -1196,7 +1199,11 @@ function plotseries(X::Array, filename::String=""; format::String="", xtitle::St
 		printerrormsg(e)
 		Mads.madswarn("Plotseries: Gadfly fails!")
 	end
-	return nothing
+	if code
+		return c
+	else
+		return nothing
+	end
 end
 
 """
