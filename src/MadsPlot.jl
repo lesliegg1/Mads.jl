@@ -1111,7 +1111,7 @@ Dumps:
 
 - Plots of data series
 """
-function plotseries(X::Array, filename::String=""; format::String="", xtitle::String = "", ytitle::String = "", title::String="", logx::Bool=false, logy::Bool=false, keytitle::String="", name::String="Signal", names::Array{String,1}=["$name $i" for i in 1:size(X,2)], combined::Bool=true, hsize::Measures.Length{:mm,Float64}=8Gadfly.inch, vsize::Measures.Length{:mm,Float64}=4Gadfly.inch, linewidth::Measures.Length{:mm,Float64}=2Gadfly.pt, pointsize::Measures.Length{:mm,Float64}=1.5Gadfly.pt, dpi::Integer=Mads.dpi, colors::Array{String,1}=Mads.colors, opacity::Number=1.0, xmin=nothing, xmax=nothing, ymin=nothing, ymax=nothing, xaxis=1:size(X,1), plotline::Bool=true, code::Bool=false, colorkey::Bool=true)
+function plotseries(X::AbstractArray, filename::String=""; format::String="", xtitle::String = "", ytitle::String = "", title::String="", logx::Bool=false, logy::Bool=false, keytitle::String="", name::String="Signal", names::Array{String,1}=["$name $i" for i in 1:size(X,2)], combined::Bool=true, hsize::Measures.Length{:mm,Float64}=8Gadfly.inch, vsize::Measures.Length{:mm,Float64}=4Gadfly.inch, linewidth::Measures.Length{:mm,Float64}=2Gadfly.pt, pointsize::Measures.Length{:mm,Float64}=1.5Gadfly.pt, dpi::Integer=Mads.dpi, colors::Array{String,1}=Mads.colors, opacity::Number=1.0, xmin=nothing, xmax=nothing, ymin=nothing, ymax=nothing, xaxis=1:size(X,1), plotline::Bool=true, code::Bool=false, colorkey::Bool=true)
 
 	glog = []
 	if logx
