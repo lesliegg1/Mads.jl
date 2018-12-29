@@ -374,6 +374,26 @@
     Machine Learning
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-factorization" title="Tensor Factorization" class="md-nav__link">
+    Tensor Factorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -691,6 +711,26 @@
     Machine Learning
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensor-factorization" title="Tensor Factorization" class="md-nav__link">
+    Tensor Factorization
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -723,7 +763,22 @@ The process of deep ML commonly includes both unsupervised and supervised techni
 <p>Recently we have developed a novel unsupervised Machine Learning methods.
 The methods are based on Matrix/Tensor Factorization coupled with sparsity and nonnegativity constraints.
 The method reveals the temporal and spatial footprints of the extracted features.</p>
-<p>$$ { 1/2 ||X-G \bigotimes_1 A_1 \bigotimes_2 A_2 \dots \bigotimes_n A_n ||_F^2 } $$</p>
+<h3 id="examples">Examples</h3>
+<ul>
+<li><a href="../Examples/blind_source_separation/index.html">Blind Source Separation (i.e. Feature Extraction)</a></li>
+<li><a href="../Examples/contaminant_source_identification/index.html">Contaminant Source Identification</a></li>
+</ul>
+<h3 id="tensor-factorization">Tensor Factorization</h3>
+<p>A novel unsupervised ML based on Tensor Factorization (TF) coupled with sparsity and nonnegativity constraints has been applied to extract the temporal and spatial footprints of the features in multi-dimensional datasets in the form of multi-way arrays or tensors.
+ The factorization of a given tensor $X$ is typically performed by minimization of the Frobenius norm:</p>
+<p>$$ { 1/2 ||X-G \otimes_1 A_1 \otimes_2 A_2 \dots \otimes_n A_n ||_F^2 } $$</p>
+<p>where:</p>
+<ul>
+<li>$N$ is the dimensionality of the tensor X, G is a mixing “core” tensor</li>
+<li>$A_1,A_2,\dots,A_N$ are “feature” factors (in the form of vectors or matrices)</li>
+<li>$\otimes$ is a tensor product applied to fold-in factors $A_1,A_2,\dots,A_N$  in each of the tensor dimensions</li>
+</ul>
+<p>The product $G \otimes_1 A_1 \otimes_2 A_2 \dots \otimes_n A_n$ is an estimate of $X$ ($X_est$).</p>
                 
                   
                 
@@ -799,7 +854,7 @@ The method reveals the temporal and spatial footprints of the extracted features
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
       
     
     
