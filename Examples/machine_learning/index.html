@@ -37,7 +37,7 @@
       
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
-      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../mads-favicon.ico">
       <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
     
     
@@ -48,6 +48,12 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
       
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#fb8c00">
       
     
     
@@ -68,7 +74,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="orange" data-md-color-accent="teal">
   
     <svg class="md-svg">
       <defs>
@@ -110,7 +118,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://madsjulia.github.io/Mads.jl" title="MADS" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="../../logo/mads_black_swan_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -206,7 +214,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://madsjulia.github.io/Mads.jl" title="MADS" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="../../logo/mads_black_swan_logo.png" width="48" height="48">
       
     </a>
     MADS
@@ -807,7 +815,7 @@ The process of deep Machine Learning commonly includes both unsupervised and sup
 The methods are based on Matrix/Tensor Decomposition (Factorization) coupled with sparsity and nonnegativity constraints.
 The method reveals the temporal and spatial footprints of the extracted features.</p>
 <h3 id="tensor-decomposition">Tensor Decomposition</h3>
-<p>A novel unsupervised Machine Learning based on Tensor Decomposition (TD) coupled with sparsity and nonnegativity constraints has been applied to extract the temporal and spatial footprints of the features in multi-dimensional datasets in the form of multi-way arrays or tensors.
+<p>A novel unsupervised Machine Learning based on Tensor Decomposition coupled with sparsity and nonnegativity constraints has been applied to extract the temporal and spatial footprints of the features in multi-dimensional datasets in the form of multi-way arrays or tensors.
 The decomposition (factorization) of a given tensor \(X\) is typically performed by minimization of the Frobenius norm:</p>
 <p>$$ \frac{1}{2} ||X-G \otimes_1 A_1 \otimes_2 A_2 \dots \otimes_n A_n ||_F^2 $$</p>
 <p>where:</p>
@@ -829,12 +837,12 @@ The size of tensor \(G\) defines the number of extracted features (signals) in e
 The number of matrix columns equals the number of features in the respective tensor dimensions (if there is only 1 column, the particular factor is a vector).
 The number of matrix rows in each factor (matrix) \(A_i\) equals the size of tensor X in the respective dimensions.</p>
 <p>The elements of tensor \(G\) define how the features along each dimension (\(A_1,A_2,\dots,A_n\)) are mixed to represent the original tensor \(X\).</p>
-<p>The TD is commonly performed using <a href="https://en.wikipedia.org/wiki/Tensor_rank_decomposition">Candecomp/Parafac (CP)</a> or <a href="https://en.wikipedia.org/wiki/Tucker_decomposition">Tucker</a> decomposition models.</p>
+<p>The Tensor Decomposition is commonly performed using <a href="https://en.wikipedia.org/wiki/Tensor_rank_decomposition">Candecomp/Parafac (CP)</a> or <a href="https://en.wikipedia.org/wiki/Tucker_decomposition">Tucker</a> decomposition models.</p>
 <p>Some of the decomposition models can theoretically lead to unique solutions under specific, albeit rarely satisfied, noiseless conditions.
 When these conditions are not satisfied, additional minimization constraints can assist the factorization.</p>
 <p>A popular approach is to add sparsity and nonnegative constraints. Sparsity constraints on the elements of G reduce the number of features and their mixing (by having as many zero entries as possible).
-Nonnegativity enforces parts-based representation of the original data which also allows the TD results for \(G\) and \(A_1,A_2,\dots,A_n\) to be easily interrelated <a href="https://books.google.com/books?hl=en&amp;lr=&amp;id=KaxssMiWgswC&amp;oi=fnd&amp;pg=PR5&amp;ots=Lta2adM6LV&amp;sig=jNPDxjKlON1U3l46tZAYH92mvAE#v=onepage&amp;q&amp;f=false">Cichocki et al, 2009</a>.</p>
-<p>Algorithms called <strong>NMFk</strong> and <strong>NTFk</strong> for Matrix/Tensor Decomposition (Factorization) coupled with sparsity and nonnegativity constraints custom k-means clustering has been developed in <a href="http://julialang.org">Julia</a></p>
+Nonnegativity enforces parts-based representation of the original data which also allows the Tensor Decomposition results for \(G\) and \(A_1,A_2,\dots,A_n\) to be easily interrelated <a href="https://books.google.com/books?hl=en&amp;lr=&amp;id=KaxssMiWgswC&amp;oi=fnd&amp;pg=PR5&amp;ots=Lta2adM6LV&amp;sig=jNPDxjKlON1U3l46tZAYH92mvAE#v=onepage&amp;q&amp;f=false">Cichocki et al, 2009</a>.</p>
+<p>Algorithms called <strong>NMFk</strong> and <strong>NTFk</strong> for Matrix/Tensor Factorization (Decomposition) coupled with sparsity and nonnegativity constraints custom k-means clustering has been developed in <a href="http://julialang.org">Julia</a></p>
 <p><strong>NMFk</strong> and <strong>NTFk</strong> codes will be available soon as open-source code on <a href="https://github.com/orgs/TensorDecompositions">GitHub</a>.</p>
 <div style="text-align: left">
     <img src="../../logos/nmfk-logo.png" alt="nmfk logo" height="120"/>
