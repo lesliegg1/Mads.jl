@@ -497,7 +497,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/Mads/" title="Mads" class="md-nav__link">
+    <a href="../../Modules/Mads/index.html" title="Mads" class="md-nav__link">
       Mads
     </a>
   </li>
@@ -509,7 +509,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/AffineInvariantMCMC/" title="AffineInvariantMCMC" class="md-nav__link">
+    <a href="../../Modules/AffineInvariantMCMC/index.html" title="AffineInvariantMCMC" class="md-nav__link">
       AffineInvariantMCMC
     </a>
   </li>
@@ -521,7 +521,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/Anasol/" title="Anasol" class="md-nav__link">
+    <a href="../../Modules/Anasol/index.html" title="Anasol" class="md-nav__link">
       Anasol
     </a>
   </li>
@@ -533,7 +533,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/BIGUQ/" title="BIGUQ" class="md-nav__link">
+    <a href="../../Modules/BIGUQ/index.html" title="BIGUQ" class="md-nav__link">
       BIGUQ
     </a>
   </li>
@@ -545,7 +545,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/DocumentFunction/" title="DocumentFunction" class="md-nav__link">
+    <a href="../../Modules/DocumentFunction/index.html" title="DocumentFunction" class="md-nav__link">
       DocumentFunction
     </a>
   </li>
@@ -557,7 +557,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/GeostatInversion/" title="GeostatInversion" class="md-nav__link">
+    <a href="../../Modules/GeostatInversion/index.html" title="GeostatInversion" class="md-nav__link">
       GeostatInversion
     </a>
   </li>
@@ -569,7 +569,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/MetaProgTools/" title="MetaProgTools" class="md-nav__link">
+    <a href="../../Modules/MetaProgTools/index.html" title="MetaProgTools" class="md-nav__link">
       MetaProgTools
     </a>
   </li>
@@ -581,7 +581,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/ReusableFunctions/" title="ReusableFunctions" class="md-nav__link">
+    <a href="../../Modules/ReusableFunctions/index.html" title="ReusableFunctions" class="md-nav__link">
       ReusableFunctions
     </a>
   </li>
@@ -593,7 +593,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/RobustPmap/" title="RobustPmap" class="md-nav__link">
+    <a href="../../Modules/RobustPmap/index.html" title="RobustPmap" class="md-nav__link">
       RobustPmap
     </a>
   </li>
@@ -605,7 +605,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Modules/SVR/" title="SVR" class="md-nav__link">
+    <a href="../../Modules/SVR/index.html" title="SVR" class="md-nav__link">
       SVR
     </a>
   </li>
@@ -674,33 +674,9 @@
 <h1 id="affineinvariantmcmcjl">AffineInvariantMCMC.jl</h1>
 <p>Module AffineInvariantMCMC.jl provides functions for Bayesian sampling using Affine Invariant Markov chain Monte Carlo (MCMC) Ensemble sampler (aka Emcee) based on a paper by Goodman &amp; Weare, "Ensemble samplers with affine invariance" Communications in Applied Mathematics and Computational Science, DOI: <a href="http://dx.doi.org/10.2140/camcos.2010.5.65">10.2140/camcos.2010.5.65</a>, 2010.</p>
 <p>AffineInvariantMCMC.jl module functions:</p>
-<p><a id='AffineInvariantMCMC.flattenmcmcarray-Tuple{Array,Array}' href='#AffineInvariantMCMC.flattenmcmcarray-Tuple{Array,Array}'>#</a>
-<strong><code>AffineInvariantMCMC.flattenmcmcarray</code></strong> &mdash; <em>Method</em>.</p>
-<p>Flatten MCMC arrays</p>
-<p><a target='_blank' href='https://github.com/madsjulia/AffineInvariantMCMC.jl/blob/d503dc8a136e7ab171dda5c489ae45244845f564/src/AffineInvariantMCMC.jl#L96' class='documenter-source'>source</a><br></p>
-<p><a id='AffineInvariantMCMC.sample' href='#AffineInvariantMCMC.sample'>#</a>
-<strong><code>AffineInvariantMCMC.sample</code></strong> &mdash; <em>Function</em>.</p>
-<p>Bayesian sampling using Goodman &amp; Weare's Affine Invariant Markov chain Monte Carlo (MCMC) Ensemble sampler (aka Emcee)</p>
-<div class="codehilite"><pre><span></span>AffineInvariantMCMC.sample(llhood, numwalkers=10, numsamples_perwalker=100, thinning=1)
-</pre></div>
-
-
-<p>Arguments:</p>
-<ul>
-<li><code>llhood</code> : function estimating loglikelihood (for example, generated using Mads.makearrayloglikelihood())</li>
-<li><code>numwalkers</code> : number of walkers</li>
-<li><code>x0</code> : normalized initial parameters (matrix of size (length(params), numwalkers))</li>
-<li><code>thinning</code> : removal of any <code>thinning</code> realization</li>
-<li><code>a</code> :</li>
-</ul>
-<p>Returns:</p>
-<ul>
-<li><code>mcmcchain</code> : final MCMC chain</li>
-<li><code>llhoodvals</code> : log likelihoods of the final samples in the chain</li>
-</ul>
-<p>Reference:</p>
-<p>Goodman &amp; Weare, "Ensemble samplers with affine invariance", Communications in Applied Mathematics and Computational Science, DOI: 10.2140/camcos.2010.5.65, 2010.</p>
-<p><a target='_blank' href='https://github.com/madsjulia/AffineInvariantMCMC.jl/blob/d503dc8a136e7ab171dda5c489ae45244845f564/src/AffineInvariantMCMC.jl#L36-L59' class='documenter-source'>source</a><br></p>
+<p><code>@autodocs
+Modules = [AffineInvariantMCMC]
+Order   = [:function, :macro, :type]</code></p>
                 
                   
                 
