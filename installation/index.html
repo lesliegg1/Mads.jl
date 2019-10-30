@@ -289,13 +289,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker" title="Docker" class="md-nav__link">
-    Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installation-of-mads-without-python" title="Installation of MADS without PYTHON" class="md-nav__link">
     Installation of MADS without PYTHON
   </a>
@@ -312,6 +305,13 @@
         <li class="md-nav__item">
   <a href="#installation-of-mads-behind-a-firewall" title="Installation of MADS behind a firewall" class="md-nav__link">
     Installation of MADS behind a firewall
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" title="Docker" class="md-nav__link">
+    Docker
   </a>
   
 </li>
@@ -720,13 +720,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#docker" title="Docker" class="md-nav__link">
-    Docker
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#installation-of-mads-without-python" title="Installation of MADS without PYTHON" class="md-nav__link">
     Installation of MADS without PYTHON
   </a>
@@ -743,6 +736,13 @@
         <li class="md-nav__item">
   <a href="#installation-of-mads-behind-a-firewall" title="Installation of MADS behind a firewall" class="md-nav__link">
     Installation of MADS behind a firewall
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker" title="Docker" class="md-nav__link">
+    Docker
   </a>
   
 </li>
@@ -767,11 +767,6 @@
                 
                 
                 <h1 id="installation">Installation</h1>
-<h2 id="docker">Docker</h2>
-<div class="codehilite"><pre><span></span>docker run --interactive --tty montyvesselinov/madsjulia
-</pre></div>
-
-
 <p>After starting Julia, execute:</p>
 <div class="codehilite"><pre><span></span><span class="k">import</span> <span class="n">Pkg</span><span class="p">;</span> <span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Mads&quot;</span><span class="p">)</span>
 </pre></div>
@@ -826,25 +821,40 @@ Add in the <code>.gitconfig</code> file in your home directory to support git be
 
 
 <p>or execute:</p>
-<div class="codehilite"><pre><span></span>git config --global url.&quot;https://&quot;.insteadOf git://
+<div class="codehilite"><pre><span></span>git config --global url.<span class="s2">&quot;https://&quot;</span>.insteadOf git://
 </pre></div>
 
 
 <p>Set proxies executing the following lines in the bash command-line environment:</p>
-<div class="codehilite"><pre><span></span>export ftp_proxy=http://proxyout.&lt;your_site&gt;:8080
-export rsync_proxy=http://proxyout.&lt;your_site&gt;:8080
-export http_proxy=http://proxyout.&lt;your_site&gt;:8080
-export https_proxy=http://proxyout.&lt;your_site&gt;:8080
-export no_proxy=.&lt;your_site&gt;
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">ftp_proxy</span><span class="o">=</span>http://proxyout.&lt;your_site&gt;:8080
+<span class="nb">export</span> <span class="nv">rsync_proxy</span><span class="o">=</span>http://proxyout.&lt;your_site&gt;:8080
+<span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://proxyout.&lt;your_site&gt;:8080
+<span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span>http://proxyout.&lt;your_site&gt;:8080
+<span class="nb">export</span> <span class="nv">no_proxy</span><span class="o">=</span>.&lt;your_site&gt;
 </pre></div>
 
 
 <p>For example, at LANL, you will need to execute the following lines in the bash command-line environment:</p>
-<div class="codehilite"><pre><span></span>export ftp_proxy=http://proxyout.lanl.gov:8080
-export rsync_proxy=http://proxyout.lanl.gov:8080
-export http_proxy=http://proxyout.lanl.gov:8080
-export https_proxy=http://proxyout.lanl.gov:8080
-export no_proxy=.lanl.gov
+<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">ftp_proxy</span><span class="o">=</span>http://proxyout.lanl.gov:8080
+<span class="nb">export</span> <span class="nv">rsync_proxy</span><span class="o">=</span>http://proxyout.lanl.gov:8080
+<span class="nb">export</span> <span class="nv">http_proxy</span><span class="o">=</span>http://proxyout.lanl.gov:8080
+<span class="nb">export</span> <span class="nv">https_proxy</span><span class="o">=</span>http://proxyout.lanl.gov:8080
+<span class="nb">export</span> <span class="nv">no_proxy</span><span class="o">=</span>.lanl.gov
+</pre></div>
+
+
+<p>Proxies can be also set up directly in the Julia REPL as well:</p>
+<div class="codehilite"><pre><span></span><span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;ftp_proxy&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="s">&quot;http://proxyout.lanl.gov:8080&quot;</span>
+<span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;rsync_proxy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;http://proxyout.lanl.gov:8080&quot;</span>
+<span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;http_proxy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;http://proxyout.lanl.gov:8080&quot;</span>
+<span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;https_proxy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;http://proxyout.lanl.gov:8080&quot;</span>
+<span class="nb">ENV</span><span class="p">[</span><span class="s">&quot;no_proxy&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;.lanl.gov&quot;</span>
+</pre></div>
+
+
+<h2 id="docker">Docker</h2>
+<p>Mads is also available @ Docker:</p>
+<div class="codehilite"><pre><span></span>docker run --interactive --tty montyvesselinov/madsjulia
 </pre></div>
                 
                   
